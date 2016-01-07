@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('../fuentes/Lato-Regular.ttf')  format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Lato-Light';
+    src: url('../fuentes/Lato-Light.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'Lato-Black';
+    src: url('../fuentes/Lato-Black.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('../fuentes/Lato-Bold.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'Gobold';
+    src: url('../fuentes/Gobold-Regular.ttf')  format('truetype');
+}

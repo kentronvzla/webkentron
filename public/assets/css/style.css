@@ -1,0 +1,203 @@
+body {
+    font-family: Lato;
+    font-size: 14px;
+}
+.logo{
+    width: 100px;
+    height: 30px;
+}
+
+.carousel{
+    background: #FFF;
+    margin-top: 10px;
+}
+
+.bs-example{
+    margin: 20px;
+}
+
+#owl-principal .item img{
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    /*height: 100%;*/
+    max-height: 526px;
+}
+
+#owl-principal .item .caption {
+    position: absolute;
+    background: rgba(10,10,10,0.5);
+    color: #FFF;
+    /*z-index:100;*/
+    right: 50px;
+    /*width: 40%;*/
+    height: 100%;
+}
+
+#owl-principal .item .caption .titulo{
+    /*font-size: 30px;*/
+    font-size: 3.0vw;
+    font-family: Gobold;
+    padding: 0 1.5em 0 1.5em; //<padding-top> || <padding-right> || <padding-bottom> || <padding-left>
+}
+
+#owl-principal .item .caption .contenido{
+    /*font-size: 21px;*/
+    font-size: 1.5vw;
+    font-family: Lato-Light;
+    padding: 0 1.5em 0 1.5em;
+}
+
+#owl-articulos .item{
+    margin: 10px;
+    position:relative;
+}
+
+#owl-articulos .item img{
+    display: block;
+    width: auto;
+    height: auto;
+    /*max-width: 460px;*/
+}
+
+#owl-articulos .item .caption {
+    position: absolute;
+    display: block;
+    background: rgba(0,148,216,0.3);
+    color: #FFF;
+    width: 100%;
+    max-height: 40%;
+    bottom: 0px;
+    /*        
+            width: auto;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            background-image: url('../img/image13.png');
+            background-position: right bottom; Positioning
+            background-repeat: no-repeat; Prevent showing multiple background images*/
+}
+
+#owl-articulos .item .caption .contenido{
+    /*font-size: 27px;*/
+    font-size: 2.1vw;
+    font-family: Lato-Bold;
+}
+
+/* Mover los botones de navegación del carousel al lateral*/
+.wrapper-with-margin{
+    margin:0px 50px;
+}
+
+/* Estilo de los botones de Navegación */
+#owl-articulos .owl-controls .owl-buttons div {
+    background-color: rgba(0, 0, 0, 1);
+    color: #FFF;
+    display: inline-block;
+    zoom: 1;
+    font-size: 17px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+/* Estilo de los botones de Navegación */
+
+#owl-articulos .owl-buttons span{
+    margin-top: 2px;
+}
+
+#owl-articulos .owl-controls .owl-buttons div {
+    position: absolute;
+}
+
+#owl-articulos .owl-controls .owl-buttons .owl-prev{
+    left: -45px;
+    top: 40%;
+}
+
+#owl-articulos .owl-controls .owl-buttons .owl-next{
+    right: -45px;
+    top: 40%;
+}
+
+/* Mover los botones de navegación del carousel al lateral*/
+
+.titulo-header {
+    padding-bottom:9px;
+    margin:40px 0 20px;
+    text-align: center;
+    color: #0094d8;
+    font-family: Gobold;
+    border-bottom:1px solid #0094d8;
+}
+
+.titulo-proyecto {
+    font-family: Lato-Black;
+    font-size: 17px;
+}
+
+.titulo-empresa {
+    font-family: Lato-Light;
+    font-size: 23px;
+    padding: 2em 0 0 0;
+}
+
+.titulo-footer {
+    font-family: Lato-Bold;
+    font-size: 17px;
+    padding: 2em 0 0 2em;
+    color: #FFF;
+}
+.controls-wrapper{
+    color: #FFF;
+    height: 227px;
+}
+
+.parrafo{
+    font-size: 17px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.footer{
+    bottom:0;
+}
+
+.hfooter {
+    text-align: center;
+}
+
+.center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cont-footer{
+    padding-bottom: 0.5em; 
+}
+
+.hfooter > p {
+    font-size: 17px;
+}
+
+.cfooter {
+    background-color: #0094d8;
+}
+
+.contenido-footer {
+    font-family: Lato-Light;
+    font-size: 17px;
+    color: #FFF;
+}
+
+.lista-footer {
+    list-style:none;
+}
+
+.pfooter {
+    background-color : rgba(9, 150, 222, 0.8);
+    /*background-color: #1E3954;*/
+    text-align: center;
+    color: #FFF;
+}
