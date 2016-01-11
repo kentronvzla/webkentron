@@ -57,7 +57,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12 col-sm-2 col-md-2 controls-wrapper">
+    <div class="col-xs-12 col-sm-2 col-md-2 controls-wrapper modal-window">
         <h1 class="titulo-proyecto">
             Administración de recursos e inventarios
         </h1>
@@ -65,7 +65,7 @@
             <p>SUDEBAN</p>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 controls-wrapper">
+    <div class="col-xs-12 col-sm-2 col-md-2 controls-wrapper modal-window">
         <h1 class="titulo-proyecto">
             Mejoras en proceso de facturación y cobros
         </h1>
@@ -73,7 +73,7 @@
             <p>SENIAT</p>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 controls-wrapper">
+    <div class="col-xs-12 col-sm-2 col-md-2 controls-wrapper modal-window">
         <h1 class="titulo-proyecto">
             Monitoreos de gastos y caja chica
         </h1>
@@ -81,7 +81,7 @@
             <p>Instituto Nacional de Estadisticas</p>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 controls-wrapper">
+    <div class="col-xs-12 col-sm-2 col-md-2 controls-wrapper modal-window">
         <h1 class="titulo-proyecto">
             Control de gastos y administración
         </h1>
@@ -89,7 +89,7 @@
             <p>IPASME</p>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 controls-wrapper">
+    <div class="col-xs-12 col-sm-2 col-md-2 controls-wrapper modal-window">
         <h1 class="titulo-proyecto">
             Monitoreos de gastos y caja chica
         </h1>
@@ -97,7 +97,7 @@
             <p>Alcaldía del Mun. Libertador</p>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-2 col-md-2 controls-wrapper">
+    <div class="col-xs-12 col-sm-2 col-md-2 controls-wrapper modal-window">
         <h1 class="titulo-proyecto">
             Mejoras en proceso de facturación y cobros
         </h1>

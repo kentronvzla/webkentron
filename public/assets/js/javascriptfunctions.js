@@ -91,16 +91,17 @@ function loadModalEvents() {
      */
     $('#modal-window1').on('hidden.bs.modal', function (e) {
         $("#modal-window1").empty();
-        if ($(this).children().attr('data-reload') != undefined) {
-            window.location.reload();
-        }
+        window.location.reload();
+//        if ($(this).children().attr('data-reload') != undefined) {
+//            window.location.reload();
+//        }
     });
-    $('#modal-window2').on('hidden.bs.modal', function (e) {
-        $("#modal-window2").empty();
-        if ($(this).children().attr('data-reload') != undefined) {
-            window.location.reload();
-        }
-    });
+//    $('#modal-window2').on('hidden.bs.modal', function (e) {
+//        $("#modal-window2").empty();
+//        if ($(this).children().attr('data-reload') != undefined) {
+//            window.location.reload();
+//        }
+//    });
 }
 
 function customPager() {

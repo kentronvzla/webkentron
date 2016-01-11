@@ -3,6 +3,8 @@
 {!! Html::style('assets/css/navbar.css') !!}
 {!! Html::style('assets/css/fuentes.css') !!}
 {!! Html::style('assets/css/style.css') !!}
+{!! Html::style('assets/css/carousel.css') !!}
+{!! Html::style('assets/css/estilomodal.css') !!}
 {!! Html::style('assets/css/owl.carousel.css') !!}
 {!! Html::style('assets/css/owl.theme.css') !!}
 {!! Html::style('assets/css/owl.transitions.css') !!}

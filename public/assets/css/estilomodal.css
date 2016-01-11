@@ -1,0 +1,9 @@
+/* Important part */
+#modal-window1 .modal-dialog{
+    overflow-y: initial !important
+}
+#modal-window1 .modal-body{
+    max-height: 250px;
+    overflow-y: auto;
+}
+

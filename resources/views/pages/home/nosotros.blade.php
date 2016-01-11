@@ -21,6 +21,7 @@
             petrolero, financiero, metalúrgico y empresas de servicio.
 
             Somos Gente que aporta soluciones®
+            <a href="{{ url('about') }}" class="btn btn-success active" role="button">VER MÁS</a>
         </p>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6">

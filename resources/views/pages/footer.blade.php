@@ -1,7 +1,7 @@
 <!-- Footer -->
 <div class="container-fluid">
     <div class="row footer">
-        <div class="row cont-footer">
+        <div class="row row-eq-height cont-footer">
             <div class="col-xs-12 col-sm-6 col-md-6">
                 {!! Html::image('assets/img/image.png', 'kentron', array('class' => 'img-responsive center-img')) !!}
             </div>
