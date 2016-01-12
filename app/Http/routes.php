@@ -6,6 +6,7 @@ Route::group(['middleware' => ['redirectAdmin']], function()
     Route::get('/', ['as' => 'home', 'uses' => 'PagesController@getHome']);
     Route::get('about', ['as' => 'about', 'uses' => 'PagesController@getAbout']);
     Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@getContact']);
+    Route::get('customer', ['as' => 'customer', 'uses' => 'PagesController@getCustomer']);
 });
 
 # Registration

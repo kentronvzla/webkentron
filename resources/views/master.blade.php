@@ -11,7 +11,7 @@
 
         <!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+        
         <!-- Stylesheets -->
         <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
         <!--<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>-->
@@ -19,7 +19,10 @@
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
+        
+        <!-- Page Icon/Logo -->
+        <link rel="icon" href="{!! asset('assets/img/logo.jpg') !!}"/>
+        
         <!-- Favicon and Apple Icons -->
         <link rel="shortcut icon" href="img/favicon.ico">
 

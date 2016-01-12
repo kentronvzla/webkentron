@@ -15,6 +15,7 @@
     </li>
     <li class=""><a href="#">DISTRIBUIDORES</a></li>
     <li class=""><a href="#">CONTACTO</a></li>
+    <li class=""><a href="{{ url('customer') }}">CLIENTES</a></li>
     <!--<li class="{{ set_active('userProtected') }}"><a href="{{ url('userProtected') }}">Registered Users Only</a></li>-->
 </ul>
 
