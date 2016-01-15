@@ -10,7 +10,8 @@
         "cartalyst/sentry": "dev-feature/laravel-5",
         "illuminate/html": "5.0.*",
         "guzzlehttp/guzzle": "~5.3|~6.0",
-        "laravelcollective/html": "~5.0"
+        "laravelcollective/html": "~5.0",
+        "geedmo/yamm3": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

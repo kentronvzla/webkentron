@@ -3,6 +3,7 @@
 {!! Html::style('assets/css/navbar.css') !!}
 {!! Html::style('assets/css/fuentes.css') !!}
 {!! Html::style('assets/css/style.css') !!}
+{!! Html::style('assets/css/yamm.css') !!}
 {!! Html::style('assets/css/carousel.css') !!}
 {!! Html::style('assets/css/estilomodal.css') !!}
 {!! Html::style('assets/css/owl.carousel.css') !!}

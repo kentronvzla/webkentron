@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d36a39b22fbb5a63455384f46de731b9",
-    "content-hash": "5834c8b6a0bd665a797ab36d291c5b53",
+    "hash": "f108f59005d5f4ec601f826bbb14f74c",
+    "content-hash": "039111db6cdae1f1580185bd5530fb18",
     "packages": [
         {
             "name": "cartalyst/sentry",
@@ -316,6 +316,41 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "geedmo/yamm3",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/geedmo/yamm3.git",
+                "reference": "d604f9ad80b46f361f38d06eb9157dbbbb91229a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/geedmo/yamm3/zipball/d604f9ad80b46f361f38d06eb9157dbbbb91229a",
+                "reference": "d604f9ad80b46f361f38d06eb9157dbbbb91229a",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "German Morales",
+                    "email": "geedmo.ds@gmail.com",
+                    "homepage": "http://geedmo.com"
+                }
+            ],
+            "description": "Yet another megamenu for Bootstrap 3.x",
+            "homepage": "http://geedmo.github.io/yamm3/",
+            "keywords": [
+                "bootstrap",
+                "megadropdown",
+                "megamenu"
+            ],
+            "time": "2015-09-25 14:05:40"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -3520,7 +3555,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "cartalyst/sentry": 20
+        "cartalyst/sentry": 20,
+        "geedmo/yamm3": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

@@ -90,8 +90,8 @@ function loadModalEvents() {
      * Fecha : 04/12/2015
      */
     $('#modal-window1').on('hidden.bs.modal', function (e) {
-        $("#modal-window1").empty();
-        window.location.reload();
+//        $("#modal-window1").empty();
+//        window.location.reload();
 //        if ($(this).children().attr('data-reload') != undefined) {
 //            window.location.reload();
 //        }

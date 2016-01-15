@@ -64,18 +64,19 @@ and open the template in the editor.
     width: 100%;
     max-height: 40%;
     bottom: 0px;
-    /*    width: auto;
-        margin-bottom: 10px;
-        margin-right: 10px;
-        background-image: url('../img/image13.png');
-        background-position: right bottom; //Positioning
-        background-repeat: no-repeat; //Prevent showing multiple background images*/
+/*    width: auto;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-image: url('../img/image13.png');
+    background-position: right bottom; //Positioning
+    background-repeat: no-repeat; //Prevent showing multiple background images*/
 }
 
 #owl-articulos .item .caption .contenido{
     /*font-size: 27px;*/
     font-size: 2.1vw;
     font-family: Lato-Bold;
+     position: relative;
 }
 
 /* Estilo de los botones de Navegación */

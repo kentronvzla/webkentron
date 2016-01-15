@@ -4,7 +4,7 @@
 </div>
 <!-- end preloader -->
 <!-- start navigation -->
-<nav id="custom-nav" class="navbar navbar-default navbar-fixed-top templatemo-nav" role="navigation">
+<nav id="custom-nav" class="navbar navbar-default navbar-fixed-top templatemo-nav yamm" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

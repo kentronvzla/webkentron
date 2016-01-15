@@ -6,4 +6,15 @@
     max-height: 250px;
     overflow-y: auto;
 }
+.mod-head{
+    position: relative;
+}
+.button-close{
+    position: absolute;
+    right: 0;
+}
+.button-plus{
+    position: absolute;
+    right: 0;
+}
 

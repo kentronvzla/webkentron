@@ -22,4 +22,19 @@ class PagesController extends Controller
     {
         return view('pages.contact');
     }
+    
+    public function getProducts()
+    {
+        return view('pages.products');
+    }
+    
+    public function getKeruxInfo()
+    {
+        return view('pages.products.kerux');
+    }
+    
+    public function getKomatInfo()
+    {
+        return view('pages.products.komat');
+    }
 }
