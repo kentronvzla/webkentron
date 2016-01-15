@@ -5,12 +5,13 @@ Route::group(['middleware' => ['redirectAdmin']], function() {
     Route::get('/', ['as' => 'home', 'uses' => 'PagesController@getHome']);
     Route::get('about', ['as' => 'about', 'uses' => 'PagesController@getAbout']);
     Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@getContact']);
+
     Route::group(['prefix' => 'products', 'as' => 'products'], function() {
         Route::get('kerux', ['as' => 'kerux', 'uses' => 'PagesController@getKeruxInfo']);
         Route::get('komat', ['as' => 'komat', 'uses' => 'PagesController@getKomatInfo']);
         Route::get('/', 'PagesController@getProducts');
     });
-//    Route::get('products', ['as' => 'products', 'uses' => 'PagesController@getProducts']);
+    Route::get('customer', ['as' => 'customer', 'uses' => 'PagesController@getCustomer']);
 });
 
 # Registration

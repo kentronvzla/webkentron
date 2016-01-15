@@ -36,5 +36,11 @@ class PagesController extends Controller
     public function getKomatInfo()
     {
         return view('pages.products.komat');
+        
+    }
+    
+    public function getCustomer()
+    {
+        return view('pages.customer');
     }
 }
