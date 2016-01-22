@@ -6,6 +6,7 @@
 {!! Html::style('assets/css/yamm.css') !!}
 {!! Html::style('assets/css/carousel.css') !!}
 {!! Html::style('assets/css/estilomodal.css') !!}
+{!! Html::style('assets/css/mediaqueries.css') !!}
 {!! Html::style('assets/css/owl.carousel.css') !!}
 {!! Html::style('assets/css/owl.theme.css') !!}
 {!! Html::style('assets/css/owl.transitions.css') !!}

@@ -10,10 +10,9 @@
         <div class="row item">
             <div class="col-xs-12 col-sm-12 col-md-12 caption">
                 <div class="contenido">
-                    <p>Kentron en el rango de las 100 IT Companies</p>
-                    <div class="button-plus">
-                         {!! Html::image('assets/img/image13.png', 'vermas', array('class' => 'img-responsive')) !!}
-                    </div>
+                    <p>
+                    Kentron en el rango de las 100 IT Companies
+                    </p>
                 </div>
             </div>
             {!! Html::image('assets/img/image12.png', 'articulo1', array('class' => 'img-responsive')) !!}

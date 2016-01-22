@@ -25,23 +25,23 @@ and open the template in the editor.
     background: rgba(10,10,10,0.5);
     color: #FFF;
     /*z-index:100;*/
-    right: 50px;
+    /*right: 50px;*/
     /*width: 40%;*/
     height: 100%;
 }
 
 #owl-principal .item .caption .titulo{
     /*font-size: 30px;*/
-    font-size: 3.0vw;
+    /*font-size: 3.0vw;*/
     font-family: Gobold;
-    padding: 0 1.5em 0 1.5em; //<padding-top> || <padding-right> || <padding-bottom> || <padding-left>
+    /*padding: 0 1.5em 0 1.5em; //<padding-top> || <padding-right> || <padding-bottom> || <padding-left>*/
 }
 
 #owl-principal .item .caption .contenido{
     /*font-size: 21px;*/
-    font-size: 1.5vw;
+/*    font-size: 1.6vw;*/
     font-family: Lato-Light;
-    padding: 0 1.5em 0 1.5em;
+    /*padding: 0 1.5em 0 1.5em;*/
 }
 
 #owl-articulos .item{
@@ -62,21 +62,22 @@ and open the template in the editor.
     background: rgba(0,148,216,0.3);
     color: #FFF;
     width: 100%;
-    max-height: 40%;
+    /*max-height: 40%;*/
     bottom: 0px;
-/*    width: auto;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    background-image: url('../img/image13.png');
-    background-position: right bottom; //Positioning
-    background-repeat: no-repeat; //Prevent showing multiple background images*/
+    /*    
+        width: auto;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        background-image: url('../img/image13.png');
+        background-position: right bottom; //Positioning
+        background-repeat: no-repeat; //Prevent showing multiple background images
+    */
 }
 
 #owl-articulos .item .caption .contenido{
     /*font-size: 27px;*/
-    font-size: 2.1vw;
+    /*font-size: 2.1vw;*/
     font-family: Lato-Bold;
-     position: relative;
 }
 
 /* Estilo de los botones de Navegación */

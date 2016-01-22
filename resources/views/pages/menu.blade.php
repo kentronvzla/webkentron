@@ -1,8 +1,8 @@
 <ul class="nav navbar-nav">
-    <li class=""><a href="{{ url('products') }}">PRODUCTOS</a></li>
-    <li class=""><a href="#">SOLUCIONES</a></li>
+    <li class="negrita"><a href="{{ url('products') }}">PRODUCTOS</a></li>
+    <li class="negrita"><a href="#">SOLUCIONES</a></li>
     
-    <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">SOPORTE<b class="caret"></b></a>
+    <li class="dropdown negrita"><a href="#" data-toggle="dropdown" class="dropdown-toggle">SOPORTE<b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li>
                 <!-- Content container to add padding -->
@@ -35,9 +35,9 @@
         </ul>
     </li>
 
-    <li class=""><a href="#">DISTRIBUIDORES</a></li>
-    <li class=""><a href="#">CONTACTO</a></li>
-    <li class=""><a href="{{ url('customer') }}">CLIENTES</a></li>
+    <li class="negrita"><a href="#">DISTRIBUIDORES</a></li>
+    <li class="negrita"><a href="#">CONTACTO</a></li>
+    <li class="negrita"><a href="{{ url('customer') }}">CLIENTES</a></li>
     <!--<li class="{{ set_active('userProtected') }}"><a href="{{ url('userProtected') }}">Registered Users Only</a></li>-->
 </ul>
 
