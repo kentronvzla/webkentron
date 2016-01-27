@@ -11,7 +11,7 @@ Route::group(['middleware' => ['redirectAdmin']], function() {
         Route::get('komat', ['as' => 'komat', 'uses' => 'PagesController@getKomatInfo']);
         Route::get('/', 'PagesController@getProducts');
     });
-    Route::get('customer', ['as' => 'customer', 'uses' => 'PagesController@getCustomer']);
+    Route::get('customer', ['as' => 'customer', 'uses' => 'PagesController@getCustomer']);    
 });
 
 # Registration
@@ -45,3 +45,6 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::resource('admin/profiles', 'Admin\AdminUsersController', ['only' => ['index', 'show', 'edit', 'update', 'destroy']]);
 });
 
+# Contenido routes
+Route::get('contenido', ['as' => 'contenido', 'uses' => 'ContenidoController@create']);
+Route::post('contenido', ['as' => 'contenido', 'uses' => 'ContenidoController@store']);
