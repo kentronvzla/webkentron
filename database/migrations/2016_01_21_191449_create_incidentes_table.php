@@ -15,10 +15,11 @@ class CreateIncidentesTable extends Migration {
             $table->increments('id');
             /* Foreing Keys */
             $table->integer('actividad_id', false, true);
+            $table->integer('producto_id', false, true);
             $table->integer('modulo_id', false, true);
             $table->integer('tipo_incidente_id', false, true);
             $table->integer('estatus_incidente_id', false, true);
-            $table->integer('causa_id', false, true);
+            $table->integer('causa_problema_id', false, true);
             $table->integer('cliente_usuario_id', false, true);
             $table->integer('usuario_responsable_id', false, true);
             $table->integer('orden_trabajo_id', false, true);            
@@ -30,15 +31,13 @@ class CreateIncidentesTable extends Migration {
             $table->integer('usuario_respuesta_id', false, true);
             $table->integer('adr_id', false, true);
             $table->integer('usuario_verificacion_id', false, true);
-            $table->integer('producto_id', false, true);
-            $table->integer('producto_id', false, true);
             $table->integer('estatus_encuesta_id', false, true);
             /* Foreing Keys */
             
             /* Normal Fields */
             $table->date('fecha_incidente');
-            $table->timestamps('fecha_inicio')->nullable();
-            $table->timestamps('fecha_fin')->nullable();
+            $table->timestamp('fecha_inicio')->nullable();
+            $table->timestamp('fecha_fin')->nullable();
             $table->integer('prioridad')->default(1);
             $table->string('descripcion', 255)->nullable();
             $table->longText('detalle');
@@ -59,11 +58,7 @@ class CreateIncidentesTable extends Migration {
             $table->integer('calificacion_tiempo');
             $table->integer('calificacion_solucion');
             $table->integer('calificacion_atencion');
-
-            
-            
             $table->string('num_requerimiento', 10);
-            $table->string('horas_facturables',6)->nullable();
             /* Normal Fields */
             
             $table->integer('usuario_creacion_id', false, true);

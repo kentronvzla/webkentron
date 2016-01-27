@@ -8,6 +8,7 @@ and open the template in the editor.
     Author     : Reysmer Valle
 */
 
+/* Media Queries para seccion de carousel principal y articulos */
 @media screen and (min-width:320px) and (max-width: 420px) { 
     /* smartphones, iPhone, portrait 480x320 phones */
     #owl-principal .item .caption .titulo{
@@ -307,7 +308,7 @@ and open the template in the editor.
         max-height: 40%
     }
     #owl-articulos .item .caption .contenido{
-        font-size: 24px;
+        font-size: 23px;
     }
 }
 
@@ -328,7 +329,7 @@ and open the template in the editor.
         max-height: 40%
     }
     #owl-articulos .item .caption .contenido{
-        font-size: 26px;
+        font-size: 23px;
     }
 }
 
@@ -349,6 +350,35 @@ and open the template in the editor.
         max-height: 40%
     }
     #owl-articulos .item .caption .contenido{
-        font-size: 27px;
+        font-size: 25px;
     }
 }
+/* Media Queries para seccion de carousel principal y articulos */
+
+/* Media Queries para seccion de proyectos */
+@media screen and (min-width:320px) and (max-width: 767px) { 
+    .titulo-proyecto {
+        font-size: 19px;
+    }
+    .titulo-empresa {
+        font-size: 23px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width: 867px) { 
+    .titulo-proyecto {
+        font-size: 15px;
+    }
+    .titulo-empresa {
+        font-size: 16px;
+    }
+}
+@media screen and (min-width:868px) and (max-width: 1281px) { 
+    .titulo-proyecto {
+        font-size: 17px;
+    }
+    .titulo-empresa {
+        font-size: 18px;
+    }
+}
+/* Media Queries para seccion de proyectos */

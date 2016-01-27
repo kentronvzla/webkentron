@@ -60,7 +60,7 @@
     color: #ffffff;
 }
 #custom-nav {
-    background-color: rgba(251, 248, 239, 0.3);
+    background-color: rgba(251, 248, 239, 1);
     border: 0;
     box-shadow: none;
     z-index: 999;

@@ -23,7 +23,9 @@ class CreateClientesUsersTable extends Migration {
             $table->string('num_telefono_celular', 25)->nullable();
             $table->string('social', 255)->nullable();
             $table->date('fecha_nacimiento')->nullable();
-            $table->boolean('ind_notificacion')->default(0);
+            $table->boolean('ind_notificacion')->default(1);
+            $table->boolean('ind_mensajeria')->default(1);
+            $table->boolean('ind_nivel')->default(0);
             $table->integer('usuario_creacion_id', false, true);
             $table->integer('usuario_modificacion_id', false, true);
             $table->integer('version')->default(0);

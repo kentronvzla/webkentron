@@ -65,18 +65,38 @@
                             </ul>
                         </div>
                         <div class="titulo-footer">CONTACTO</div>
-                        <div class="contenido-footer">
-                            <ul class="lista-footer">
-                                <li>info@kentron.com.ve</li>
-                                <li>
-                                    <div class="row">
-                                        <div class="col-xs-3 col-md-3">{!! Html::image('assets/img/image4.png', 'Logo Kentron', array('class' => 'img-responsive')) !!}</div>
-                                        <div class="col-xs-3 col-md-3">{!! Html::image('assets/img/image5.png', 'Logo Kentron', array('class' => 'img-responsive')) !!}</div>
-                                        <div class="col-xs-3 col-md-3">{!! Html::image('assets/img/image6.png', 'Logo Kentron', array('class' => 'img-responsive')) !!}</div>
-                                        <div class="col-xs-3 col-md-3">{!! Html::image('assets/img/image7.png', 'Logo Kentron', array('class' => 'img-responsive')) !!}</div>
-                                    </div>     
-                                </li>
-                            </ul>
+                        <div class="contenido-footer pd-footer">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-12">
+                                        info@kentron.com.ve
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-3 col-md-3">
+                                        <a class="" href="https://www.linkedin.com/company/kentron" target="_blank">
+                                            {!! Html::image('assets/img/image4.png', 'linkedin', array('class' => 'img-responsive')) !!}
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-3 col-md-3">
+                                        <a class="" href="https://plus.google.com/u/0/113097492202606059402/posts" target="_blank">
+                                            {!! Html::image('assets/img/image5.png', 'google+', array('class' => 'img-responsive')) !!}
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-3 col-md-3">
+                                        <a class="" href="https://es-la.facebook.com/KentronSistemas" target="_blank">
+                                            {!! Html::image('assets/img/image6.png', 'facebook', array('class' => 'img-responsive')) !!}
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-3 col-md-3">
+                                        <a class="" href="https://twitter.com/kentron" target="_blank">
+                                            {!! Html::image('assets/img/image7.png', 'twitter', array('class' => 'img-responsive')) !!}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
