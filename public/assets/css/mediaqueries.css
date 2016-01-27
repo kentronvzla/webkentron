@@ -1,0 +1,384 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/01/2016, 10:13:05 AM
+    Author     : Reysmer Valle
+*/
+
+/* Media Queries para seccion de carousel principal y articulos */
+@media screen and (min-width:320px) and (max-width: 420px) { 
+    /* smartphones, iPhone, portrait 480x320 phones */
+    #owl-principal .item .caption .titulo{
+        font-size: 16px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 12px;
+        padding: 0;
+        display: none;
+    }
+    .btn-responsive {
+        padding:8px 6px;
+        font-size:80%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 50%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 15px;
+    }
+
+}
+
+@media screen and (min-width:421px) and (max-width: 440px) { 
+    /* smartphones, iPhone, portrait 480x320 phones */
+    #owl-principal .item .caption .titulo{
+        font-size: 16px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 13px;
+        padding: 0;
+        display: block;
+    }
+    .btn-responsive {
+        padding:2px 4px;
+        font-size:80%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (min-width:441px) and (max-width: 480px) { 
+    /* smartphones, iPhone, portrait 480x320 phones */
+    #owl-principal .item .caption .titulo{
+        font-size: 16px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 14px;
+        padding: 0;
+        display: block;
+    }
+    .btn-responsive {
+        padding:5px 5px;
+        font-size:80%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (min-width:481px) and (max-width: 540px) { 
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    #owl-principal .item .caption .titulo{
+        font-size: 18px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 16px;
+        padding: 0;
+        display: block;
+    }
+    .btn-responsive {
+        padding:8px 6px;
+        font-size:80%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (min-width:541px) and (max-width: 580px) { 
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    #owl-principal .item .caption .titulo{
+        font-size: 20px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 17px;
+        padding: 0;
+        display: block;
+    }
+    .btn-responsive {
+        padding:10px 8px;
+        font-size:90%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 50%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width:581px) and (max-width: 640px) { 
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    #owl-principal .item .caption .titulo{
+        font-size: 23px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 20px;
+        padding: 0;
+        display: block;
+    }
+    .btn-responsive {
+        padding:10px 8px;
+        font-size:90%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 50%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width:641px) and (max-width: 767px) { 
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    #owl-principal .item .caption .titulo{
+        font-size: 25px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 21px;
+        padding: 0;
+        display: block;
+    }
+    .btn-responsive {
+        padding:10px 8px;
+        font-size:90%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width: 818px){ 
+    #owl-articulos .item .caption {
+        max-height: 50%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width:819px) and (max-width: 868px){ 
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 17px;
+    }
+}
+
+
+@media screen and (min-width:768px) and (max-width: 868px){ 
+    /*portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 20px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width:869px) and (max-width: 960px){ 
+    /*portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 25px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 18px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width:961px) and (max-width: 991px){ 
+    /*tablet, landscape iPad, lo-res laptops ands desktops*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 30px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 18px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width: 1024px){ 
+    /*tablet, landscape iPad, lo-res laptops ands desktops*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 25px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 18px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width:1025px) and (max-width: 1140px) { 
+    /*big landscape tablets, laptops, and desktops*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 27px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 19px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 23px;
+    }
+}
+
+@media screen and (min-width:1141px) and (max-width: 1280px) { 
+    /*big landscape tablets, laptops, and desktops*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 30px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 21px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 23px;
+    }
+}
+
+@media screen and (min-width:1281px)    { 
+    /*hi-res laptops and desktops*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 30px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 21px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 25px;
+    }
+}
+/* Media Queries para seccion de carousel principal y articulos */
+
+/* Media Queries para seccion de proyectos */
+@media screen and (min-width:320px) and (max-width: 767px) { 
+    .titulo-proyecto {
+        font-size: 19px;
+    }
+    .titulo-empresa {
+        font-size: 23px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width: 867px) { 
+    .titulo-proyecto {
+        font-size: 15px;
+    }
+    .titulo-empresa {
+        font-size: 16px;
+    }
+}
+@media screen and (min-width:868px) and (max-width: 1281px) { 
+    .titulo-proyecto {
+        font-size: 17px;
+    }
+    .titulo-empresa {
+        font-size: 18px;
+    }
+}
+/* Media Queries para seccion de proyectos */

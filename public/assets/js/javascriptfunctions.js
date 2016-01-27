@@ -16,7 +16,7 @@ function loadCarouselEvents() {
         navigation: false,
         navigationText: false,
         singleItem: true,
-        autoPlay: 3000,
+        autoPlay: 6000,
         itemsDesktop: [1199, 1],
         itemsDesktopSmall: [980, 1],
         itemsTablet: [768, 1],
@@ -40,9 +40,9 @@ function loadCarouselEvents() {
         ],
         itemsDesktop: [1199, 3],
         itemsDesktopSmall: [980, 3],
-        itemsTablet: [768, 2],
-        itemsTabletSmall: false,
-        itemsMobile: [479, 1],
+        itemsTablet: [750, 2],
+        itemsTabletSmall: [523, 1],
+        itemsMobile: [463, 1],
 //        beforeInit: function (elem) {
 //            //Parameter elem pointing to $("#owl-demo")
 //            random(elem);

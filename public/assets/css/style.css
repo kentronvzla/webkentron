@@ -35,12 +35,12 @@ body {
 
 .titulo-proyecto {
     font-family: Lato-Black;
-    font-size: 17px;
+    /*font-size: 17px;*/
 }
 
 .titulo-empresa {
     font-family: Lato-Light;
-    font-size: 23px;
+    /*font-size: 23px;*/
     padding: 2em 0 0 0;
 }
 
@@ -82,6 +82,7 @@ body {
 
 .cont-footer{
     padding-bottom: 0.5em;
+    padding-top: 0.5em;
 }
 
 .hfooter > p {
@@ -96,6 +97,10 @@ body {
     font-family: Lato-Light;
     font-size: 17px;
     color: #FFF;
+}
+
+.pd-footer {
+    padding: 0 0 0.5em 0; //<padding-top> || <padding-right> || <padding-bottom> || <padding-left>
 }
 
 .lista-footer {
