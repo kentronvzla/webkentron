@@ -112,4 +112,60 @@ and open the template in the editor.
     top: 40%;
 }
 
+/* Estilo de los botones de Navegación Proyectos*/
+#owl-proyectos .owl-controls .owl-buttons div {
+    background-color: rgba(0, 0, 0, 1);
+    color: #FFF;
+    display: inline-block;
+    zoom: 1;
+    font-size: 17px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+/* Estilo de los botones de Navegación Proyectos*/
+
+#owl-proyectos .item{
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0px 0px;
+  margin: 0px;
+  color: #FFF;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+}
+.customNavigation{
+  text-align: center;
+}
+//use styles below to disable ugly selection
+.customNavigation a{
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 /* Mover los botones de navegación del carousel al lateral*/
+
+/* Estilo de los botones de Navegación */
+
+#owl-proyectos .owl-buttons span{
+    margin-top: 2px;
+}
+
+#owl-proyectos .owl-controls .owl-buttons div {
+    position: absolute;
+}
+/* Mover los botones de navegación del carousel al lateral*/
+#owl-proyectos .owl-controls .owl-buttons .owl-prev{
+    left: -45px;
+    top: 40%;
+}
+
+#owl-proyectos .owl-controls .owl-buttons .owl-next{
+    right: -45px;
+    top: 40%;
+}

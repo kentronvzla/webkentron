@@ -18,8 +18,8 @@
                         <div class="titulo-footer">PRODUCTOS</div>
                         <div class="contenido-footer">
                             <ul class="lista-footer">
-                                <li>Kerux</li>
-                                <li>Komat</li>
+                                <a href="{{url('products/kerux')}}"><li>Kerux</li></a>
+                                <a href="{{url('products/komat')}}"><li>Komat</li></a>
                                 <li>Otros</li>
                             </ul>
                         </div>
