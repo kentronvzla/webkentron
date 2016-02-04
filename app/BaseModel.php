@@ -11,7 +11,18 @@
  *
  * @author Nadin Yamaui
  */
-abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTableInterface, DecimalInterface {
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\MessageBag;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Cache;
+use App\Interfaces\SelectInterface;
+use App\Interfaces\SimpleTableInterface;
+use App\Helpers\Helper;
+
+abstract class BaseModel extends Model implements SelectInterface, SimpleTableInterface {
 
     /**
      * Reglas que debe cumplir el objeto al momento de ejecutar el metodo save,
@@ -23,7 +34,8 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
     protected $manejaConcurrencia;
     protected $validarModelo = true;
     protected $displayTable = [];
-    protected static $array_meses = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    protected static $array_meses = ['', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
     /**
      * Error message bag
      * @var Illuminate\Support\MessageBag
@@ -46,7 +58,7 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
     ];
     public static $estatusArray = [
         'ELA' => 'Elaboración',
-        'ART' => 'Articulada',        
+        'ART' => 'Articulada',
         'ELD' => 'Asignada a Departamento',
         'EAA' => 'Asignada a Analista',
         'ACA' => 'Aceptada por el analista',
@@ -55,8 +67,8 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
         'APR' => 'Aprobado',
         'DEV' => 'Devuelta por Kerux',
         'PEN' => 'Pendiente',
-        'ANU'=>'Anulado',
-        'CER'=>'Cerrado'
+        'ANU' => 'Anulado',
+        'CER' => 'Cerrado'
     ];
 
     public function __construct(array $attributes = []) {
@@ -124,7 +136,7 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
      * Docs: @link http://laravel.com/docs/eloquent#model-events
      */
     public function createdModel($model) {
-
+        
     }
 
     /**
@@ -144,7 +156,7 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
      * Docs: @link http://laravel.com/docs/eloquent#model-events
      */
     public function updatedModel($model) {
-
+        
     }
 
     /**
@@ -159,7 +171,7 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
             $default = $model->getDefaultValues();
             $model->attributes = array_merge($default, $this->attributes);
         }
-        if($this->validarModelo){
+        if ($this->validarModelo) {
             return $this->validate($model);
         }
     }
@@ -169,7 +181,7 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
      * Docs: @link http://laravel.com/docs/eloquent#model-events
      */
     public function savedModel($model) {
-
+        
     }
 
     /**
@@ -189,7 +201,7 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
      * Docs: @link http://laravel.com/docs/eloquent#model-events
      */
     public function deletedModel($model) {
-
+        
     }
 
     /**
@@ -234,14 +246,14 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
         return false;
     }
 
-    private function verificarConcurrencia(){
-        if($this->manejaConcurrencia && $this->id!=''){
+    private function verificarConcurrencia() {
+        if ($this->manejaConcurrencia && $this->id != '') {
             $oldObject = self::findOrFail($this->id);
             //si no pasan la version se asume que no se quiere validar la concurrencia
-            if($oldObject->version != Input::get('version', $oldObject->version)){
-                $this->addError('version','Otro usuario ya actualizó este registro. Porfavor refresque la página.');
+            if ($oldObject->version != Input::get('version', $oldObject->version)) {
+                $this->addError('version', 'Otro usuario ya actualizó este registro. Porfavor refresque la página.');
                 return false;
-            }else{
+            } else {
                 $this->version++;
             }
         }
@@ -260,7 +272,11 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
             $campoOrder = static::getCampoOrder();
         }
         if ($condiciones == null) {
-            $registros = self::orderBy($campoOrder)->remember(1)->get();
+//            $registros = self::orderBy($campoOrder)->remember(1)->get();
+            $registros = self::orderBy($campoOrder)->get();
+//            $registros = Cache::remember('registros', 1, function() use ($campoOrder) {
+//                        return self::orderBy($campoOrder)->get();
+//                    });
         } else {
             foreach ($condiciones as $key => $condicion) {
                 if ($key == 0) {
@@ -269,7 +285,11 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
                     $registros = $registros->where($condicion['CAMPO'], '=', $condicion['VALOR']);
                 }
             }
-            $registros = $registros->orderBy($campoOrder)->remember(1)->get();
+//            $registros = $registros->orderBy($campoOrder)->remember(1)->get();
+            $registros = $registros->orderBy($campoOrder)->get();
+//            $registros = Cache::remember('registros', 1, function() use ($campoOrder) {
+//                        return $registros->orderBy($campoOrder)->get();
+//                    });
         }
 
         $retorno = array('' => $campo);
@@ -294,8 +314,14 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
         foreach ($atributos as $key => $atributo) {
             if ($atributo == "" && !$this->isBooleanField($key)) {
                 $atributos[$key] = null;
-            } else if ($atributo == "" || is_null($atributo)) {
-                $atributos[$key] = false;
+            } else {
+                if ($atributo == "" || is_null($atributo)) {
+                    $atributos[$key] = false;
+                } else {
+                    if ($atributo != "" && $this->isDecimalField($key)) {
+                        $atributos[$key] = Helper::tf($atributo);
+                    }
+                }
             }
         }
         return parent::fill($atributos);
@@ -324,7 +350,7 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
                 }
             case 1:
                 if ($format && $this->isBooleanField($key) &&
-                    isset(static::$cmbsino[$this->{$key}])) {
+                        isset(static::$cmbsino[$this->{$key}])) {
                     return static::$cmbsino[$this->{$key}];
                 }
                 if ($format && $this->isDateField($key) && is_object($this->{$key})) {
@@ -379,7 +405,7 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
     public function isRelatedField($field) {
         $test = $this->getRelatedField($field);
         //Yes the field is a relationn
-        if ($test instanceof Illuminate\Database\Eloquent\Relations\BelongsTo) {
+        if ($test instanceof BelongsTo) {
             return true;
         } else {
             return false;
@@ -402,7 +428,7 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
     }
 
     public function isDateField($field) {
-        $field = str_replace(['_desde','_hasta'],'',$field);
+        $field = str_replace(['_desde', '_hasta'], '', $field);
         return in_array($field, $this->dates);
     }
 
@@ -451,7 +477,7 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
     }
 
     public function isBooleanField($field) {
-        return Str::startsWith($field, 'ind_');
+        return starts_with($field, 'ind_');
     }
 
     public function getTableFields() {
@@ -475,7 +501,7 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
     }
 
     protected function afterValidate() {
-
+        
     }
 
     public function getFillable() {
@@ -486,11 +512,11 @@ abstract class BaseModel extends Eloquent implements SelectInterface, SimpleTabl
         return static::$estatusArray[$this->estatus];
     }
 
-    public function desabilitarConcurrencia(){
+    public function desabilitarConcurrencia() {
         $this->manejaConcurrencia = false;
     }
 
-    public function desabilitarValidaciones(){
+    public function desabilitarValidaciones() {
         $this->validarModelo = false;
     }
 

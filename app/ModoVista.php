@@ -2,9 +2,18 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class ModoVista extends BaseModel implements SimpleTableInterface, DecimalInterface, DefaultValuesInterface {
+
+/**
+ * App\ModoVista
+ *
+ * @property integer $id
+ * @property string $descripcion
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Contenido[] $contenido
+ * @property-read mixed $estatus_display
+ */
+class ModoVista extends BaseModel {
 
     //
     protected $table = 'modo_vistas';
@@ -41,6 +50,10 @@ class ModoVista extends BaseModel implements SimpleTableInterface, DecimalInterf
     
     public function contenido()
     {
-        return $this->belongsTo('App\Contenido');
+        return $this->hasMany('App\Contenido');
+    }
+    
+    public static function getCampoCombo() {
+        return "descripcion";
     }
 }

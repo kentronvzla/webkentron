@@ -6,19 +6,16 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Contenido;
 
-class ContenidoController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function index()
-    {
-        //
+    public function getIndex() {
+        return \View::make('admin.index');
     }
 
     /**
@@ -29,8 +26,6 @@ class ContenidoController extends Controller
     public function create()
     {
         //
-       // $data['contenido'] = Contenido::findOrFail($id);
-        return view('pages.contenido');
     }
 
     /**
@@ -41,36 +36,7 @@ class ContenidoController extends Controller
      */
     public function store(Request $request)
     {
-//        
-//        Contenido::create([
-//        'tipo_publicaciones_id' => $request['tipo_publicaciones_id'],
-//        'tipo_fondos_id' => $request['tipo_fondos_id'],
-//        'modo_vistas_id' => $request['modo_vistas_id'],
-//        'titulo' => $request['titulo'],
-//        'resumen' => $request['resumen'],
-//        'detalle' => $request['detalle'],
-//        'fondo' => $request['fondo'],
-//        'url' => $request['url'],
-//        'ind_activo' => $request['ind_activo'],
-//        'autor' => $request['autor'],
-//        'referencia_externa' => $request['referencia_externa'],
-//        'fecha_vigencia' => $request['fecha_vigencia'],
-//        ]);
-            $input = $request->all();
-            
-//            Contenido::create($input);            
-            
-            $contenido = new Contenido($input);
-            
-            //return $contenido->getFillable();
-            if($contenido -> save()){
-                return redirect()->back();
-                //return "Se guardado correctamente el contenido.";
-            }
-            else{
-                return "Hubo un error al guardar el contenido.";}
-            
-//            return redirect()->back();
+        //
     }
 
     /**

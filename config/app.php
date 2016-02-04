@@ -144,10 +144,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\BackendServiceProvider::class,
+        App\Providers\HtmlServiceProvider::class,
 
         Cartalyst\Sentry\SentryServiceProvider::class,
-        Illuminate\Html\HtmlServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+//        Illuminate\Html\HtmlServiceProvider::class,
+//        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -199,7 +201,7 @@ return [
 
         'Sentry' => Cartalyst\Sentry\Facades\Laravel\Sentry::class,
 //        'Form'=> Illuminate\Html\FormFacade::class,
-//        'HTML'=> Illuminate\Html\HtmlFacade::class,
+//        'Html'=> Illuminate\Html\HtmlFacade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 

@@ -2,13 +2,21 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class TipoPublicacion extends BaseModel implements SimpleTableInterface, DecimalInterface, DefaultValuesInterface {
+/**
+ * App\TipoPublicacion
+ *
+ * @property integer $id
+ * @property string $descripcion
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Contenido[] $contenido
+ * @property-read mixed $estatus_display
+ */
+class TipoPublicacion extends BaseModel {
 
     //
     protected $table = 'tipo_publicaciones';
-    
+
     /**
      * Campos que se pueden llenar mediante el uso de mass-assignment
      * @link http://laravel.com/docs/eloquent#mass-assignment
@@ -17,8 +25,8 @@ class TipoPublicacion extends BaseModel implements SimpleTableInterface, Decimal
     protected $fillable = [
         'descripcion',
     ];
-    
-     /**
+
+    /**
      * Reglas que debe cumplir el objeto al momento de ejecutar el metodo save, 
      * si el modelo no cumple con estas reglas el metodo save retornará false, 
      * y los cambios realizados no haran persistencia.
@@ -28,19 +36,22 @@ class TipoPublicacion extends BaseModel implements SimpleTableInterface, Decimal
     protected $rules = [
         'descripcion' => 'required',
     ];
-    
+
     protected function getPrettyFields() {
         return [
-               'descripcion' => 'Descripción',             
+            'descripcion' => 'Descripción',
         ];
     }
-    
+
     public function getPrettyName() {
         return "Tipo Publicaciones";
     }
+
+    public function contenidos() {
+        return $this->hasMany('App\Contenido');
+    }
     
-    public function contenido()
-    {
-        return $this->belongsTo('App\Contenido');
+    public static function getCampoCombo() {
+        return "descripcion";
     }
 }

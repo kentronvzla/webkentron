@@ -5,13 +5,13 @@ Route::group(['middleware' => ['redirectAdmin']], function() {
     Route::get('/', ['as' => 'home', 'uses' => 'PagesController@getHome']);
     Route::get('about', ['as' => 'about', 'uses' => 'PagesController@getAbout']);
     Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@getContact']);
-
+    Route::get('customer', ['as' => 'customer', 'uses' => 'PagesController@getCustomer']);    
+   
     Route::group(['prefix' => 'products', 'as' => 'products'], function() {
         Route::get('kerux', ['as' => 'kerux', 'uses' => 'PagesController@getKeruxInfo']);
         Route::get('komat', ['as' => 'komat', 'uses' => 'PagesController@getKomatInfo']);
         Route::get('/', 'PagesController@getProducts');
     });
-    Route::get('customer', ['as' => 'customer', 'uses' => 'PagesController@getCustomer']);    
 });
 
 # Registration
@@ -45,6 +45,11 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::resource('admin/profiles', 'Admin\AdminUsersController', ['only' => ['index', 'show', 'edit', 'update', 'destroy']]);
 });
 
+Route::group(['prefix' => 'admin', 'as' => 'admin'], function() {
+    Route::controller('contenidos', 'ContenidosController');
+    Route::get('/', 'AdminController@getIndex');
+});
+
 # Contenido routes
-Route::get('contenido', ['as' => 'contenido', 'uses' => 'ContenidoController@create']);
-Route::post('contenido', ['as' => 'contenido', 'uses' => 'ContenidoController@store']);
+Route::get('contenidos', ['as' => 'contenidos', 'uses' => 'ContenidosController@create']);
+Route::post('contenidos', ['as' => 'contenidos', 'uses' => 'ContenidosController@store']);

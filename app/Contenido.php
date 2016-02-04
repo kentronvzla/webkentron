@@ -2,12 +2,37 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class Contenido extends Model {
 
-    //
+/**
+ * App\Contenido
+ *
+ * @property integer $id
+ * @property integer $tipo_publicaciones_id
+ * @property integer $tipo_fondos_id
+ * @property integer $modo_vistas_id
+ * @property string $titulo
+ * @property string $resumen
+ * @property string $detalle
+ * @property string $fondo
+ * @property string $url
+ * @property boolean $ind_activo
+ * @property string $autor
+ * @property string $referencia_externa
+ * @property string $fecha_vigencia
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \App\TipoPublicacion $tipoPublicacion
+ * @property-read \App\TipoFondo $tipoFondo
+ * @property-read \App\ModoVista $modoVista
+ * @property-read mixed $estatus_display
+ */
+class Contenido extends BaseModel {
+
+    protected $primaryKey = "id";
     protected $table = 'contenidos';
+    protected $dates = ['fecha_vigencia'];
     
     /**
      * Campos que se pueden llenar mediante el uso de mass-assignment
@@ -61,7 +86,7 @@ class Contenido extends Model {
             'detalle'=>'Detalle',
             'fondo'=>'Fondo',
             'url'=>'Url',
-            'ind_activo'=>'Indicador de Activo',
+            'ind_activo'=>'¿Activo?',
             'autor'=>'Autor',
             'referencia_externa'=>'Referencia Externa',
             'fecha_vigencia'=>'Fecha de Vigencia',
@@ -76,23 +101,35 @@ class Contenido extends Model {
      * Define una relación pertenece a TipoPublicacion
      * @return TipoPublicacion
      */
-    public function tipoPublicacion() {
-        return $this->hasOne('App\TipoPublicacion');
+    public function tipoPublicaciones() {
+        return $this->belongsTo('App\TipoPublicacion','tipo_publicaciones_id');
     }
     
      /**
      * Define una relación pertenece a TipoFondo
      * @return TipoFondo
      */
-    public function tipoFondo() {
-        return $this->hasOne('App\TipoFondo');
+    public function tipoFondos() {
+        return $this->belongsTo('App\TipoFondo' , 'tipo_fondos_id');
     }
     
      /**
      * Define una relación pertenece a ModoVista
      * @return ModoVista
      */
-    public function modoVista() {
-        return $this->hasOne('App\ModoVista');
+    public function modoVistas() {
+        return $this->belongsTo('App\ModoVista', 'modo_vistas_id');
+    }
+    
+//    public function isBooleanField($key){
+//        if($key=="activated"){
+//            return true;
+//        }
+//    }
+    
+    public function getTableFields() {
+        return [
+            'tipoPublicacion->descripcion', 'titulo', 'ind_activo', 'fecha_vigencia'
+        ];
     }
 }

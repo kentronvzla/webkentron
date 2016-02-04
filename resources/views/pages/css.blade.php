@@ -10,3 +10,4 @@
 {!! Html::style('assets/css/owl.carousel.css') !!}
 {!! Html::style('assets/css/owl.theme.css') !!}
 {!! Html::style('assets/css/owl.transitions.css') !!}
+{!! Html::style('assets/css/datepicker.min.css') !!}
