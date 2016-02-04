@@ -58,8 +58,14 @@ function loadGeneralEvents() {
             $(this).css("background-color", colors[index]);
         } else if (index >= 4 && index <= 7) {
             $(this).css("background-color", colors[index - 4]);
-        } else if (index >= 8) {
+        } else if (index >= 8 && index <=11) {
             $(this).css("background-color", colors[index - 8]);
+        }  else if (index >= 12 && index <= 15) {
+            $(this).css("background-color", colors[index - 12]);
+        }   else if (index >= 16 && index <= 19) {
+            $(this).css("background-color", colors[index - 16]);
+        }   else if (index >= 20) {
+            $(this).css("background-color", colors[index - 20]);
         }
     });
 }
