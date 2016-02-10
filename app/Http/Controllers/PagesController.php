@@ -43,4 +43,9 @@ class PagesController extends Controller
     {
         return view('pages.customer');
     }
+    
+    public function getInfoProyecto()
+    {
+        return view('pages.infoproyecto');
+    }
 }

@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-md-{!! $numCols !!}">
+<div class="col-xs-12 col-sm-{!! $numCols !!} col-md-{!! $numCols !!}">
     <div class="form-group {!! $errors->has($attrName) ? 'has-error has-feedback':'' !!}">
         @if($inputType=="text")
             {!! Form::text($attrName, Input::old($attrName,$attrValue), $params) !!}

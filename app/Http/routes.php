@@ -5,7 +5,8 @@ Route::group(['middleware' => ['redirectAdmin']], function() {
     Route::get('/', ['as' => 'home', 'uses' => 'PagesController@getHome']);
     Route::get('about', ['as' => 'about', 'uses' => 'PagesController@getAbout']);
     Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@getContact']);
-    Route::get('customer', ['as' => 'customer', 'uses' => 'PagesController@getCustomer']);    
+    Route::get('customer', ['as' => 'customer', 'uses' => 'PagesController@getCustomer']);
+    Route::get('infoproyecto', ['as' => 'infoproyecto', 'uses' => 'PagesController@getInfoProyecto']); 
    
     Route::group(['prefix' => 'products', 'as' => 'products'], function() {
         Route::get('kerux', ['as' => 'kerux', 'uses' => 'PagesController@getKeruxInfo']);

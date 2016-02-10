@@ -11,7 +11,17 @@
         @include('templates.errores')
         {!! Form::open(['route' => 'contenidos', 'class' => 'form']) !!}
         {!! Form::concurrencia($contenido) !!}
+
         <div class="row">
+            @if($contenido->fondo !="")
+            {!! Form::btImage($contenido, 'contenido', 'fondo', 'image', 3, 'Fondo') !!}  
+            @else
+            {!! Form::btImage($contenido, 'contenido', 'fondo', 'image', 3, '', 'assets/img/fondo-icon.png') !!}  
+            @endif
+        </div>
+
+        <div class="row">
+            {{ csrf_field() }}
             {!! Form::hidden('id',$contenido->id) !!}
             {!! Form::btInput($contenido, 'titulo', 12) !!}
         </div>
@@ -31,20 +41,16 @@
 
         <div class="row">
             {!! Form::btInput($contenido, 'tipo_fondos_id', 6) !!}
-
             {!! Form::btInput($contenido,'fondo', 6 ,'file') !!}
         </div>
 
-        <div class="row">
-            {!! Form::btInput($contenido,'url', 12 ,'text',['readonly'=>'readonly']) !!}
-        </div>
-        
+
         <div class="row">
             {!! Form::btInput($contenido,'ind_activo', 3) !!}
             {!! Form::btInput($contenido, 'fecha_vigencia', 3) !!}
             {!! Form::btInput($contenido, 'autor', 6, 'text',['readonly'=>'readonly']) !!}
         </div>
-        
+
         <div class="row">
             {!! Form::btInput($contenido, 'referencia_externa', 12) !!}
         </div>
@@ -55,5 +61,6 @@
 
 </div>
 
+@include('pages.containers.cn-modales')
 @stop
 

@@ -33,6 +33,7 @@ class Contenido extends BaseModel {
     protected $primaryKey = "id";
     protected $table = 'contenidos';
     protected $dates = ['fecha_vigencia'];
+    public static $extensionesImagenes = ['jpg', 'png', 'gif', 'bmp', 'tiff', 'wmp', 'jp2'];
     
     /**
      * Campos que se pueden llenar mediante el uso de mass-assignment
@@ -129,7 +130,7 @@ class Contenido extends BaseModel {
     
     public function getTableFields() {
         return [
-            'tipoPublicacion->descripcion', 'titulo', 'ind_activo', 'fecha_vigencia'
+            'tipoPublicaciones->descripcion', 'titulo', 'ind_activo', 'fecha_vigencia'
         ];
     }
 }

@@ -8,6 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Página Web de Kentron">
         <meta name="author" content="Kentron Sistemas de Información C.A">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -37,7 +38,7 @@
         <!-- Errors -->
 
         <!-- Containers -->
-        @include('pages.containers')
+        @include('pages.containers.cn-mensajes')
         <!-- Containers -->
 
         <!-- Content -->
@@ -51,7 +52,8 @@
         <!-- Scripts -->
         @include('pages.js')
         <!-- Scripts -->
-
+        
+        @yield('javascript')
 
         <!-- JavaScript -->
         <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->

@@ -34,8 +34,6 @@ function loadCarouselEvents() {
         navigationText: [
             "<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span>",
             "<span class='glyphicon glyphicon-chevron-right' aria-hidden='true'></span>"
-//            "<img src='../img/image9.png' class='img-responsive' alt='prev'>",
-//            "<img src='../img/image10.png' class='img-responsive' alt='next'>"
 
         ],
         itemsDesktop: [1199, 3],
@@ -49,6 +47,20 @@ function loadCarouselEvents() {
 //        }
     });
 
+    $("#owl-proyectos").owlCarousel({
+        navigation: true,
+        singleItem: false,
+        items: 6, //10 items above 1000px browser width
+        itemsDesktop: [1199, 3], //5 items between 1000px and 901px
+        itemsDesktopSmall: [980, 3], // betweem 900px and 601px
+        itemsTablet: [750, 2], //2 items between 600 and 0
+        itemsTabletSmall: [523, 1],
+        itemsMobile: [463, 1], // itemsMobile disabled - inherit from itemsTablet option
+        navigationText: [
+            "<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span>",
+            "<span class='glyphicon glyphicon-chevron-right' aria-hidden='true'></span>"
+        ]
+    });
 }
 
 function loadGeneralEvents() {
@@ -58,13 +70,13 @@ function loadGeneralEvents() {
             $(this).css("background-color", colors[index]);
         } else if (index >= 4 && index <= 7) {
             $(this).css("background-color", colors[index - 4]);
-        } else if (index >= 8 && index <=11) {
+        } else if (index >= 8 && index <= 11) {
             $(this).css("background-color", colors[index - 8]);
-        }  else if (index >= 12 && index <= 15) {
+        } else if (index >= 12 && index <= 15) {
             $(this).css("background-color", colors[index - 12]);
-        }   else if (index >= 16 && index <= 19) {
+        } else if (index >= 16 && index <= 19) {
             $(this).css("background-color", colors[index - 16]);
-        }   else if (index >= 20) {
+        } else if (index >= 20) {
             $(this).css("background-color", colors[index - 20]);
         }
     });
@@ -92,16 +104,16 @@ function loadModalEvents() {
 
 //    Funcion para limpiar ventana modal al cerrar
     $('#modal-window1').on('hidden.bs.modal', function (e) {
-        $("#modal-window1").empty();
-        if ($(this).children().attr('data-reload') != undefined) {
-            window.location.reload();
-        }
+//        $("#modal-window1").empty();
+//        if ($(this).children().attr('data-reload') != undefined) {
+//            window.location.reload();
+//        }
     });
     $('#modal-window2').on('hidden.bs.modal', function (e) {
-        $("#modal-window2").empty();
-        if ($(this).children().attr('data-reload') != undefined) {
-            window.location.reload();
-        }
+//        $("#modal-window2").empty();
+//        if ($(this).children().attr('data-reload') != undefined) {
+//            window.location.reload();
+//        }
     });
 }
 
@@ -193,7 +205,7 @@ function buscarAyuda(evt) {
     var form = $(evt.target).closest('form');
     var input = $(evt.target);
     var url = location.href;
-//    La seccion de administracion no tiene ayuda en lso campos
+//    La seccion de administracion no tiene ayuda en los campos
     if (url.startsWith(baseUrl + "admin")) {
         return;
     }
@@ -245,7 +257,7 @@ function iniciarLibrerias() {
             $(this).focus(buscarAyuda);
         }
     });
-    
+
     $('.jqueryDatePicker').datepicker({
         format: "dd/mm/yyyy",
         todayBtn: "linked",
@@ -290,6 +302,37 @@ function iniciarLibrerias() {
                     }
                 }
             });
+        }
+    });
+
+    $('.disparadorArchivo').each(function () {
+        var callback = $(this).attr('data-callback');
+        try {
+            $(this).dropzone({
+                url: $(this).attr('data-urlsubir'),
+                previewsContainer: ".destino",
+                acceptedFiles: $(this).attr('data-tipoarchivo'),
+                dictInvalidFileType: "El archivo posee una extensión invalida",
+                success: function (file, response) {
+                    this.removeFile(file);
+                    $('#modalArchivo').modal('hide');
+                    if (callback != undefined) {
+                        eval(callback + '("' + response.url + '")');
+                    }
+                    window.location.reload();
+                },
+                processing: function () {
+                    $('#modalArchivo').modal('show');
+                },
+                error: function (file, errorMessage, request) {
+                    var response = JSON.parse(request.responseText);
+                    this.removeFile(file);
+                    $('#modalArchivo').modal('hide');
+                    mostrarError(response.mensaje);
+                }
+            });
+        } catch (err) {
+//            mostrarError(err);
         }
     });
 }

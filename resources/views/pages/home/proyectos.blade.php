@@ -1,11 +1,3 @@
-<!-- Important Owl stylesheet -->
-<link rel="stylesheet" href="assets/css/owl.carousel.css">
-
-<!-- Default Theme -->
-<link rel="stylesheet" href="assets/css/owl.theme.css">
-
-<!-- Include js plugin -->
-<script src="assets/js/init.js"></script>
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <h1 class="titulo-header">
@@ -17,7 +9,7 @@
 <div class="wrapper-with-margin">
     <div id="owl-proyectos" class="owl-carousel">        
         <div class="item">                
-            <div class="controls-wrapper modal-window">     
+            <div class="controls-wrapper modal-window" data-url="infoproyecto">     
                 <div class="titulo-proyecto">
                     <br>Administración de recursos e inventarios
                 </div>
@@ -25,7 +17,7 @@
                     <p>SUDEBAN</p>
                 </div>
             </div>
-            <div class="controls-wrapper modal-window"> 
+            <div class="controls-wrapper modal-window" data-url="infoproyecto"> 
                 <div class="titulo-proyecto">
                     <br>Mejoras en proceso de facturación y cobros
                 </div>
@@ -35,7 +27,7 @@
             </div>
         </div>     
         <div class="item">                
-            <div class="controls-wrapper modal-window">     
+            <div class="controls-wrapper modal-window" data-url="infoproyecto">     
                 <div class="titulo-proyecto">
                     <br>Monitoreos de gastos y caja chica
                 </div>
@@ -43,7 +35,7 @@
                     <p>Instituto Nacional de Estadisticas</p>
                 </div>
             </div>
-            <div class="controls-wrapper modal-window"> 
+            <div class="controls-wrapper modal-window" data-url="infoproyecto"> 
                 <div class="titulo-proyecto">
                     <br>Control de gastos y administración
                 </div>
@@ -53,7 +45,7 @@
             </div>
         </div>     
         <div class="item">                
-            <div class="controls-wrapper modal-window">     
+            <div class="controls-wrapper modal-window" data-url="infoproyecto">     
                 <div class="titulo-proyecto">
                     <br>Monitoreos de gastos y caja chica
                 </div>
@@ -61,7 +53,7 @@
                     <p>Alcaldía del Mun. Libertador</p>
                 </div>
             </div>
-            <div class="controls-wrapper modal-window"> 
+            <div class="controls-wrapper modal-window" data-url="infoproyecto"> 
                 <div class="titulo-proyecto">
                     <br>Mejoras en proceso de facturación y cobros
                 </div>
@@ -71,7 +63,7 @@
             </div>
         </div>     
        <div class="item">                
-            <div class="controls-wrapper modal-window">     
+            <div class="controls-wrapper modal-window" data-url="infoproyecto">     
                 <div class="titulo-proyecto">
                     <br>Administración de recursos e inventarios
                 </div>
@@ -79,7 +71,7 @@
                     <p>SUDEBAN</p>
                 </div>
             </div>
-            <div class="controls-wrapper modal-window"> 
+            <div class="controls-wrapper modal-window" data-url="infoproyecto"> 
                 <div class="titulo-proyecto">
                     <br>Mejoras en proceso de facturación y cobros
                 </div>
@@ -89,7 +81,7 @@
             </div>
         </div>     
         <div class="item">                
-            <div class="controls-wrapper modal-window">     
+            <div class="controls-wrapper modal-window" data-url="infoproyecto">     
                 <div class="titulo-proyecto">
                     <br>Monitoreos de gastos y caja chica
                 </div>
@@ -97,7 +89,7 @@
                     <p>Instituto Nacional de Estadisticas</p>
                 </div>
             </div>
-            <div class="controls-wrapper modal-window"> 
+            <div class="controls-wrapper modal-window" data-url="infoproyecto"> 
                 <div class="titulo-proyecto">
                     <br>Control de gastos y administración
                 </div>
@@ -107,7 +99,7 @@
             </div>
         </div>     
         <div class="item">                
-            <div class="controls-wrapper modal-window">     
+            <div class="controls-wrapper modal-window" data-url="infoproyecto">     
                 <div class="titulo-proyecto">
                     <br>Monitoreos de gastos y caja chica
                 </div>
@@ -115,7 +107,7 @@
                     <p>Alcaldía del Mun. Libertador</p>
                 </div>
             </div>
-            <div class="controls-wrapper modal-window"> 
+            <div class="controls-wrapper modal-window" data-url="infoproyecto"> 
                 <div class="titulo-proyecto">
                     <br>Mejoras en proceso de facturación y cobros
                 </div>
@@ -125,7 +117,7 @@
             </div>
         </div>
         <div class="item">                
-            <div class="controls-wrapper modal-window">     
+            <div class="controls-wrapper modal-window" data-url="infoproyecto">     
                 <div class="titulo-proyecto">
                     <br>Administración de recursos e inventarios
                 </div>
@@ -133,7 +125,7 @@
                     <p>SUDEBAN</p>
                 </div>
             </div>
-            <div class="controls-wrapper modal-window"> 
+            <div class="controls-wrapper modal-window" data-url="infoproyecto"> 
                 <div class="titulo-proyecto">
                     <br>Mejoras en proceso de facturación y cobros
                 </div>
@@ -143,7 +135,7 @@
             </div>
         </div>     
         <div class="item">                
-            <div class="controls-wrapper modal-window">     
+            <div class="controls-wrapper modal-window" data-url="infoproyecto">     
                 <div class="titulo-proyecto">
                     <br>Monitoreos de gastos y caja chica
                 </div>
@@ -151,7 +143,7 @@
                     <p>Instituto Nacional de Estadisticas</p>
                 </div>
             </div>
-            <div class="controls-wrapper modal-window"> 
+            <div class="controls-wrapper modal-window" data-url="infoproyecto"> 
                 <div class="titulo-proyecto">
                     <br>Control de gastos y administración
                 </div>
@@ -161,7 +153,7 @@
             </div>
         </div>     
         <div class="item">                
-            <div class="controls-wrapper modal-window">     
+            <div class="controls-wrapper modal-window" data-url="infoproyecto">     
                 <div class="titulo-proyecto">
                     <br>Monitoreos de gastos y caja chica
                 </div>
@@ -169,7 +161,7 @@
                     <p>Alcaldía del Mun. Libertador</p>
                 </div>
             </div>
-            <div class="controls-wrapper modal-window"> 
+            <div class="controls-wrapper modal-window" data-url="infoproyecto"> 
                 <div class="titulo-proyecto">
                     <br>Mejoras en proceso de facturación y cobros
                 </div>
@@ -179,7 +171,7 @@
             </div>
         </div>     
        <div class="item">                
-            <div class="controls-wrapper modal-window">     
+            <div class="controls-wrapper modal-window" data-url="infoproyecto">     
                 <div class="titulo-proyecto">
                     <br>Administración de recursos e inventarios
                 </div>
@@ -187,7 +179,7 @@
                     <p>SUDEBAN</p>
                 </div>
             </div>
-            <div class="controls-wrapper modal-window"> 
+            <div class="controls-wrapper modal-window" data-url="infoproyecto"> 
                 <div class="titulo-proyecto">
                     <br>Mejoras en proceso de facturación y cobros
                 </div>
@@ -197,7 +189,7 @@
             </div>
         </div>     
         <div class="item">                
-            <div class="controls-wrapper modal-window">     
+            <div class="controls-wrapper modal-window" data-url="infoproyecto">     
                 <div class="titulo-proyecto">
                     <br>Monitoreos de gastos y caja chica
                 </div>
@@ -205,7 +197,7 @@
                     <p>Instituto Nacional de Estadisticas</p>
                 </div>
             </div>
-            <div class="controls-wrapper modal-window"> 
+            <div class="controls-wrapper modal-window" data-url="infoproyecto"> 
                 <div class="titulo-proyecto">
                     <br>Control de gastos y administración
                 </div>
@@ -215,7 +207,7 @@
             </div>
         </div>     
         <div class="item">                
-            <div class="controls-wrapper modal-window">     
+            <div class="controls-wrapper modal-window" data-url="infoproyecto">     
                 <div class="titulo-proyecto">
                     <br>Monitoreos de gastos y caja chica
                 </div>
@@ -223,7 +215,7 @@
                     <p>Alcaldía del Mun. Libertador</p>
                 </div>
             </div>
-            <div class="controls-wrapper modal-window"> 
+            <div class="controls-wrapper modal-window" data-url="infoproyecto"> 
                 <div class="titulo-proyecto">
                     <br>Mejoras en proceso de facturación y cobros
                 </div>
@@ -235,6 +227,7 @@
     </div>
 </div>
 
+@include('pages.containers.cn-modales')
 <!--<div class="wrapper-with-margin">
     <div id="owl-proyectos" class="owl-carousel">        
         <div class="item">                

@@ -10,6 +10,9 @@ $(document).ajaxStart(function () {
 });
 
 $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
     statusCode: {
         500: function () {
             mostrarError("<span class='glyphicon glyphicon-remove'></span> Ocurrio un error al tratar de procesar su solicitud. <i>(Error interno del servidor)</i>");
@@ -270,7 +273,7 @@ function documentoListo() {
     guardarFormulario();
     modificarAjax();
     eliminarAjax();
-    
+
 }
 
 

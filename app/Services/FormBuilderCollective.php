@@ -12,14 +12,13 @@ namespace App\Services;
 use Collective\Html\FormBuilder;
 
 class FormBuilderCollective extends FormBuilder {
-    
+
     protected $buscando = false;
 
 //    public function open(array $options = array()) {
 //        $this->buscando = false;
 //        return parent::open($options);
 //    }
-
 //    public function busqueda($params) {
 //        $this->buscando = true;
 //        return parent::open($params);
@@ -37,7 +36,7 @@ class FormBuilderCollective extends FormBuilder {
         $data['values'] = $obj->{$relation}->lists('id');
         $data['numCols'] = $numCols;
         $data['params']['data-placeholder'] = $obj->getDescription($relation);
-        return \View::make('templates.bootstrap.multiselect', $data)->render();
+        return view('templates.bootstrap.multiselect', $data)->render();
     }
 
     public function display($obj, $attrName, $numCols = 12, $inline = false) {
@@ -47,7 +46,7 @@ class FormBuilderCollective extends FormBuilder {
         $data['attrValue'] = $obj->getValueAt($data['params']['id'], true);
         $data['params']['placeholder'] = $obj->getDescription($attrName);
         $data['inline'] = $inline;
-        return \View::make('templates.bootstrap.display', $data);
+        return view('templates.bootstrap.display', $data);
     }
 
     public function concurrencia($obj) {
@@ -65,7 +64,7 @@ class FormBuilderCollective extends FormBuilder {
             $data['params']['required'] = 'true';
         }
         $data['inputType'] = "select";
-        return \View::make('templates.bootstrap.input', $data);
+        return view('templates.bootstrap.input', $data);
     }
 
     function btInput($obj, $attrName, $numCols = 12, $type = 'text'
@@ -122,11 +121,34 @@ class FormBuilderCollective extends FormBuilder {
             }
         }
         $data['params']['data-placeholder'] = $data['params']['placeholder'];
-        return \View::make('templates.bootstrap.input', $data);
+        return view('templates.bootstrap.input', $data);
+    }
+
+    function btImage($obj, $objName, $attrName, $type, $numCols = 12, $alt = '', $url_image = '',
+            $html = [], $options = []) {
+
+        $data['params'] = $html;
+        if (!isset($data['params']['data-tipoarchivo'])) {
+            $data['params']['data-tipoarchivo'] = 'image/*';
+        }
+        if (!isset($data['params']['data-urlsubir'])) {
+            $data['params']['data-urlsubir'] = url($objName . "/" . 'subir' . $attrName . "/" . $obj->id);
+        }
+        if (!isset($data['params']['class'])) {
+            $data['params']['class'] = 'img-responsive disparadorArchivo';
+        }
+        $data['url_image'] = (empty($url_image) || $url_image == '') ? $base_path . $obj->id . DIRECTORY_SEPARATOR . $obj->$attrName : $url_image;
+        $data['alt'] = (empty($alt) || $alt == '') ? 'No hay '. $attrName .' aun' : $alt;
+        $data['params']['class'] .= ($type != 'image') ? ' form-control' : '';       
+        list($data['numCols'], $data['attrName'], $data['params']['id'],
+                $data['params']['placeholder'], $data['inputType'], $data['options']) = array($numCols, $attrName,
+            str_replace('->', '_', str_replace('[]', '', $attrName)), $obj->getDescription($attrName),
+            $type, $options);
+        return view('templates.bootstrap.file', $data)->render();
     }
 
     function submitBt($btn_type = "btn-volver") {
-        return \View::make('templates.bootstrap.submit', ['btn_type' => $btn_type]);
+        return view('templates.bootstrap.submit', ['btn_type' => $btn_type]);
     }
 
 }
