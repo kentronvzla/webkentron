@@ -36,7 +36,7 @@
     </li>
 
     <li class="negrita"><a href="#">DISTRIBUIDORES</a></li>
-    <li class="negrita"><a href="#">CONTACTO</a></li>
+    <li class="negrita"><a href="{{ url('contact') }}">CONTACTO</a></li>
     <li class="negrita"><a href="{{ url('customer') }}">CLIENTES</a></li>
     <!--<li class="{{ set_active('userProtected') }}"><a href="{{ url('userProtected') }}">Registered Users Only</a></li>-->
 </ul>
