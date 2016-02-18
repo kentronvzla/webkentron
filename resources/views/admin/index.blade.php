@@ -19,7 +19,7 @@
             <div class="panel-heading">Tablas</div>
             <ul class="list-group">
                 <a href="{{url('admin/contenidos')}}">
-                    <li class="list-group-item {{$class['contenidos'] or ""}}">Contenidos</li>
+                    <li class="list-group-item lipanel {{$class['contenidos'] or ""}}">Contenidos</li>
                 </a>
             </ul>
         </div>

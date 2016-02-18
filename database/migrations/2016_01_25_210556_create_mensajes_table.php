@@ -12,7 +12,7 @@ class CreateMensajesTable extends Migration {
      */
     public function up() {
         Schema::create('mensajes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unique();
             $table->string('asunto', 100);
             $table->longText('contenido');
             $table->timestamp('fecha_inicio')->nullable();
@@ -24,6 +24,10 @@ class CreateMensajesTable extends Migration {
             $table->integer('version')->default(0);
             $table->boolean('ind_visible')->default(1);
             $table->timestamps();
+
+            // We'll need to ensure that MySQL uses the InnoDB engine to
+            // support the indexes, other engines aren't affected.
+            $table->engine = 'InnoDB';
         });
     }
 

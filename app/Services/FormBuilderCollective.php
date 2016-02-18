@@ -98,7 +98,10 @@ class FormBuilderCollective extends FormBuilder {
         }
         $data['params']['id'] = str_replace('->', '_', str_replace('[]', '', $attrName));
         $data['params']['class'] .= 'form-control';
-        $data['params']['placeholder'] = $obj->getDescription($attrName);
+        if ($type != 'select'){
+            $data['params']['placeholder'] = $obj->getDescription($attrName);
+            $data['params']['data-placeholder'] = $data['params']['placeholder'];
+        }
         if ($obj->isRequired($attrName) && $type != 'password') {
             $data['params']['required'] = 'true';
         }
@@ -120,7 +123,6 @@ class FormBuilderCollective extends FormBuilder {
                 $data['attrName'] = $obj->getTable() . '.' . $data['attrName'];
             }
         }
-        $data['params']['data-placeholder'] = $data['params']['placeholder'];
         return view('templates.bootstrap.input', $data);
     }
 
@@ -144,7 +146,16 @@ class FormBuilderCollective extends FormBuilder {
                 $data['params']['placeholder'], $data['inputType'], $data['options']) = array($numCols, $attrName,
             str_replace('->', '_', str_replace('[]', '', $attrName)), $obj->getDescription($attrName),
             $type, $options);
-        return view('templates.bootstrap.file', $data)->render();
+        return view('templates.bootstrap.image', $data)->render();
+    }
+    
+    function btFile($obj, $attrName, $numCols = 12, $html = []) {
+
+        $data['params'] = $html;
+
+        list($data['numCols'], $data['attrName'],$data['params']['placeholder']) = 
+                array($numCols, $attrName, $obj->getDescription($attrName));
+        return view('templates.dropzonefile', $data)->render();
     }
 
     function submitBt($btn_type = "btn-volver") {

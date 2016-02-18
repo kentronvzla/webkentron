@@ -9,19 +9,10 @@
 
     <div class="panel-body">
         @include('templates.errores')
-        {!! Form::open(['route' => 'contenidos', 'class' => 'form']) !!}
+        {!! Form::open(['url'=>'contenidos/nuevo', 'class' => 'form saveajax', 'id'=>'contenidos-form']) !!}
         {!! Form::concurrencia($contenido) !!}
 
         <div class="row">
-            @if($contenido->fondo !="")
-            {!! Form::btImage($contenido, 'contenido', 'fondo', 'image', 3, 'Fondo') !!}  
-            @else
-            {!! Form::btImage($contenido, 'contenido', 'fondo', 'image', 3, '', 'assets/img/fondo-icon.png') !!}  
-            @endif
-        </div>
-
-        <div class="row">
-            {{ csrf_field() }}
             {!! Form::hidden('id',$contenido->id) !!}
             {!! Form::btInput($contenido, 'titulo', 12) !!}
         </div>
@@ -31,28 +22,24 @@
         </div>
 
         <div class="row">
-            {!! Form::btInput($contenido,'detalle',12,'textarea',['class'=>'ckeditor ']) !!}
+            {!! Form::btInput($contenido, 'detalle', 12, 'textarea', ['class'=>'ckeditor ', 'id'=>'detalle']) !!}
         </div>
 
         <div class="row">
-            {!! Form::btInput($contenido, 'tipo_publicaciones_id', 6) !!}
-            {!! Form::btInput($contenido, 'modo_vistas_id', 6) !!}
+            {!! Form::btInput($contenido, 'tipo_publicaciones_id', 4) !!}
+            {!! Form::btInput($contenido, 'modo_vistas_id', 4) !!}
+            {!! Form::btInput($contenido, 'tipo_fondos_id', 4) !!}
         </div>
 
         <div class="row">
-            {!! Form::btInput($contenido, 'tipo_fondos_id', 6) !!}
-            {!! Form::btInput($contenido,'fondo', 6 ,'file') !!}
-        </div>
-
-
-        <div class="row">
-            {!! Form::btInput($contenido,'ind_activo', 3) !!}
-            {!! Form::btInput($contenido, 'fecha_vigencia', 3) !!}
-            {!! Form::btInput($contenido, 'autor', 6, 'text',['readonly'=>'readonly']) !!}
-        </div>
-
-        <div class="row">
-            {!! Form::btInput($contenido, 'referencia_externa', 12) !!}
+            {!! Form::btInput($contenido, 'fecha_vigencia', 4) !!}
+            {!! Form::btInput($contenido, 'referencia_externa', 4) !!}
+            {!! Form::btInput($contenido,'ind_visible', 4) !!}
+            @if(empty(@$id))
+            {!! Form::hidden('usuario_creacion_id', Sentry::getUser()->id) !!}
+            @else
+            {!! Form::hidden('usuario_creacion_id',$contenido->usuario_creacion_id) !!}
+            @endif    
         </div>
 
         {!! Form::submitBt() !!}
@@ -64,3 +51,7 @@
 @include('pages.containers.cn-modales')
 @stop
 
+@section('javascript')
+{!! Html::script('assets/vendors/ckeditor/adapters/jquery.js') !!}
+{!! Html::script('assets/js/views/admin/administracion.js') !!}
+@stop

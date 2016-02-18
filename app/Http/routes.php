@@ -6,8 +6,8 @@ Route::group(['middleware' => ['redirectAdmin']], function() {
     Route::get('about', ['as' => 'about', 'uses' => 'PagesController@getAbout']);
     Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@getContact']);
     Route::get('customer', ['as' => 'customer', 'uses' => 'PagesController@getCustomer']);
-    Route::get('infoproyecto', ['as' => 'infoproyecto', 'uses' => 'PagesController@getInfoProyecto']); 
-   
+    Route::get('infoproyecto', ['as' => 'infoproyecto', 'uses' => 'PagesController@getInfoProyecto']);
+
     Route::group(['prefix' => 'products', 'as' => 'products'], function() {
         Route::get('kerux', ['as' => 'kerux', 'uses' => 'PagesController@getKeruxInfo']);
         Route::get('komat', ['as' => 'komat', 'uses' => 'PagesController@getKomatInfo']);
@@ -46,11 +46,11 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::resource('admin/profiles', 'Admin\AdminUsersController', ['only' => ['index', 'show', 'edit', 'update', 'destroy']]);
 });
 
+# Admin Tables Routes
 Route::group(['prefix' => 'admin', 'as' => 'admin'], function() {
     Route::controller('contenidos', 'ContenidosController');
     Route::get('/', 'AdminController@getIndex');
 });
 
 # Contenido routes
-Route::get('contenidos', ['as' => 'contenidos', 'uses' => 'ContenidosController@create']);
-Route::post('contenidos', ['as' => 'contenidos', 'uses' => 'ContenidosController@store']);
+Route::controller('contenidos', 'ContenidosController');

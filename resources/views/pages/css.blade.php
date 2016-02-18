@@ -7,7 +7,7 @@
 {!! Html::style('assets/css/libraries/datepicker.min.css') !!}
 {!! Html::style('assets/css/libraries/datatables.bootstrap.min.css') !!}
 {!! Html::style('assets/css/libraries/datatables.min.css') !!}
-{!! Html::style('assets/css/libraries/dropzone.min.css') !!}
+{!! Html::style('assets/css/libraries/dropzone.css') !!}
 {!! Html::style('assets/css/libraries/yamm.css') !!}
 
 {!! Html::style('assets/css/webkentron/navbar.css') !!}

@@ -12,7 +12,7 @@ class CreateClientesTable extends Migration {
      */
     public function up() {
         Schema::create('clientes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unique();
             $table->integer('parroquia_id', false, true)->nullable();
             $table->integer('estatus_cliente_id', false, true);
             $table->string('codigo', 10);
@@ -32,6 +32,10 @@ class CreateClientesTable extends Migration {
             $table->integer('version')->default(0);
             $table->boolean('ind_visible')->default(1);
             $table->timestamps();
+
+            // We'll need to ensure that MySQL uses the InnoDB engine to
+            // support the indexes, other engines aren't affected.
+            $table->engine = 'InnoDB';
         });
     }
 

@@ -12,7 +12,7 @@ class CreateIncidentesTable extends Migration {
      */
     public function up() {
         Schema::create('incidentes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unique();
             /* Foreing Keys */
             $table->integer('actividad_id', false, true);
             $table->integer('producto_id', false, true);
@@ -22,7 +22,7 @@ class CreateIncidentesTable extends Migration {
             $table->integer('causa_problema_id', false, true);
             $table->integer('cliente_usuario_id', false, true);
             $table->integer('usuario_responsable_id', false, true);
-            $table->integer('orden_trabajo_id', false, true);            
+            $table->integer('orden_trabajo_id', false, true);
             $table->integer('proyecto_id', false, true);
             $table->integer('usuario_atencion_id', false, true);
             $table->integer('estatus_registro_id', false, true);
@@ -33,7 +33,7 @@ class CreateIncidentesTable extends Migration {
             $table->integer('usuario_verificacion_id', false, true);
             $table->integer('estatus_encuesta_id', false, true);
             /* Foreing Keys */
-            
+
             /* Normal Fields */
             $table->date('fecha_incidente');
             $table->timestamp('fecha_inicio')->nullable();
@@ -60,12 +60,16 @@ class CreateIncidentesTable extends Migration {
             $table->integer('calificacion_atencion');
             $table->string('num_requerimiento', 10);
             /* Normal Fields */
-            
+
             $table->integer('usuario_creacion_id', false, true);
             $table->integer('usuario_modificacion_id', false, true);
             $table->integer('version')->default(0);
             $table->boolean('ind_visible')->default(1);
             $table->timestamps();
+
+            // We'll need to ensure that MySQL uses the InnoDB engine to
+            // support the indexes, other engines aren't affected.
+            $table->engine = 'InnoDB';
         });
     }
 

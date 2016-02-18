@@ -11,6 +11,7 @@ use App\BaseModel;
  * @property string $descripcion
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Contenido[] $contenido
  * @property-read mixed $estatus_display
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Contenido[] $contenidos
  */
 class TipoPublicacion extends BaseModel {
 

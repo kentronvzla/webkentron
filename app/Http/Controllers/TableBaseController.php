@@ -53,6 +53,7 @@ class TableBaseController extends Controller {
     }
 
     public function getModificar($id = null) {
+        $data['class'][static::$viewName] = "active";
         $data[static::$varName] = call_user_func([static::$namespace . static::$className, 'findOrNew'], $id);
         return view('admin.' . static::$folderName . '.' . static::$viewName . 'form', $data);
     }

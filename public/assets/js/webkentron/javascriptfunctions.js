@@ -2,7 +2,19 @@
 function documentReady() {
     loadCarouselEvents();
     loadGeneralEvents();
-    loadModalEvents();
+    loadModalEvents();    
+    autoCompletado();
+    ayudasNavegador();
+    navBar();
+    activeLink();
+    establishHistroyVariables();
+    acordion();
+    //other things to do on document ready, separated for ajax calls
+    documentoListo();
+    //eventos delegados al document..
+    abrirModal();
+    resetearFormulario();
+    multiSelect();
 }
 
 function loadCarouselEvents() {
@@ -87,7 +99,6 @@ function loadModalEvents() {
 //    Funcion para mostrar ventana modal
     $(".modal-window").unbind("click");
     $(".modal-window").click(function () {
-        $('#modal-window1').modal('toggle');
         var element = $(this);
         var url = element.attr("data-url");
         $.get(url, function (data) {
@@ -104,16 +115,16 @@ function loadModalEvents() {
 
 //    Funcion para limpiar ventana modal al cerrar
     $('#modal-window1').on('hidden.bs.modal', function (e) {
-//        $("#modal-window1").empty();
-//        if ($(this).children().attr('data-reload') != undefined) {
-//            window.location.reload();
-//        }
+        $("#modal-window1").empty();
+        if ($(this).children().attr('data-reload') != undefined) {
+            window.location.reload();
+        }
     });
     $('#modal-window2').on('hidden.bs.modal', function (e) {
-//        $("#modal-window2").empty();
-//        if ($(this).children().attr('data-reload') != undefined) {
-//            window.location.reload();
-//        }
+        $("#modal-window2").empty();
+        if ($(this).children().attr('data-reload') != undefined) {
+            window.location.reload();
+        }
     });
 }
 
@@ -201,12 +212,21 @@ function guardarAyudasNavegador() {
     });
 }
 
+function crearAyuda(formulario, campo) {
+    var data = {
+        formulario: formulario,
+        campo: campo,
+    };
+    localStorage.setItem(formulario + "." + campo, "Pendiente por documentar");
+    $.post(baseUrl + "admin/tablas/ayudaCampos/crear", data);
+}
+
 function buscarAyuda(evt) {
     var form = $(evt.target).closest('form');
     var input = $(evt.target);
     var url = location.href;
-//    La seccion de administracion no tiene ayuda en los campos
-    if (url.startsWith(baseUrl + "admin")) {
+    //la seccion de administracion no tiene ayuda en lso campos
+    if (url.startsWith(baseUrl + "administracion")) {
         return;
     }
     else if (form.attr('id') == undefined) {
@@ -224,26 +244,77 @@ function buscarAyuda(evt) {
     }
 }
 
-function crearAyuda(formulario, campo) {
-    var data = {
-        formulario: formulario,
-        campo: campo,
-    };
-    localStorage.setItem(formulario + "." + campo, "Pendiente por documentar");
-    $.post(baseUrl + "admin/tablas/ayudaCampos/crear", data);
+function confirmarEliminacion() {
+    $('.form-eliminar').unbind('submit');
+    $('.form-eliminar').submit(function (e) {
+        e.preventDefault();
+        var form = this;
+        confirmarIntencion("¿Esta seguro que desea eliminar el elemento seleccionado?", function () {
+            $(form).unbind('submit');
+            $(form).submit();
+        });
+    });
+}
+
+function confirmarIntencion(mensaje, confirmado) {
+    $('#modalConfirmacion').modal('show');
+    $('#mensajeModalConfirmacion').html(mensaje);
+    $('#okModalConfirmacion').unbind('click');
+    $('#okModalConfirmacion').click(confirmado);
+    $('#okModalConfirmacion').click(function () {
+        $('#modalConfirmacion').modal('hide');
+    });
+}
+
+function volverAtras() {
+    $('.btn-volver').unbind('click');
+    $('.btn-volver').click(function () {
+        var urlAtras = location.href;
+        sect = urlAtras.split('?')[0].split('/');
+        if (!isNaN(sect[sect.length - 1])) {
+            delete sect[sect.length - 1];
+            delete sect[sect.length - 2];
+        } else {
+            delete sect[sect.length - 1];
+        }
+        var url = sect.join('/');
+        url = url.slice(0, -1);
+        if (url.endsWith("/")) {
+            url = url.slice(0, -1);
+        }
+        location.href = url;
+    });
 }
 
 function iniciarLibrerias() {
+    iniciarSelect();
 
+    iniciarDecimalFormat();
+
+    iniciarTooltipAyuda();
+
+    iniciarDatePicker();
+
+    iniciarPopoverRaty();
+
+    iniciarJqueryTable();
+}
+
+
+function iniciarSelect() {
     $('select.advanced-select').select2();
+}
 
+function iniciarDecimalFormat() {
     $(".decimal-format").autoNumeric('init', {
         aSep: ".",
         aDec: ","
     });
 
     $(".decimal-format").css('text-align', 'right');
+}
 
+function iniciarTooltipAyuda() {
     $('[data-toggle="tooltip"]').tooltip({html: true});
 
     $('input, select, textarea').each(function () {
@@ -253,11 +324,13 @@ function iniciarLibrerias() {
         }
         if ($(this).attr("data-tieneayuda") == undefined && $(this).attr('type') != "hidden") {
             $(this).attr("data-tieneayuda", 1);
-            $(this).hover(buscarAyuda);
-            $(this).focus(buscarAyuda);
+//            $(this).hover(buscarAyuda);
+//            $(this).focus(buscarAyuda);
         }
     });
+}
 
+function iniciarDatePicker() {
     $('.jqueryDatePicker').datepicker({
         format: "dd/mm/yyyy",
         todayBtn: "linked",
@@ -265,13 +338,17 @@ function iniciarLibrerias() {
     }).on('changeDate', function (ev) {
         $(this).datepicker('hide');
     });
+}
 
+function iniciarPopoverRaty() {
     $('[data-toggle="popover"]').popover();
 
     $('.raty').raty({
         score: 4
     });
+}
 
+function iniciarJqueryTable() {
     $('table.jqueryTable').each(function () {
         if ($(this).attr('data-esdatatable') == undefined) {
             $(this).attr('data-esdatatable', true);
@@ -304,7 +381,9 @@ function iniciarLibrerias() {
             });
         }
     });
+}
 
+function iniciarDropzone() {
     $('.disparadorArchivo').each(function () {
         var callback = $(this).attr('data-callback');
         try {
@@ -337,39 +416,154 @@ function iniciarLibrerias() {
     });
 }
 
-function confirmarEliminacion() {
-    $('.form-eliminar').unbind('submit');
-    $('.form-eliminar').submit(function (e) {
-        e.preventDefault();
-        var form = this;
-        confirmarIntencion("¿Esta seguro que desea eliminar el elemento seleccionado?", function () {
-            $(form).unbind('submit');
-            $(form).submit();
+$.fn.clearForm = function () {
+    return this.each(function () {
+        var type = this.type, tag = this.tagName.toLowerCase();
+        if (tag == 'form')
+            return $(':input', this).clearForm();
+        if (type == 'text' || type == 'password' || tag == 'textarea')
+            this.value = '';
+        else if (type == 'checkbox' || type == 'radio')
+            this.checked = false;
+        else if (tag == 'select')
+            $(this).val("");
+        else if (type == 'hidden' && $(this).attr('name') != 'solicitud_id')
+            $(this).val("");
+    });
+};
+
+if (typeof String.prototype.startsWith != 'function') {
+    String.prototype.startsWith = function (str) {
+        return this.slice(0, str.length) == str;
+    };
+}
+
+if (typeof String.prototype.endsWith !== 'function') {
+    String.prototype.endsWith = function (suffix) {
+        return this.indexOf(suffix, this.length - suffix.length) !== -1;
+    };
+}
+
+function autoCompletado() {
+    $('.autocompletado').each(function () {
+        var url = $(this).data('url');
+        $(this).typeahead({
+            ajax: baseUrl + url
         });
     });
 }
 
-function volverAtras() {
-    $('.btn-volver').unbind('click');
-    $('.btn-volver').click(function () {
-        var urlAtras = location.href;
-        sect = urlAtras.split('?')[0].split('/');
-        if (!isNaN(sect[sect.length - 1])) {
-            delete sect[sect.length - 1];
-            delete sect[sect.length - 2];
-        } else {
-            delete sect[sect.length - 1];
+function ayudasNavegador() {
+//    guardarAyudasNavegador();
+    var msie = navigator.userAgent.match(/msie/i);
+    $.browser = {};
+    $.browser.msie = {};
+
+    //disbaling some functions for Internet Explorer
+    if (msie) {
+        $('#is-ajax').prop('checked', false);
+        $('#for-is-ajax').hide();
+        $('#toggle-fullscreen').hide();
+        $('.login-box').find('.input-large').removeClass('span10');
+    }
+}
+
+function navBar() {
+    $('.navbar-toggle').click(function (e) {
+        e.preventDefault();
+        $('.nav-sm').html($('.navbar-collapse').html());
+        $('.sidebar-nav').toggleClass('active');
+        $(this).toggleClass('active');
+    });
+
+    var $sidebarNav = $('.sidebar-nav');
+
+    // Hide responsive navbar on clicking outside
+    $(document).mouseup(function (e) {
+        if (!$sidebarNav.is(e.target) // if the target of the click isn't the container...
+                && $sidebarNav.has(e.target).length === 0
+                && !$('.navbar-toggle').is(e.target)
+                && $('.navbar-toggle').has(e.target).length === 0
+                && $sidebarNav.hasClass('active')
+                )// ... nor a descendant of the container
+        {
+            e.stopPropagation();
+            $('.navbar-toggle').click();
         }
-        var url = sect.join('/');
-        url = url.slice(0, -1);
-        if (url.endsWith("/")) {
-            url = url.slice(0, -1);
-        }
-        location.href = url;
+    });
+
+}
+
+function activeLink() {
+    //highlight current / active link
+    $('ul.main-menu li a').each(function () {
+        if ($($(this))[0].href == String(window.location))
+            $(this).parent().addClass('active');
     });
 }
 
+function establishHistroyVariables() {
+    //establish history variables
+    var
+            History = window.History, // Note: We are using a capital H instead of a lower h
+            State = History.getState(),
+            $log = $('#log');
 
+    //bind to State Change
+    History.Adapter.bind(window, 'statechange', function () { // Note: We are using statechange instead of popstate
+        var State = History.getState(); // Note: We are using History.getState() instead of event.state
+        ejecutarAjaxNavegador(State);       
+    });
+}
+
+function acordion() {
+    $('.accordion > a').click(function (e) {
+        e.preventDefault();
+        var $ul = $(this).siblings('ul');
+        var $li = $(this).parent();
+        if ($ul.is(':visible'))
+            $li.removeClass('active');
+        else
+            $li.addClass('active');
+        $ul.slideToggle();
+    });
+
+    $('.accordion li.active:first').parents('ul').slideDown();
+}
+
+function abrirModal() {
+    $(document).on('click', '.abrir-modal', function (evt) {
+        evt.preventDefault();
+        var url = $(this).attr('href');
+        $.get(url, function (data) {
+            if ($("#modal-window1").is(':empty')) {
+                $("#modal-window1").html(data);
+                $("#modal-window1").modal('show');
+            } else {
+                $("#modal-window2").html(data);
+                $("#modal-window2").modal('show');
+            }
+        });
+    });
+}
+
+function resetearFormulario() {
+    $(document).on('click', '.btn-reset', function () {
+        $(this).closest('form').clearForm();
+    });
+}
+
+function multiSelect() {
+    $(document).on('change', 'select[data-child]', function () {
+        if ($(this).val() == "") {
+            return;
+        }
+        var child = $(this).data('child');
+        var url = 'admin/tablas/' + $(this).data('url');
+        var formParent = $(this).closest('form');
+        ejecutarAjaxSelect(child, url, formParent);    
+    });
+}
 //function random(owlSelector) {
 //    owlSelector.children().sort(function () {
 //        return Math.round(Math.random()) - 0.5;
