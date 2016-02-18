@@ -54,3 +54,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin'], function() {
 
 # Contenido routes
 Route::controller('contenidos', 'ContenidosController');
+
+# Contacto routes
+Route::get('contact', ['as' => 'contact', 'uses' => 'ContactoController@index']);
+Route::post('contact', ['as' => 'contact', 'uses' => 'ContactoController@store']);
+
