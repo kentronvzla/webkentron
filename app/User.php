@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Sentry;
 
 /**
  * App\User
@@ -27,9 +28,10 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  */
-class User extends \Cartalyst\Sentry\Users\Eloquent\User implements AuthenticatableContract, CanResetPasswordContract
-{
-    use Authenticatable, CanResetPassword;
+class User extends \Cartalyst\Sentry\Users\Eloquent\User implements AuthenticatableContract, CanResetPasswordContract {
+
+    use Authenticatable,
+        CanResetPassword;
 
     /**
      * The database table used by the model.
@@ -52,15 +54,29 @@ class User extends \Cartalyst\Sentry\Users\Eloquent\User implements Authenticata
      */
     protected $hidden = ['password', 'remember_token'];
 
-    public static function boot()
-    {
+    public static function boot() {
         self::$hasher = new \Cartalyst\Sentry\Hashing\NativeHasher;
     }
 
-    public function isCurrent()
-    {
-        if (!Sentry::check()) return false;
+    public function isCurrent() {
+        if (!Sentry::check())
+            return false;
 
         return Sentry::getUser()->id == $this->id;
     }
+
+    public static function getLogged() {
+        if (!Sentry::check())
+            return false;
+        
+        return self::find(Sentry::getUser()->id);
+    }
+
+    public static function getUserIdLogged() {
+        if (!Sentry::check())
+            return false;
+        
+        return Sentry::getUser()->id;
+    }
+
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Helpers\Helper;
+use ReflectionClass;
 
 class TableBaseController extends Controller {
 
@@ -14,7 +16,7 @@ class TableBaseController extends Controller {
     protected static $viewName = "";
     protected static $varName = "";
     protected static $eagerLoading = [];
-
+    
     public function getIndex() {
         $data['class'][static::$viewName] = "active";
         if (count(static::$eagerLoading) == 0) {
@@ -30,6 +32,7 @@ class TableBaseController extends Controller {
         }
         return view('admin.' . static::$folderName . '.' . static::$viewName, $data);
     }
+    
     public function postIndex(Request $request) {
         if ($request->isMethod('post') && $request->is(\App::getLocale() . '/admin/*')) {
             $variable = call_user_func([static::$namespace . static::$className, 'findOrNew'], $request->input('id'));
@@ -52,12 +55,27 @@ class TableBaseController extends Controller {
         return Response::json(array('errores' => $variable->getErrors()), 400);
     }
 
-    public function getModificar($id = null) {
+    public function getModificar(Request $request, $id = null) {
         $data['class'][static::$viewName] = "active";
         $data[static::$varName] = call_user_func([static::$namespace . static::$className, 'findOrNew'], $id);
         return view('admin.' . static::$folderName . '.' . static::$viewName . 'form', $data);
     }
 
+//    protected $namespace;
+//    protected $collectionName;
+//    protected $modelName;
+//    protected $folder;
+//    protected $folderUrlFormat;
+//    protected static $eagerLoading = [];
+//
+//    public function __construct() {
+//        $this->namespace = "App\\";
+//        $this->collectionName = null;
+//        $this->modelName = null;
+//        $this->folder = null;
+//        $this->folderUrlFormat = null;
+//    }
+//
 //    public function getIndex() {
 //        if (count(static::$eagerLoading) == 0) {
 //            $data[$this->getCollectionName()] = $this->executeFunction('orderBy', 'id')->get();
@@ -71,46 +89,46 @@ class TableBaseController extends Controller {
 //        return view($this->getFolder(), $data);
 //    }
 //
-//    public function postIndex() {
-//        $var = $this->executeFunction('findOrNew', \Input::get('id'));
-//        $var->fill(\Input::all());
-//        if ($var->save()) {
-//            $this->afterPostIndex($var);
-//            return \Redirect::to($this->getFolder(false))
+//    public function postIndex(Request $request) {
+//        $model = $this->executeFunction('findOrNew', $request->input('id'));
+//        $model->fill($request->all());
+//        if ($model->save()) {
+//            $this->afterPostIndex($model);
+//            return redirect($this->getFolder(false))
 //                            ->with('mensaje', 'Se guardo el ' .
-//                                    call_user_func([$var, 'getPrettyName']) .
+//                                    call_user_func([$model, 'getPrettyName']) .
 //                                    ' correctamente.');
 //        } else {
-//            return \Redirect::back()->withInput()
-//                            ->withErrors($var->getErrors());
+//            return back()->withInput()->withErrors($model->getErrors());
 //        }
 //    }
 //
-//    public function deleteIndex() {
-//        $var = $this->executeFunction('find', \Input::get('id'));
-//        if ($var->delete()) {
-//            if (\Request::ajax()) {
+//    public function deleteIndex(Request $request) {
+//        $model = $this->executeFunction('find', $request->input('id'));
+//        if ($model->delete()) {
+//            if ($request::ajax()) {
 //                return response()->json(array('mensaje' => 'Se borró el ' .
-//                            call_user_func(array($var, 'getPrettyName')) . ' correctamente.'));
+//                            call_user_func(array($model, 'getPrettyName')) . ' correctamente.'));
 //            }
-//            return \Redirect::to($this->getFolder(false))
+//            return redirect($this->getFolder(false))
 //                            ->with('mensaje', 'Se borró el ' .
-//                                    call_user_func(array($var, 'getPrettyName')) . ' correctamente.');
+//                                    call_user_func(array($model, 'getPrettyName')) . ' correctamente.');
 //        }
-//        if (\Request::ajax()) {
-//            return response()->json(array('errores' => $var->getErrors()));
+//        if ($request::ajax()) {
+//            return response()->json(array('errores' => $model->getErrors()));
 //        }
-//        return Redirect::to($this->getFolder(false))->withErrors($var->getErrors());
+//        return redirect($this->getFolder(false))->withErrors($model->getErrors());
 //    }
 //
-//    public function getModificar($id = 0) {
+//    public function getModificar(Request $request, $id = 0) {
 //        $data[$this->getVarName()] = $this->executeFunction('findOrNew', $id);
 //        return view($this->getFolder() . 'form', $data);
 //    }
 //
 //    public function getFolder($formatFolder = true) {
 //        if (is_null($this->folder)) {
-//            $folder = str_replace('Controller', '', get_class($this));
+//            $reflect = new ReflectionClass(get_class($this));
+//            $folder = str_replace('Controller', '', $reflect->getShortName());
 //            $aux = "";
 //            $arr = explode("\\", $folder);
 //            foreach ($arr as $section) {
@@ -135,7 +153,7 @@ class TableBaseController extends Controller {
 //        if (is_null($this->modelName)) {
 //            $className = class_basename(get_class($this));
 //            $className = str_replace('Controller', '', $className);
-//            $className = str_singular_spanish($className);
+//            $className = Helper::strSingularSpanish($className);
 //            $this->modelName = ucfirst($className);
 //        }
 //        return $this->modelName;
@@ -144,17 +162,18 @@ class TableBaseController extends Controller {
 //    public function getCollectionName() {
 //        if (is_null($this->collectionName)) {
 //            $modelName = $this->getModelName();
-//            $this->collectionName = lcfirst(str_plural_spanish($modelName));
+//            $this->collectionName = lcfirst(Helper::strPluralSpanish($modelName));
 //        }
 //        return $this->collectionName;
 //    }
 //
 //    private function executeFunction($function, $param = null) {
 //        $modelName = $this->getModelName();
+//        $namespaceName = $this->namespace;
 //        if ($param !== null) {
-//            return call_user_func([$modelName, $function], $param);
+//            return call_user_func([$namespaceName . $modelName, $function], $param);
 //        } else {
-//            return call_user_func([$modelName, $function]);
+//            return call_user_func([$namespaceName. $modelName, $function]);
 //        }
 //    }
 

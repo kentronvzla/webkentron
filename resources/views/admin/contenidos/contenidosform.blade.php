@@ -35,11 +35,6 @@
             {!! Form::btInput($contenido, 'fecha_vigencia', 4) !!}
             {!! Form::btInput($contenido, 'referencia_externa', 4) !!}
             {!! Form::btInput($contenido,'ind_visible', 4) !!}
-            @if(empty(@$id))
-            {!! Form::hidden('usuario_creacion_id', Sentry::getUser()->id) !!}
-            @else
-            {!! Form::hidden('usuario_creacion_id',$contenido->usuario_creacion_id) !!}
-            @endif    
         </div>
 
         {!! Form::submitBt() !!}

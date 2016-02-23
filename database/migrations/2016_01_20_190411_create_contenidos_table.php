@@ -21,7 +21,7 @@ class CreateContenidosTable extends Migration {
             $table->longText('resumen');
             $table->longText('detalle');
             $table->string('fondo', 255)->nullable();
-            $table->longText('url')->nullable();
+            $table->longText('url')->unique();
             $table->longText('referencia_externa')->nullable();
             $table->date('fecha_vigencia');
             $table->integer('usuario_creacion_id', false, true);

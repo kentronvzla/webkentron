@@ -10,6 +10,7 @@
  * Por defecto el metodo validate es ejecutado con el evento save();
  *
  * @author Nadin Yamaui
+ * @author Reysmer Valle
  */
 
 namespace App;
@@ -474,6 +475,24 @@ abstract class BaseModel extends Model implements SelectInterface, SimpleTableIn
                 }
         }
         return null;
+    }
+
+    public function setGlobalNewAttributes($model, $userid) {
+        if (!isset($model->attributes['ind_visible'])) {
+            $model->attributes['ind_visible'] = 1;
+        }
+        $model->attributes['usuario_creacion_id'] = $userid;
+        $model->attributes['usuario_modificacion_id'] = '';
+        return $model;
+    }
+
+    public function setGlobalUpdateAttributes($model, $userid) {
+        $model->attributes['usuario_modificacion_id'] = $userid;
+        return $model;
+    }
+    
+    public function setFieldsAttributes($model){
+        
     }
 
     public function isBooleanField($field) {

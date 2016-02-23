@@ -22,11 +22,49 @@ class ContenidosController extends TableBaseController {
         $contenido = Contenido::crear($request->all());
         if (!$contenido->hasErrors()) {
             $request->session()->put('contenido', $contenido->toArray());
-            return redirect('contenidos');
+            return redirect('contenidos/modificar');
         } else {
 //            return back()->withInput()->withErrors($contenido->getErrors());
             return response()->json(['errores' => $contenido->getErrors()], 400);
         }
+    }
+    
+    public function postModificar(Request $request) {
+        Session::forget('contenido');
+        $contenido = Solicitud::findOrNew($request->input('id'));
+        $contenido->fill($request->all());
+        if ($contenido->save()) {
+            $data['contenido'] = $contenido;
+            $data['mensaje'] = "Datos guardados correctamente";
+            if (Request::ajax()) {
+                return response()->json($data);
+            }
+            return redirect('contenidos/modificar/' . $contenido->id);
+        } else {
+            if (Request::ajax()) {
+                return response()->json(['errores' => $contenido->getErrors()], 400);
+            }
+            return back()->withInput()->withErrors($contenido->getErrors());
+        }
+    }
+    
+    public function getModificar(Request $request, $id = null) {
+        dump($id);
+        exit();
+        if (is_null($id) && !$request->session()->has('contenido')) {
+            $data['nuevo'] = true;
+        } else {
+            $data['nuevo'] = false;
+        }
+        if ($request->session()->has('contenido') && is_null($id)) {
+            $data['contenido'] = new Solicitud($request->session()->get('contenido'));
+        } else {
+            $data['contenido'] = Solicitud::findOrFail($id);
+        }
+        if (Request::ajax()) {
+            return response()->json($data);
+        }
+        return view("contenidos.plantilla", $data);
     }
 
     public function postSubirfondo($id) {

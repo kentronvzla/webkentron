@@ -4,7 +4,7 @@ namespace App;
 
 use App\BaseModel;
 use Carbon\Carbon;
-
+use Illuminate\Support\Str as Str;
 
 /**
  * App\Contenido
@@ -51,12 +51,11 @@ class Contenido extends BaseModel {
         'resumen',
         'detalle',
         'fondo',
-        'url',
         'referencia_externa',
         'fecha_vigencia',
         'ind_visible',
-        'usuario_creacion_id',
     ];
+    protected $guarded = ['id', 'url', 'usuario_creacion_id', 'usuario_modificacion_id'];
 
     /**
      * Reglas que debe cumplir el objeto al momento de ejecutar el metodo save, 
@@ -69,12 +68,10 @@ class Contenido extends BaseModel {
         'tipo_publicaciones_id' => 'required|integer',
         'modo_vistas_id' => 'required|integer',
         'tipo_fondos_id' => 'required|integer',
-        'usuario_creacion_id' => 'required|integer',
         'titulo' => 'required',
         'resumen' => 'required',
         'detalle' => 'required',
         'fondo' => '',
-        'url' => 'required',
         'referencia_externa' => '',
         'fecha_vigencia' => 'required|date',
         'ind_visible' => 'required',
@@ -124,7 +121,7 @@ class Contenido extends BaseModel {
     public function modoVistas() {
         return $this->belongsTo('App\ModoVista', 'modo_vistas_id');
     }
-    
+
     /**
      * Define una relación pertenece a User
      * @return User
@@ -132,7 +129,7 @@ class Contenido extends BaseModel {
     public function usuarioAsignacion() {
         return $this->belongsTo('App\User', 'usuario_creacion_id');
     }
-    
+
     /**
      * Define una relación pertenece a User
      * @return User
@@ -140,8 +137,7 @@ class Contenido extends BaseModel {
     public function usuarioModificacion() {
         return $this->belongsTo('App\User', 'usuario_modificacion_id');
     }
- 
-    
+
     /**
      * Define una relación pertenece a ModoVista
      * @return ModoVista
@@ -154,14 +150,23 @@ class Contenido extends BaseModel {
 
     public function setFechaVigenciaAttribute($value) {
         if ($value != "") {
-            $this->attributes['fecha_vigencia'] = Carbon::createFromFormat('d/m/Y', $value)->format('d-m-Y');
+            $this->attributes['fecha_vigencia'] = Carbon::createFromFormat('d/m/Y', $value);
         }
     }
 
+    public function setFieldsAttributes($contenido) {
+        $tipo_publicacion = Str::slug($contenido->tipoPublicaciones->descripcion);
+        $titulo = Str::slug($contenido->attributes['titulo']);
+        $codigo_fecha = Carbon::createFromFormat('d-m-Y H:i:s', date('d-m-Y H:i:s'))->format('dmY-His');
+        $contenido->attributes['url'] = $codigo_fecha . "/" . $tipo_publicacion . "/" . $titulo;
+    }
+    
     public static function crear(array $values) {
         $contenido = new Contenido();
         $contenido->fill($values);
         $contenido->validate();
+        $contenido->setGlobalNewAttributes($contenido, User::getUserIdLogged());
+        $contenido->setFieldsAttributes($contenido);
         return $contenido;
     }
 
