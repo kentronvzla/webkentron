@@ -482,7 +482,7 @@ abstract class BaseModel extends Model implements SelectInterface, SimpleTableIn
             $model->attributes['ind_visible'] = 1;
         }
         $model->attributes['usuario_creacion_id'] = $userid;
-        $model->attributes['usuario_modificacion_id'] = '';
+        $model->attributes['usuario_modificacion_id'] = $userid;
         return $model;
     }
 

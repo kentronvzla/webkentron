@@ -5,8 +5,6 @@
 {!! Html::style('assets/css/libraries/owl.theme.css') !!}
 {!! Html::style('assets/css/libraries/owl.transitions.css') !!}
 {!! Html::style('assets/css/libraries/datepicker.min.css') !!}
-{!! Html::style('assets/css/libraries/datatables.bootstrap.min.css') !!}
-{!! Html::style('assets/css/libraries/datatables.min.css') !!}
 {!! Html::style('assets/css/libraries/dropzone.css') !!}
 {!! Html::style('assets/css/libraries/yamm.css') !!}
 

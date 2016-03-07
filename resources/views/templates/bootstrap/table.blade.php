@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table table-striped bootstrap-datatable jqueryTable responsive">
+    <table class="table table-striped table-bordered dt-responsive nowrap jqueryTable" cellspacing="0" width="100%">
         <thead>
             <tr>
                 @foreach($prettyFields as $col)

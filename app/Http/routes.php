@@ -47,13 +47,13 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 });
 
 # Admin Tables Routes
-Route::group(['prefix' => 'admin', 'as' => 'admin'], function() {
-    Route::controller('contenidos', 'ContenidosController');
-    Route::get('/', 'AdminController@getIndex');
+Route::group(['prefix' => 'admin', 'as' => 'admin', 'namespace' => 'Admin'], function() {
+    Route::group(array('prefix' => 'tablas', 'as' => 'tablas', 'namespace' => 'Tablas'), function() {
+        Route::controller('contenidos', 'ContenidosController');
+    });
+    Route::get('/', 'AdministrarController@getIndex');
 });
 
-# Contenido routes
-Route::controller('contenidos', 'ContenidosController');
 
 # Contacto routes
 Route::get('contact', ['as' => 'contact', 'uses' => 'ContactoController@index']);

@@ -4,8 +4,6 @@
 {!! Html::script('assets/js/bootstrap/bootstrap.min.js') !!}
 {!! Html::script('assets/js/bootstrap/bootstrap_validation.js') !!}
 
-{!! Html::script('assets/js/libraries/jquery.dataTables.min.js') !!}
-{!! Html::script('assets/js/libraries/datatables.bootstrap.min.js') !!}
 {!! Html::script('assets/js/libraries/datepicker.min.js') !!}
 {!! Html::script('assets/js/libraries/dropzone.js') !!}
 {!! Html::script('assets/js/libraries/jquery.autoNumeric.min.js') !!}

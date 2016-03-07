@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\TableBaseController;
+use App\Http\Controllers\Admin\TableBaseController;
 use Illuminate\Http\Request;
 use App\Contenido;
 use Mail;

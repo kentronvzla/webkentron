@@ -298,6 +298,8 @@ function iniciarLibrerias() {
     iniciarPopoverRaty();
 
     iniciarJqueryTable();
+    
+    iniciarDropzone();
 }
 
 

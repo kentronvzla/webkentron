@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AdministrarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getIndex() {
-        return \View::make('admin.index');
+        return view('admin.index');
     }
 
     /**
