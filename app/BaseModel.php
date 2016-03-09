@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\MessageBag;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Input;
 use App\Interfaces\SelectInterface;
 use App\Interfaces\SimpleTableInterface;
 use App\Helpers\Helper;

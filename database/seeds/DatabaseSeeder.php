@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call('SentryGroupSeeder');
         $this->call('SentryUserSeeder');
         $this->call('SentryUserGroupSeeder');
+        $this->call('TipoPublicacionesSeeder');
 
         $this->command->info('All tables seeded!');
 

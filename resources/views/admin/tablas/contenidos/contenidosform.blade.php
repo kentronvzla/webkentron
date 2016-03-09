@@ -26,9 +26,9 @@
         </div>
 
         <div class="row">
-            {!! Form::btInput($contenido, 'tipo_publicaciones_id', 4) !!}
-            {!! Form::btInput($contenido, 'modo_vistas_id', 4) !!}
-            {!! Form::btInput($contenido, 'tipo_fondos_id', 4) !!}
+            {!! Form::btInput($contenido, 'tipo_publicaciones_id', 6) !!}
+            {!! Form::btInput($contenido, 'modo_vistas_id', 6) !!}
+            {{-- Form::btInput($contenido, 'tipo_fondos_id', 4) --}}
         </div>
 
         <div class="row">
@@ -48,9 +48,9 @@
         
          <div class="row">
             @if($contenido->fondo !="")
-            {!! Form::btImage($contenido, 'contenidos', 'fondo', 'image', 3, 'Fondo') !!}  
+            {!! Form::btImage($contenido, 'contenidos', 'fondo', 'image', 3, 'Fondo', '', ['data-urlsubir'=>'admin/tablas/contenidos']) !!}  
             @else
-            {!! Form::btImage($contenido, 'contenidos', 'fondo', 'image', 3, '', 'assets/img/fondo-icon.png') !!}  
+            {!! Form::btImage($contenido, 'contenidos', 'fondo', 'image', 3, '', 'assets/img/fondo-icon.png', ['data-urlsubir'=>'admin/tablas/contenidos']) !!}  
             @endif
         </div>
 

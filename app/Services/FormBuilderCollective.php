@@ -10,6 +10,7 @@
 namespace App\Services;
 
 use Collective\Html\FormBuilder;
+use Illuminate\Support\Facades\Route;
 
 class FormBuilderCollective extends FormBuilder {
 
@@ -130,11 +131,14 @@ class FormBuilderCollective extends FormBuilder {
             $html = [], $options = []) {
 
         $data['params'] = $html;
+        $base_path = 'uploads' . DIRECTORY_SEPARATOR . 'contenido';
         if (!isset($data['params']['data-tipoarchivo'])) {
             $data['params']['data-tipoarchivo'] = 'image/*';
         }
         if (!isset($data['params']['data-urlsubir'])) {
-            $data['params']['data-urlsubir'] = url($objName . "/" . 'subir' . $attrName . "/" . $obj->id);
+            $data['params']['data-urlsubir'] = url($objName . DIRECTORY_SEPARATOR . 'subir' . $attrName . DIRECTORY_SEPARATOR . $obj->id);
+        }else{
+            $data['params']['data-urlsubir'] = url($data['params']['data-urlsubir'] . DIRECTORY_SEPARATOR . 'subir' . $attrName . DIRECTORY_SEPARATOR . $obj->id);
         }
         if (!isset($data['params']['class'])) {
             $data['params']['class'] = 'img-responsive disparadorArchivo';

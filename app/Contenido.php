@@ -45,7 +45,7 @@ class Contenido extends BaseModel {
      */
     protected $fillable = [
         'tipo_publicaciones_id',
-        'tipo_fondos_id',
+//        'tipo_fondos_id',
         'modo_vistas_id',
         'titulo',
         'resumen',
@@ -67,7 +67,7 @@ class Contenido extends BaseModel {
     protected $rules = [
         'tipo_publicaciones_id' => 'required|integer',
         'modo_vistas_id' => 'required|integer',
-        'tipo_fondos_id' => 'required|integer',
+//        'tipo_fondos_id' => 'required|integer',
         'titulo' => 'required',
         'resumen' => 'required',
         'detalle' => 'required',
@@ -80,7 +80,7 @@ class Contenido extends BaseModel {
     protected function getPrettyFields() {
         return [
             'tipo_publicaciones_id' => 'Tipo de Publicación',
-            'tipo_fondos_id' => 'Tipo de Fondo',
+//            'tipo_fondos_id' => 'Tipo de Fondo',
             'modo_vistas_id' => 'Modo de Vista',
             'titulo' => 'Título',
             'resumen' => 'Resumen',
@@ -110,9 +110,9 @@ class Contenido extends BaseModel {
      * Define una relación pertenece a TipoFondo
      * @return TipoFondo
      */
-    public function tipoFondos() {
-        return $this->belongsTo('App\TipoFondo', 'tipo_fondos_id');
-    }
+//    public function tipoFondos() {
+//        return $this->belongsTo('App\TipoFondo', 'tipo_fondos_id');
+//    }
 
     /**
      * Define una relación pertenece a ModoVista

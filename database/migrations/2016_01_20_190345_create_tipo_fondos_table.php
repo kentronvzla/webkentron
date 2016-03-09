@@ -12,14 +12,14 @@ class CreateTipoFondosTable extends Migration {
      */
     public function up() {
         //
-        Schema::create('tipo_fondos', function(Blueprint $table) {
-            $table->increments('id')->unique();
-            $table->string('descripcion', 255);
+//        Schema::create('tipo_fondos', function(Blueprint $table) {
+//            $table->increments('id')->unique();
+//            $table->string('descripcion', 255);
 
             // We'll need to ensure that MySQL uses the InnoDB engine to
             // support the indexes, other engines aren't affected.
-            $table->engine = 'InnoDB';
-        });
+//            $table->engine = 'InnoDB';
+//        });
     }
 
     /**
@@ -29,7 +29,7 @@ class CreateTipoFondosTable extends Migration {
      */
     public function down() {
         //
-        Schema::drop('tipo_fondos');
+//        Schema::drop('tipo_fondos');
     }
 
 }

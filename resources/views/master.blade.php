@@ -32,7 +32,7 @@
         <link rel="icon" href="{!! asset('assets/img/logo.jpg') !!}"/>
 
         <!-- Favicon and Apple Icons -->
-        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="shortcut icon" href="{!! asset('assets/img/logo.jpg') !!}">
 
     </head>
     <body>
