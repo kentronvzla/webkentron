@@ -1,8 +1,13 @@
 <ul class="nav navbar-nav">
-    <li class="negrita"><a href="{{ url('products') }}">PRODUCTOS</a></li>
-    <li class="negrita"><a href="#">SOLUCIONES</a></li>
+    <li class="negrita">{!! Html::linkIcon('productos', 'Productos', 'cubes') !!}</li>
+    <!--    <li class="negrita"><a href="#">SOLUCIONES</a></li>-->
 
-    <li class="dropdown negrita"><a href="#" data-toggle="dropdown" class="dropdown-toggle">SOPORTE<b class="caret"></b></a>
+    <li class="dropdown negrita">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+            <i class="fa fa-cogs"></i>
+            Soporte
+            <b class="caret"></b>
+        </a>
         <ul class="dropdown-menu">
             <li>
                 <!-- Content container to add padding -->
@@ -35,9 +40,9 @@
         </ul>
     </li>
 
-    <li class="negrita"><a href="#">DISTRIBUIDORES</a></li>
-    <li class="negrita"><a href="{{ url('contact') }}">CONTACTO</a></li>
-    <li class="negrita"><a href="{{ url('customer') }}">CLIENTES</a></li>
+    <li class="{{ set_active('contacto') }} negrita">{!! Html::linkIcon('contacto', 'Contacto', 'phone') !!}</li>
+    <li class="{{ set_active('clientes') }} negrita">{!! Html::linkIcon('clientes', 'Clientes', 'users') !!}</li>
+    <li class="{{ set_active('nosotros') }} negrita">{!! Html::linkIcon('nosotros', 'Nosotros', 'map-marker') !!}</li>
     <!--<li class="{{ set_active('userProtected') }}"><a href="{{ url('userProtected') }}">Registered Users Only</a></li>-->
 </ul>
 
@@ -50,20 +55,26 @@
             </div>
         </form>-->
     @if (!Sentry::check())
-    <li class="{{ set_active('register') }} negrita"><a href="{{ url('register') }}">Registro</a></li>
-    <li class="{{ set_active('login') }} negrita"><a href="{{ url('login') }}">Iniciar Sesión</a></li>
+    <li class="{{ set_active('register') }} negrita">{!! Html::linkIcon('register', 'Registro', 'user') !!}</li>
+    <li class="{{ set_active('login') }} negrita">{!! Html::linkIcon('login', 'Iniciar', 'dot-circle-o') !!}</li>
     @else
     <!--<li class="{{ set_active('profiles') }}"><a href="{{ url('profiles') }}/{{Sentry::getUser()->id}}">My Profile</a></li>-->
 
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            {{ Sentry::getUser()->email }}
-            <span class="caret"></span></a>
+    <div class="btn-group" role="group" style="padding-top: 8px">
+        <button type="button" class="btn btn-info">
+            <i class="fa fa-user"></i>
+            <span class="hidden-sm hidden-xs">{{ Sentry::getUser()->email }}</span>
+        </button>
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
         <ul class="dropdown-menu">
-            <li><a href="{{ url('admin') }}">Administrar</a></li>
+            <li>{!! Html::linkIcon('logout', 'Cerrar Sesión', 'times') !!}</li>
             <li class="divider"></li>
-            <li><a href="{{ url('logout') }}">Cerrar Sesión</a></li>
+            <li>{!! Html::linkIcon('admin','Administrar', 'table') !!}</li>
         </ul>
-    </li>  
+    </div>
+    
     @endif
 </ul>

@@ -9,7 +9,7 @@
     @if($nuevo)
     <div class="panel-body">
         @include('templates.errores')
-        {!! Form::open(['url'=>'admin/tablas/contenidos/nuevo', 'class' => 'form saveajax', 'id'=>'nuevaContenido']) !!}
+        {!! Form::open(['url'=>'admin/tablas/contenidos/nuevo', 'class' => 'form saveajax', 'id'=>'nuevaContenido', 'data-callback'=>'admin/tablas/contenidos']) !!}
         {!! Form::concurrencia($contenido) !!}
 
         <div class="row">
@@ -43,14 +43,14 @@
     @else
     <div class="panel-body">
         @include('templates.errores')
-        {!! Form::open(['url'=>'admin/tablas/contenidos/modificar', 'class' => 'form saveajax', 'id'=>'contenidos-form']) !!}
+        {!! Form::open(['url'=>'admin/tablas/contenidos/modificar', 'class' => 'form saveajax', 'id'=>'contenidos-form', 'data-callback'=>'admin/tablas/contenidos']) !!}
         {!! Form::concurrencia($contenido) !!}
         
          <div class="row">
             @if($contenido->fondo !="")
-            {!! Form::btImage($contenido, 'contenidos', 'fondo', 'image', 3, 'Fondo', '', ['data-urlsubir'=>'admin/tablas/contenidos']) !!}  
+            {!! Form::btImage($contenido, 'contenidos', 'fondo', 'image', 12, 'Fondo', '', ['data-urlsubir'=>'admin/tablas/contenidos']) !!}  
             @else
-            {!! Form::btImage($contenido, 'contenidos', 'fondo', 'image', 3, '', 'assets/img/fondo-icon.png', ['data-urlsubir'=>'admin/tablas/contenidos']) !!}  
+            {!! Form::btImage($contenido, 'contenidos', 'fondo', 'image', 12, '', 'assets/img/fondo-icon.png', ['data-urlsubir'=>'admin/tablas/contenidos']) !!}  
             @endif
         </div>
 
@@ -68,9 +68,9 @@
         </div>
 
         <div class="row">
-            {!! Form::btInput($contenido, 'tipo_publicaciones_id', 4) !!}
-            {!! Form::btInput($contenido, 'modo_vistas_id', 4) !!}
-            {!! Form::btInput($contenido, 'tipo_fondos_id', 4) !!}
+            {!! Form::btInput($contenido, 'tipo_publicaciones_id', 6) !!}
+            {!! Form::btInput($contenido, 'modo_vistas_id', 6) !!}
+            {{-- Form::btInput($contenido, 'tipo_fondos_id', 4) --}}
         </div>
 
         <div class="row">

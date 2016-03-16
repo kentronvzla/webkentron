@@ -102,6 +102,7 @@ function loadModalEvents() {
         var element = $(this);
         var url = element.attr("data-url");
         $.get(url, function (data) {
+            console.log(data);
             if ($('#modal-window1').is(':empty')) {
                 $('#modal-window1').html(data);
                 $('#modal-window1').modal('toggle');

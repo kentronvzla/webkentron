@@ -9,58 +9,6 @@ use ReflectionClass;
 
 class TableBaseController extends Controller {
 
-//    protected static $namespace = "App\\";
-//    protected static $className = "";
-//    protected static $collectionName = "";
-//    protected static $folderName = "";
-//    protected static $viewName = "";
-//    protected static $varName = "";
-//    protected static $eagerLoading = [];
-//    
-//    public function getIndex() {
-//        $data['class'][static::$viewName] = "active";
-//        if (count(static::$eagerLoading) == 0) {
-//            $data[static::$collectionName] = call_user_func([static::$namespace . static::$className, 'all']);
-//        } else {
-//            $data[static::$collectionName] = call_user_func([static::$namespace . static::$className, 'with'], static::$eagerLoading[0]);
-//            if (count(static::$eagerLoading) > 1) {
-//                for ($i = 1; $i < count(static::$eagerLoading); $i++) {
-//                    $data[static::$collectionName] = $data[static::$collectionName]->with(static::$eagerLoading[$i]);
-//                }
-//            }
-//            $data[static::$collectionName] = $data[static::$collectionName]->get();
-//        }
-//        return view('admin.' . static::$folderName . '.' . static::$viewName, $data);
-//    }
-//    
-//    public function postIndex(Request $request) {
-//        if ($request->isMethod('post') && $request->is(\App::getLocale() . '/admin/*')) {
-//            $variable = call_user_func([static::$namespace . static::$className, 'findOrNew'], $request->input('id'));
-//            $variable->fill($request->all());
-//            if ($variable->save()) {
-//                return response()->json(['msg' => 'Se guardó el ' . call_user_func([static::$namespace . static::$className, 'getPrettyName']) . ' correctamente.']);
-//            } else {
-//                return response()->json(['errors' => $variable->getErrors()], 400);
-//            }
-//        } else {
-//            return response()->json(['errors' => ['Permission Denied']], 400);
-//        }
-//    }
-//
-//    public function deleteIndex() {
-//        $variable = call_user_func(array(static::$className, 'find'), Input::get('ID'));
-//        if ($variable->delete()) {
-//            return Response::json(array('mensaje' => 'Se borró el ' . call_user_func(array(static::$className, 'getPrettyName')) . ' correctamente'));
-//        }
-//        return Response::json(array('errores' => $variable->getErrors()), 400);
-//    }
-//
-//    public function getModificar(Request $request, $id = null) {
-//        $data['class'][static::$viewName] = "active";
-//        $data[static::$varName] = call_user_func([static::$namespace . static::$className, 'findOrNew'], $id);
-//        return view('admin.' . static::$folderName . '.' . static::$viewName . 'form', $data);
-//    }
-
     protected $namespace;
     protected $collectionName;
     protected $modelName;
@@ -135,7 +83,7 @@ class TableBaseController extends Controller {
             $folder_array = explode("\\", $folder);
             foreach ($folder_array as $i => $section) {
                 $aux .=lcfirst($section) . '.';
-                if($i == count($folder_array) - 1){
+                if ($i == count($folder_array) - 1) {
                     $aux .= lcfirst($view);
                 }
             }
@@ -177,7 +125,7 @@ class TableBaseController extends Controller {
         if ($param !== null) {
             return call_user_func([$namespaceName . $modelName, $function], $param);
         } else {
-            return call_user_func([$namespaceName. $modelName, $function]);
+            return call_user_func([$namespaceName . $modelName, $function]);
         }
     }
 

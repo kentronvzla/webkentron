@@ -149,7 +149,7 @@ function guardarFormulario() {
             contenido = 'application/x-www-form-urlencoded; charset=UTF-8';
         }
         $(this).find('input, textarea, select, checkbox, radio').parent().removeClass("has-error");
-        $(this).find('.help-block').remove();       
+        $(this).find('.help-block').remove();
         $.ajax({
             url: $(this).attr('action'),
             data: data,
@@ -165,7 +165,7 @@ function guardarFormulario() {
                 }
                 var callback = $(this.formulario).attr('data-callback');
                 if (callback != undefined && callback != "") {
-                    window[callback](data);
+                    window.location.reload();
                 }
                 if (data.vista != undefined) {
                     $(this.formulario).parent().html(data.vista);

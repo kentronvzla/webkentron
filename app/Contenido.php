@@ -126,7 +126,7 @@ class Contenido extends BaseModel {
      * Define una relación pertenece a User
      * @return User
      */
-    public function usuarioAsignacion() {
+    public function usuarioCreacion() {
         return $this->belongsTo('App\User', 'usuario_creacion_id');
     }
 
@@ -159,7 +159,7 @@ class Contenido extends BaseModel {
         $tipo_publicacion = Str::slug($contenido->tipoPublicaciones->descripcion);
         $titulo = Str::slug($contenido->attributes['titulo']);
         $codigo_fecha = Carbon::createFromFormat('d-m-Y H:i:s', date('d-m-Y H:i:s'))->format('dmY-His');
-        $contenido->attributes['url'] = $codigo_fecha . "/" . $tipo_publicacion . "/" . $titulo;
+        $contenido->attributes['url'] = Str::slug($codigo_fecha . " " . $tipo_publicacion . " " . $titulo);
     }
 
     public static function crear(array $values) {

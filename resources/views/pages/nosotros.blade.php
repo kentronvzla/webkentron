@@ -4,16 +4,12 @@
 
 @section('content')
 
-<div class="container-fluid">
-    {!! Html::image('assets/img/ora1.jpg', 'noticia1', array('class' => 'img-responsive')) !!}
-</div>
-
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <h3 class="titulo-header-left">
+            <h2 class="titulo-header-left">
                 ¿Quiénes somos? 
-            </h3>
+            </h2>
         </div>
     </div>
 

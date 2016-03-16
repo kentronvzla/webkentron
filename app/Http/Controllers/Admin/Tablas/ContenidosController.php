@@ -20,23 +20,20 @@ class ContenidosController extends TableBaseController {
 //    protected static $eagerLoading = [];
 
     public function getNuevo(Request $request) {
-        $request->session()->forget('contenido');
         $data['nuevo'] = true;
         $data['contenido'] = new Contenido();
-        return View::make("admin.tablas.contenidos.contenidosform", $data);
+        return view("admin.tablas.contenidos.contenidosform", $data);
     }
 
     public function postNuevo(Request $request) {
         $contenido = Contenido::crear($request->all());
         if (!$contenido->hasErrors()) {
-            $request->session()->put('contenido', $contenido->toArray());
             if ($contenido->save()) {
                 $data['contenido'] = $contenido;
                 $data['mensaje'] = "Datos guardados correctamente";
                 if ($request->ajax()) {
-                    return response()->json($data);
+                   return response()->json($data);
                 }
-                $request->session()->forget('contenido');
                 return redirect('admin/tablas/contenidos/modificar/' . $contenido->id);
             } else {
                 if ($request->ajax()) {
@@ -50,7 +47,6 @@ class ContenidosController extends TableBaseController {
     }
 
     public function postModificar(Request $request) {
-        $request->session()->forget('contenido');
         $contenido = Contenido::findOrNew($request->input('id'));
         $contenido->fill($request->all());
         if ($contenido->save()) {
@@ -69,12 +65,9 @@ class ContenidosController extends TableBaseController {
     }
 
     public function getModificar(Request $request, $id = null) {
-        if (is_null($id) && !$request->session()->has('contenido')) {
+        if (is_null($id)) {
             $data['nuevo'] = true;
             $data['contenido'] = new Contenido();
-        } else if (is_null($id) && $request->session()->has('contenido')) {
-            $data['nuevo'] = true;
-            $data['contenido'] = new Contenido($request->session()->get('contenido'));
         } else {
             $data['nuevo'] = false;
             $data['contenido'] = Contenido::findOrFail($id);
@@ -85,34 +78,51 @@ class ContenidosController extends TableBaseController {
         return view("admin.tablas.contenidos.contenidosform", $data);
     }
 
-    public function postSubirfondo($id) {
-        if (!Input::hasFile('file')) {
+    public function postSubirfondo(Request $request, $id) {
+        if (!$request->hasFile('file')) {
             return response()->json(['error' => 'No hay ningun archivo'], 400);
         }
-        $contenido = Contenido::findOrFail($id);
-        $file = Input::file('file');
+        list($contenido, $file) = [Contenido::findOrFail($id), $request->file('file')];
 
-        if (!in_array(strtolower($file->getClientOriginalExtension()), Contenido::$extensionesImagenes)) {
-            return response()->json(['mensaje' => 'Archivo no permitido'], 400);
+        if (empty($mensaje = $this->validarArchivo($contenido, $file))) {
+            list($atributos_tip_pub) = [$contenido->tipoPublicaciones->getAttributes()];
+            $fileName = $contenido->tipoPublicaciones->getAttributes()['descripcion'] . $contenido->id . "." . $file->getClientOriginalExtension();
+            $base_path = 'archivos'
+                    . DIRECTORY_SEPARATOR . 'contenidos' 
+                    . DIRECTORY_SEPARATOR . $contenido->tipoPublicaciones->getAttributes()['descripcion'];
+            $file->move($base_path, $fileName);
+            $foto = ImageWorkshop::initFromPath($base_path . DIRECTORY_SEPARATOR . $fileName);
+//            $foto->cropMaximumInPixel(0, 0, "MM");
+//            $foto->resizeInPixel(160, 160);
+            $foto->save($base_path, $fileName);
+            if ($contenido->fondo != "") {
+                File::delete($base_path . $contenido->fondo);
+            }
+            $contenido->fondo = $fileName;
+            $contenido->save();
+            return response()->json(['url' => url($base_path . DIRECTORY_SEPARATOR . $fileName)]);
+        } else {
+            return response()->json($mensaje, 400);
         }
-        if ($file->getSize() > 1048576) {
-            return response()->json(['mensaje' => 'Archivo demasiado pesado, no puede superar 1MB de tamaño'], 400);
-        }
-        $fileName = 'Fondo.' . $file->getClientOriginalExtension();
+        
+    }
 
-        $base_path = 'uploads' . DIRECTORY_SEPARATOR . 'contenido' . $contenido->id;
+    public function validarArchivo($modelo, $archivo) {
+        list($mensaje, $atributos_tip_pub, $datos_imagen) = [[], $modelo->tipoPublicaciones->getAttributes(), getimagesize($archivo)];
 
-        $file->move($base_path, $fileName);
-        $foto = ImageWorkshop::initFromPath($base_path . DIRECTORY_SEPARATOR . $fileName);
-        $foto->cropMaximumInPixel(0, 0, "MM");
-        $foto->resizeInPixel(160, 160);
-        $foto->save($base_path, $fileName);
-        if ($contenido->fondo != "") {
-            File::delete($base_path . $contenido->fondo);
+        if (!in_array(strtolower($archivo->getClientOriginalExtension()), Contenido::$extensionesImagenes)) {
+            $mensaje['mensaje'] = 'Archivo no permitido';
         }
-        $contenido->fondo = $fileName;
-        $contenido->save();
-        return response()->json(['url' => url($base_path . DIRECTORY_SEPARATOR . $fileName)]);
+
+        if ($datos_imagen[0] > $atributos_tip_pub['max_width_img'] || $datos_imagen[1] > $atributos_tip_pub['max_heigth_img']) {
+            $mensaje['mensaje'] = 'Tamaño de imagen no permitido';
+        }
+
+        if ($archivo->getSize() > 2097152) {
+            $mensaje['mensaje'] = 'Archivo demasiado pesado, no puede superar 2MB de tamaño';
+        }
+
+        return $mensaje;
     }
 
 }

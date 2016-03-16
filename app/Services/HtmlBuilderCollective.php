@@ -9,19 +9,24 @@
 
 namespace App\Services;
 use Collective\Html\HtmlBuilder;
+use Html;
 
 class HtmlBuilderCollective extends HtmlBuilder {
     
     function button($href, $icon, $title, $modal = false) {
-        return '<a class="btn btn-primary btn-xs '.($modal ? 'abrir-modal':'').'" href="'.url($href).'" title="'.$title.'" target="_blank">'.\HTML::icon($icon).'</a>';
+        return '<a class="btn btn-primary btn-xs '.($modal ? 'abrir-modal':'').'" href="'.url($href).'" title="'.$title.'" target="_blank">'.Html::icon($icon).'</a>';
     }
 
-    function buttonText($href, $icon, $title, $modal = false) {
-        return '<a class="btn btn-primary '.($modal ? 'abrir-modal':'').'" href="'.url($href).'" title="'.$title.'" target="_blank">'.\HTML::icon($icon).' '.$title.'</a>';
+    function buttonText($href, $icon, $title, $modal = false, $size = 'md') {
+        return '<a class="btn btn-default btn-'.$size.' active btn-responsive '.($modal ? 'abrir-modal':'').'" href="'.url($href).'" title="'.$title.'" target="_blank">'.Html::icon($icon).' '.$title.'</a>';
+    }
+    
+    function linkIcon($href, $title, $icon) {
+        return '<a href="'.url($href).'" title="'.$title.'">'.Html::icon($icon).' '.$title.'</a>';
     }
     
     function icon($icon) {
-        return '<span class="fa fa-' . $icon . '"></span>';
+        return '<i class="fa fa-' . $icon . '"></i>';
     }
 
     function simpleTable($collection, $modelName, $botones = [], $urlDelete = "", $href = [], $datatable = false) {
@@ -60,19 +65,19 @@ class HtmlBuilderCollective extends HtmlBuilder {
     function jqplugin($name, $jsincludes = array()) {
         $css = $js = "";
         if (file_exists(public_path('css/' . $name . '.min.css'))) {
-            $css = \HTML::style('css/' . $name . '.min.css');
+            $css = Html::style('css/' . $name . '.min.css');
         }
         if (file_exists(public_path('js/jqplugins/' . $name . '.min.js'))) {
-            $js = \HTML::script('js/jqplugins/' . $name . '.min.js');
+            $js = Html::script('js/jqplugins/' . $name . '.min.js');
         }
         foreach ($jsincludes as $jsinclude) {
-            $js .= \HTML::script($jsinclude);
+            $js .= Html::script($jsinclude);
         }
         return $css . $js;
     }
 
     function bootstrap() {
-        return \HTML::style('css/bootstrap.css') . \HTML::script('js/jquery.min.js') . \HTML::script('js/bootstrap.min.js');
+        return Html::style('css/bootstrap.css') . Html::script('js/jquery.min.js') . Html::script('js/bootstrap.min.js');
     }
 
     function opcionMenu($link, $nombre, $icono, $header = false) {

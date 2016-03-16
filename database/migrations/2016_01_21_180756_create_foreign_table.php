@@ -50,8 +50,8 @@ class CreateForeignTable extends Migration {
             $table->dropForeign('contenidos_usuario_creacion_id_foreign');
             $table->dropIndex('contenidos_usuario_creacion_id_index');
 
-            $table->dropForeign('contenidos_usuario_creacion_id_foreign');
-            $table->dropIndex('contenidos_usuario_creacion_id_index');
+            $table->dropForeign('contenidos_usuario_modificacion_id_foreign');
+            $table->dropIndex('contenidos_usuario_modificacion_id_index');
         });
     }
 

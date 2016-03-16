@@ -131,7 +131,9 @@ class FormBuilderCollective extends FormBuilder {
             $html = [], $options = []) {
 
         $data['params'] = $html;
-        $base_path = 'uploads' . DIRECTORY_SEPARATOR . 'contenido';
+        $base_path = 'archivos'
+                    . DIRECTORY_SEPARATOR . 'contenidos' 
+                    . DIRECTORY_SEPARATOR . $obj->tipoPublicaciones->getAttributes()['descripcion'];
         if (!isset($data['params']['data-tipoarchivo'])) {
             $data['params']['data-tipoarchivo'] = 'image/*';
         }
@@ -143,7 +145,7 @@ class FormBuilderCollective extends FormBuilder {
         if (!isset($data['params']['class'])) {
             $data['params']['class'] = 'img-responsive disparadorArchivo';
         }
-        $data['url_image'] = (empty($url_image) || $url_image == '') ? $base_path . $obj->id . DIRECTORY_SEPARATOR . $obj->$attrName : $url_image;
+        $data['url_image'] = (empty($url_image) || $url_image == '') ? $base_path . DIRECTORY_SEPARATOR . $obj->$attrName : $url_image;
         $data['alt'] = (empty($alt) || $alt == '') ? 'No hay '. $attrName .' aun' : $alt;
         $data['params']['class'] .= ($type != 'image') ? ' form-control' : '';       
         list($data['numCols'], $data['attrName'], $data['params']['id'],

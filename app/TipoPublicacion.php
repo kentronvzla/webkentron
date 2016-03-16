@@ -49,7 +49,7 @@ class TipoPublicacion extends BaseModel {
     }
 
     public function contenidos() {
-        return $this->hasMany('App\Contenido');
+        return $this->hasMany('App\Contenido', 'tipo_publicaciones_id');
     }
     
     public static function getCampoCombo() {

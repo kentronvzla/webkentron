@@ -1,4 +1,5 @@
 {!! Html::style('assets/css/bootstrapthemes/mb.bootstrap.min.css') !!}
+{!! Html::style('assets/font-awesome/css/font-awesome.min.css') !!}
 
 {!! Html::style('assets/css/libraries/modern-business.css') !!}
 {!! Html::style('assets/css/libraries/owl.carousel.css') !!}

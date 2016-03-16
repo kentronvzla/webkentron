@@ -24,6 +24,15 @@ body {
     border-bottom:1px solid #0094d8;
 }
 
+.titulo-noticia-left {
+    padding-bottom:8px;
+    margin:20px 0 20px;
+    text-align: left;
+    color: #0094d8;
+    font-family: Gobold;
+    border-bottom:1px solid #0094d8;
+}
+
 .titulo-header-left {
     padding-bottom:9px;
     margin:40px 0 20px;
