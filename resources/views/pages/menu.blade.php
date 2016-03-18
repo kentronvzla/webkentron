@@ -55,26 +55,40 @@
             </div>
         </form>-->
     @if (!Sentry::check())
-    <li class="{{ set_active('register') }} negrita">{!! Html::linkIcon('register', 'Registro', 'user') !!}</li>
-    <li class="{{ set_active('login') }} negrita">{!! Html::linkIcon('login', 'Iniciar', 'dot-circle-o') !!}</li>
+    <li class="{{ set_active('login') }} negrita">{!! Html::linkIcon('login', 'Entrar', 'sign-in') !!}</li>
+<!--    <div class="btn-group" role="group" style="padding-top: 8px">
+        {{-- Html::buttonText(route('login'), 'sign-in', 'Entrar', false, '_self', 'md', 'webkentron') --}}
+    </div>-->
+
     @else
     <!--<li class="{{ set_active('profiles') }}"><a href="{{ url('profiles') }}/{{Sentry::getUser()->id}}">My Profile</a></li>-->
-
-    <div class="btn-group" role="group" style="padding-top: 8px">
-        <button type="button" class="btn btn-info">
+    
+    <li class="dropdown negrita">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            {!! Sentry::getUser()->email !!}
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li>{!! Html::linkIcon('admin','Administrar', 'table') !!}</li>
+            <li class="divider"></li>
+            <li>{!! Html::linkIcon('logout', 'Cerrar Sesión', 'sign-out') !!}</li>
+        </ul>
+    </li>
+    
+<!--    <div class="btn-group" role="group" style="padding-top: 8px">
+        <button type="button" class="btn btn-webkentron">
             <i class="fa fa-user"></i>
-            <span class="hidden-sm hidden-xs">{{ Sentry::getUser()->email }}</span>
+            <span class="hidden-sm hidden-xs">{{-- Sentry::getUser()->email --}}</span>
         </button>
-        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+        <button type="button" class="btn btn-webkentron dropdown-toggle" data-toggle="dropdown">
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu">
-            <li>{!! Html::linkIcon('logout', 'Cerrar Sesión', 'times') !!}</li>
+            <li>{{-- Html::linkIcon('logout', 'Cerrar Sesión', 'sign-out') --}}</li>
             <li class="divider"></li>
-            <li>{!! Html::linkIcon('admin','Administrar', 'table') !!}</li>
+            <li>{{-- Html::linkIcon('admin','Administrar', 'table') --}}</li>
         </ul>
-    </div>
-    
+    </div>-->
+
     @endif
 </ul>

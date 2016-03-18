@@ -1,16 +1,16 @@
 <!-- Footer -->
 <div class="container-fluid">
     <div class="row footer">
-        <div class="container-fluid">
+<!--        <div class="container-fluid">
             <div class="row row-eq-height cont-footer">
                 <div class="col-xs-12 col-sm-6 col-md-6">
-                    {!! Html::image('assets/img/image.png', 'kentron', array('class' => 'img-responsive center-img')) !!}
+                    {{-- Html::image('assets/img/image.png', 'kentron', array('class' => 'img-responsive center-img')) --}}
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 hfooter">
                     <p>Somos Gente que aporta soluciones® </p>
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 cfooter">

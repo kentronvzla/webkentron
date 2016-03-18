@@ -2,7 +2,7 @@
 
 @section('content1')
 
-<div class="panel panel-primary">
+<div class="panel panel-webkentron">
     <div class="panel-heading">
         @include('templates.tituloBarra',array('obj'=>$contenido, 'titulo'=>'contenido'))
     </div>

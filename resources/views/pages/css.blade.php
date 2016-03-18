@@ -7,9 +7,12 @@
 {!! Html::style('assets/css/libraries/owl.transitions.css') !!}
 {!! Html::style('assets/css/libraries/datepicker.min.css') !!}
 {!! Html::style('assets/css/libraries/dropzone.css') !!}
+{!! Html::style('assets/css/libraries/select2.min.css') !!}
 {!! Html::style('assets/css/libraries/yamm.css') !!}
 
 {!! Html::style('assets/css/webkentron/navbar.css') !!}
+{!! Html::style('assets/css/webkentron/button.css') !!}
+{!! Html::style('assets/css/webkentron/panel.css') !!}
 {!! Html::style('assets/css/webkentron/carousel.css') !!}
 {!! Html::style('assets/css/webkentron/fuentes.css') !!}
 {!! Html::style('assets/css/webkentron/style.css') !!}

@@ -11,14 +11,6 @@ use App\Contenido;
 
 class ContenidosController extends TableBaseController {
 
-//    protected $roles;
-//    protected static $className = "Contenido";
-//    protected static $collectionName = "contenidos";
-//    protected static $folderName = 'contenidos';
-//    protected static $viewName = "contenidos";
-//    protected static $varName = "contenido";
-//    protected static $eagerLoading = [];
-
     public function getNuevo(Request $request) {
         $data['nuevo'] = true;
         $data['contenido'] = new Contenido();

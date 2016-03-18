@@ -1,8 +1,8 @@
 
 function documentReady() {
     loadCarouselEvents();
-    loadGeneralEvents();
-    loadModalEvents();    
+    loadProjectColors();
+    loadModalEvents();
     autoCompletado();
     ayudasNavegador();
     navBar();
@@ -75,8 +75,8 @@ function loadCarouselEvents() {
     });
 }
 
-function loadGeneralEvents() {
-    var colors = ["#D2D2D2", "#808080", "#0094D8", "#1e3954"];
+function loadProjectColors() {
+    var colors = ["#D2D2D2", "#808080", "#0094D8", "#1E3954"];
     $(".controls-wrapper").each(function (index) {
         if (index < 4) {
             $(this).css("background-color", colors[index]);
@@ -299,7 +299,7 @@ function iniciarLibrerias() {
     iniciarPopoverRaty();
 
     iniciarJqueryTable();
-    
+
     iniciarDropzone();
 }
 
@@ -494,6 +494,11 @@ function navBar() {
             $('.navbar-toggle').click();
         }
     });
+    
+    // this code will prevent unexpected menu close when using some components (like accordion, forms, etc)
+    $(document).on('click', '.yamm .dropdown-menu', function (e) {
+        e.stopPropagation()
+    })
 
 }
 
@@ -515,7 +520,7 @@ function establishHistroyVariables() {
     //bind to State Change
     History.Adapter.bind(window, 'statechange', function () { // Note: We are using statechange instead of popstate
         var State = History.getState(); // Note: We are using History.getState() instead of event.state
-        ejecutarAjaxNavegador(State);       
+        ejecutarAjaxNavegador(State);
     });
 }
 
@@ -564,7 +569,7 @@ function multiSelect() {
         var child = $(this).data('child');
         var url = 'admin/tablas/' + $(this).data('url');
         var formParent = $(this).closest('form');
-        ejecutarAjaxSelect(child, url, formParent);    
+        ejecutarAjaxSelect(child, url, formParent);
     });
 }
 //function random(owlSelector) {

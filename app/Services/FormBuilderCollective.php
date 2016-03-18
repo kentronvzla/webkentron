@@ -34,7 +34,7 @@ class FormBuilderCollective extends FormBuilder {
         $data['params']['id'] = $relation;
         $data['params']['style'] = 'width: 100%;';
         $data['attrName'] = $relation . '[]';
-        $data['values'] = $obj->{$relation}->lists('id');
+        $data['values'] = $obj->{$relation}->lists('id')->toArray();
         $data['numCols'] = $numCols;
         $data['params']['data-placeholder'] = $obj->getDescription($relation);
         return view('templates.bootstrap.multiselect', $data)->render();
@@ -123,6 +123,15 @@ class FormBuilderCollective extends FormBuilder {
             } else {
                 $data['attrName'] = $obj->getTable() . '.' . $data['attrName'];
             }
+        }
+        return view('templates.bootstrap.input', $data);
+    }
+    
+    public function simpleInput($attrName, $numCols = 12, $type = 'text'
+    , $html = [], $options = [], $attrValue = null) {
+        list($data['attrName'], $data['params'], $data['numCols'], $data['options'], $data['inputType'], $data['attrValue']) = [$attrName, $html, $numCols, $options, $type, $attrValue];
+        if (!isset($data['params']['class'])) {
+            $data['params']['class'] = '';
         }
         return view('templates.bootstrap.input', $data);
     }

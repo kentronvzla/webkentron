@@ -5,17 +5,20 @@
 @section('content')
 <div class="container-fluid">
     <div class="col-xs-12 col-sm-3 col-md-3">
-        <div class="panel panel-info">
+        <div class="panel panel-webkentron">
             <div class="panel-heading">Versiones</div>
             <ul class="list-group">
             </ul>
         </div>
-        <div class="panel panel-info">
+        <div class="panel panel-webkentron">
             <div class="panel-heading">Seguridad</div>
             <ul class="list-group">
+                <a href="{{url('admin/seguridad/usuarios')}}">
+                    <li class="list-group-item lipanel">Usuarios</li>
+                </a>
             </ul>
         </div>
-        <div class="panel panel-info">
+        <div class="panel panel-webkentron">
             <div class="panel-heading">Tablas</div>
             <ul class="list-group">
                 <a href="{{url('admin/tablas/contenidos')}}">

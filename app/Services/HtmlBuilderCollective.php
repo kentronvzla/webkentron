@@ -8,23 +8,32 @@
  */
 
 namespace App\Services;
+
 use Collective\Html\HtmlBuilder;
 use Html;
 
 class HtmlBuilderCollective extends HtmlBuilder {
-    
+
     function button($href, $icon, $title, $modal = false) {
-        return '<a class="btn btn-primary btn-xs '.($modal ? 'abrir-modal':'').'" href="'.url($href).'" title="'.$title.'" target="_blank">'.Html::icon($icon).'</a>';
+        return '<a class="btn btn-primary btn-xs ' . ($modal ? 'abrir-modal' : '') . '" href="' . url($href) . '" title="' . $title . '" target="_blank">' . Html::icon($icon) . '</a>';
     }
 
-    function buttonText($href, $icon, $title, $modal = false, $size = 'md') {
-        return '<a class="btn btn-default btn-'.$size.' active btn-responsive '.($modal ? 'abrir-modal':'').'" href="'.url($href).'" title="'.$title.'" target="_blank">'.Html::icon($icon).' '.$title.'</a>';
+    function buttonText($href, $icon, $title, $modal = false, $target = '_blank', $btnsize = 'md', $btnstyle = 'default', $active = '') {
+        return '<a class="btn btn-' . $btnstyle . ' btn-' . $btnsize .' '. $active .  ' btn-responsive ' . ($modal ? 'abrir-modal' : '') . '" href="' . url($href) . '" title="' . $title . '" target="' . $target . '">' . Html::icon($icon) . ' ' . $title . '</a>';
     }
-    
-    function linkIcon($href, $title, $icon) {
-        return '<a href="'.url($href).'" title="'.$title.'">'.Html::icon($icon).' '.$title.'</a>';
+
+    function linkIcon($href, $title, $icon, $attributes = []) {
+        if (!empty($attributes)) {
+            $html = "";
+            foreach ($attributes as $key => $attribute){
+               $html .= $key ."=". $attribute ." ";  
+            }
+            return '<a ' . $html . ' href="' . url($href) . '" title="' . $title . '">' . Html::icon($icon) . ' '. $title . '</a>';
+        } else {
+            return '<a href="' . url($href) . '" title="' . $title . '">' . Html::icon($icon) . ' ' . $title . '</a>';
+        }
     }
-    
+
     function icon($icon) {
         return '<i class="fa fa-' . $icon . '"></i>';
     }
@@ -91,7 +100,7 @@ class HtmlBuilderCollective extends HtmlBuilder {
     function btnAgregar($url, $nombre) {
         $data['url'] = $url;
         $data['nombre'] = $nombre;
-        return View::make('templates.bootstrap.btnagregar', $data);
+        return view('templates.bootstrap.btnagregar', $data);
     }
 
 }
