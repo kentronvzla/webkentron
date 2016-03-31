@@ -24,7 +24,7 @@ class Grupo extends BaseModel {
         'name' => 'required|max:100'
     ];
     
-    public static $permissions = [
+    public static $permisos = [
         'Super' => [
             'Descripcion' => 'Super Usuario',
             'superuser' => 'Puede acceder a cualquier sección',

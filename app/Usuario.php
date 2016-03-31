@@ -7,15 +7,15 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use App\BaseModel;
-use Carbon\Carbon;
+use Validator;
 use Hash;
 use Sentry;
 
-class Usuario extends BaseModel implements AuthenticatableContract, CanResetPasswordContract
-{
+class Usuario extends BaseModel implements AuthenticatableContract, CanResetPasswordContract {
+
     use Authenticatable,
         CanResetPassword;
-    
+
     protected $connection = 'mysql';
 
     /**
@@ -24,22 +24,24 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
      * @var string
      */
     protected $table = 'users';
-    
     protected $primaryKey = "id";
+    protected $manejaConcurrencia = false;
+    public $autoPurgeRedundantAttributes = true;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['email', 'first_name', 'last_name', 'password'];
+    protected $fillable = ['email', 'first_name', 'last_name', 'activated', 'password', 'password_confirmation'];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['password', 'remember_token', 'password_confirmation'];
+    protected $passwordAttributes = ['password'];
 
     /**
      * Reglas que debe cumplir el objeto al momento de ejecutar el metodo save, 
@@ -54,7 +56,12 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
         'first_name' => 'required|max:100',
         'last_name' => 'required|max:100',
     ];
-    
+
+    public function __construct(array $attributes = []) {
+        parent::__construct($attributes);
+        $this->manejaConcurrencia = false;
+    }
+
     /**
      * Array clave valor que le asocia a un atributo del modelo una oración o una frase que describe al atributo.
      * Se usa para construir los mensajes de error.
@@ -64,6 +71,7 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
         return [
             'email' => 'Email',
             'password' => 'Contraseña',
+            'password_confirmation' => 'Confirmación de Contraseña',
             'first_name' => 'Nombre',
             'last_name' => 'Apellido',
             'activated' => '¿Activo?',
@@ -82,16 +90,70 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
         return "Usuarios";
     }
 
-    public function setPasswordAttribute($value) {
-        if ($value != "") {
-            $this->attributes['password'] = Hash::make($value);
+    public static function validar($input) {
+
+        $rules = [
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required|min:8',
+            'first_name' => 'required|max:100',
+            'last_name' => 'required|max:100',
+        ];
+
+        return Validator::make($input, $rules);
+    }
+
+    public function rules() {
+        switch ($this->method()) {
+            case 'GET':
+            case 'DELETE': {
+                    return [];
+                }
+            case 'POST': {
+                    return [
+                        'first_name' => 'required|max:100',
+                        'last_name' => 'required|max:100',
+                        'email' => 'required|email|unique:users,email',
+                        'password' => 'required|min:8|confirmed',
+                        'password_confirmation' => 'required|min:8',
+                    ];
+                }
+            case 'PUT':
+            case 'PATCH': {
+                    return [
+                        'first_name' => 'required|max:100',
+                        'last_name' => 'required|max:100',
+                        'email' => 'required|email|unique:users,email',
+                        'password' => 'required|min:8|confirmed',
+                        'password_confirmation' => 'required|min:8',
+                    ];
+                }
+            default:break;
         }
     }
 
-    public function setPasswordConfirmationAttribute($value) {
-        if ($value != "") {
-            $this->attributes['password_confirmation'] = Hash::make($value);
-        }
+    /**
+     * Boot function for using with User Events
+     *
+     * @return void
+     */
+    protected static function boot() {
+
+        static::saving(function ($model) {
+            foreach ($model->attributes as $key => $value) {
+                // Remove any confirmation fields
+                if (ends_with($key, '_confirmation')) {
+                    array_forget($model->attributes, $key);
+                    continue;
+                }
+                // Check if this one of our password attributes and if it's been changed.
+                if (in_array($key, $model->passwordAttributes) && $value != $model->getOriginal($key)) {
+                    // Hash it
+                    $model->attributes[$key] = Hash::make($value);
+                    continue;
+                }
+            }
+        });
     }
 
     public function getActivatedforAttribute() {
@@ -109,7 +171,7 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
     public static function puedeAcceder($permiso) {
         return Sentry::getUser()->hasAccess($permiso);
     }
-    
+
     public function getGrupoNameAttribute() {
         $grupos = $this->grupos;
         if (count($grupos) == 0) {
@@ -117,6 +179,7 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
         }
         return $grupos[0]->name;
     }
+
     public function getGrupoIdAttribute() {
         $grupos = $this->grupos;
         if (count($grupos) == 0) {
@@ -124,9 +187,9 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
         }
         return $grupos[0]->id;
     }
-    
-    public function isBooleanField($key){
-        if($key=="activated"){
+
+    public function isBooleanField($key) {
+        if ($key == "activated") {
             return true;
         }
     }

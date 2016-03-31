@@ -231,7 +231,7 @@ abstract class BaseModel extends Model implements SelectInterface, SimpleTableIn
                     $rulesCol = explode('|', $rule);
                     foreach ($rulesCol as $key2 => $val) {
                         if (starts_with($rulesCol[$key2], 'unique:')) {
-                            $rulesCol[$key2].=',' . $objAux->{$this->primaryKey} . ',' . $this->primaryKey;
+                            $rulesCol[$key2].=',' . $this->{$this->primaryKey} . ',' . $this->primaryKey;
                         }
                     }
                     $this->rules[$key] = implode('|', $rulesCol);

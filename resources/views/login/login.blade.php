@@ -1,4 +1,4 @@
-{!! Form::open(['route' => 'sessions.store', 'id'=>'login-form', 'style' => 'display:block;', 'role'=>'form']) !!}
+{!! Form::open(['route' => 'sessions.store', 'id'=>'login-form', 'role'=>'form']) !!}
 
 <div class="form-group">
     {!! Form::text('email', null, ['placeholder' => 'Email', 'id' => 'email', 'class' => 'form-control', 'required' => 'required', 'tabindex' => '1'])!!}

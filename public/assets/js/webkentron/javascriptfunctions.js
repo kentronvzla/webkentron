@@ -1,4 +1,3 @@
-
 function documentReady() {
     loadCarouselEvents();
     loadProjectColors();

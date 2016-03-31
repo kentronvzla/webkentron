@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Iniciar/Registrar')
+@section('title', 'Iniciar')
 
 @section('css')
 @include('pages.css.login-css')
@@ -19,10 +19,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6">
-                            {!! Html::linkIcon('#', 'Iniciar Sesión', 'sign-in', ['id' => 'login-form-link', 'class' => 'active']) !!} 
-                        </div>
-                        <div class="col-xs-6">
-                            {!! Html::linkIcon('#', 'Registro', 'user', ['id' => 'register-form-link']) !!} 
+                            {!! Html::linkIcon('#', 'Iniciar Sesión', 'sign-in', ['id' => 'login-form-link', 'class' => isset($active_login) ? $active_login: '']) !!} 
                         </div>
                     </div>
                     <hr>
@@ -32,7 +29,6 @@
                     <div class="row">
                         <div class="col-lg-12">
                             @include('login.login')
-                            @include('login.register')
                         </div>
                     </div>
                 </div>

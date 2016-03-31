@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    mostrarMensaje("{{Session::pull('mensaje')}}");
+    mostrarError("{!! Session::pull('mensaje') !!}");
 });
 
 

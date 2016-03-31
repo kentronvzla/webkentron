@@ -56,6 +56,7 @@
         </form>-->
     @if (!Sentry::check())
     <li class="{{ set_active('login') }} negrita">{!! Html::linkIcon('login', 'Entrar', 'sign-in') !!}</li>
+    <li class="{{ set_active('register') }} negrita">{!! Html::linkIcon('register', 'Registro', 'user-plus') !!}</li>
 <!--    <div class="btn-group" role="group" style="padding-top: 8px">
         {{-- Html::buttonText(route('login'), 'sign-in', 'Entrar', false, '_self', 'md', 'webkentron') --}}
     </div>-->

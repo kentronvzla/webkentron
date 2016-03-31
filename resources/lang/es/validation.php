@@ -26,7 +26,7 @@ return array(
         "string" => ":attribute debe tener entre :min y :max caracteres.",
         "array" => ":attribute debe tener entre :min y :max elementos.",
     ),
-    "confirmed" => "Las :attribute no coinciden.",
+    "confirmed" => "La :attribute no coincide.",
     "date" => ":attribute no es una fecha válida.",
     "date_format" => ":attribute no coincide con el formato :format.",
     "different" => ":attribute y :other deben ser diferente.",

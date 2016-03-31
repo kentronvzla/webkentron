@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin\Seguridad;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Usuario;
 use App\Http\Controllers\Admin\TableBaseController;
+use App\Usuario;
 
 class UsuariosController extends TableBaseController {
 
@@ -23,13 +22,15 @@ class UsuariosController extends TableBaseController {
     public function postIndex(Request $request) {
         $usuario = Usuario::findOrNew($request->input('id'));
         $usuario->fill($request->all());
-        if ($request->input('password') != "") {
-            $usuario->password = $request->input('password');
-        }
-        if ($usuario->save()) {
-            $usuario->grupos()->sync($request->input('grupos', []));
-            return redirect('administracion/seguridad/usuarios')
-                            ->with('mensaje', 'Se guardo el usuario correctamente.');
+        $validacion = $usuario->validate();
+        if ($validacion) {
+            if ($usuario->save()) {
+                $usuario->grupos()->sync($request->input('grupos', []));
+                return redirect('admin/seguridad/usuarios')
+                                ->with('mensaje', 'Se guardo el usuario correctamente.');
+            } else {
+                return back()->withInput()->withErrors($usuario->getErrors());
+            }
         } else {
             return back()->withInput()->withErrors($usuario->getErrors());
         }

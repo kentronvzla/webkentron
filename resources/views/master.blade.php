@@ -18,11 +18,11 @@
         <!--<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>-->
         @include('pages.css')
         <!-- Stylesheets -->
-        
+
         <!-- Stylesheets/Views -->
         @yield('css')
         <!-- Stylesheets/Views -->
-        
+
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -41,7 +41,7 @@
         <!-- Header -->
 
         <!-- Errors -->
-        {{-- @include('pages.error') --}}
+        @include('templates.mensaje')
         <!-- Errors -->
 
         <!-- Containers -->
@@ -59,16 +59,24 @@
         <!-- Scripts -->
         @include('pages.js')
         <!-- Scripts -->
-        
+
         <!-- Scripts/Views -->
         @yield('javascript')
         <!-- Scripts/Views -->
-        
+
         @if(Session::has('mensaje'))
-            {!! Html::script('assets/js/webkentron/pull_msj.js') !!}
+        <script>
+            $(document).ready(function () {
+                mostrarMensaje("{!! Session::pull('mensaje') !!}");
+            });
+        </script>
         @endif
         @if(Session::has('error'))
-            {!! Html::script('assets/js/webkentron/pull_err.js') !!}
+        <script>
+            $(document).ready(function () {
+                mostrarError("{!! Session::pull('error') !!}");
+            });
+        </script>
         @endif
 
         <!-- JavaScript -->

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Auth\Authenticatable;
 //use Illuminate\Database\Eloquent\Model;
-use Cartalyst\Sentry\Users\Eloquent\User;
+//use Cartalyst\Sentry\Users\Eloquent\User;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
@@ -29,7 +29,7 @@ use Sentry;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  */
-class User extends User implements AuthenticatableContract, CanResetPasswordContract {
+class User extends \Cartalyst\Sentry\Users\Eloquent\User implements AuthenticatableContract, CanResetPasswordContract {
 
     use Authenticatable,
         CanResetPassword;

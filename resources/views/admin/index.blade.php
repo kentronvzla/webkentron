@@ -13,7 +13,10 @@
         <div class="panel panel-webkentron">
             <div class="panel-heading">Seguridad</div>
             <ul class="list-group">
-                <a href="{{url('admin/seguridad/usuarios')}}">
+                <a href="{!! url('admin/seguridad/grupos') !!}">
+                    <li class="list-group-item lipanel">Grupos</li>
+                </a>
+                <a href="{!! url('admin/seguridad/usuarios') !!}">
                     <li class="list-group-item lipanel">Usuarios</li>
                 </a>
             </ul>
@@ -21,7 +24,7 @@
         <div class="panel panel-webkentron">
             <div class="panel-heading">Tablas</div>
             <ul class="list-group">
-                <a href="{{url('admin/tablas/contenidos')}}">
+                <a href="{!! url('admin/tablas/contenidos') !!}">
                     <li class="list-group-item lipanel">Contenidos</li>
                 </a>
             </ul>
