@@ -57,6 +57,9 @@
         <!-- Footer -->
 
         <!-- Scripts -->
+        <script>
+            var baseUrl = '{!! url("") !!}/';
+        </script>
         @include('pages.js')
         <!-- Scripts -->
 

@@ -65,7 +65,7 @@ class GruposController extends TableBaseController {
         $permisos[$permiso] = 1;
         $sentryGroups->permissions = $permisos;
         $sentryGroups->save();
-        return response()->json(['mensaje' => 'Se concedio el permiso correctamente.']);
+        return response()->json(['mensaje' => 'Se concedió el permiso correctamente.']);
     }
 
     public function postDenegarpermiso($idgrupo, $permiso) {
@@ -74,7 +74,7 @@ class GruposController extends TableBaseController {
         $permisos[$permiso] = 0;
         $sentryGroups->permissions = $permisos;
         $sentryGroups->save();
-        return response()->json(['mensaje' => 'Se denego el permiso correctamente.']);
+        return response()->json(['mensaje' => 'Se denegó el permiso correctamente.']);
     }
 
 }

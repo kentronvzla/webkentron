@@ -22,7 +22,7 @@
                     <h3 class="panel-title">Datos de Contácto</h3>
                 </div>
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'contact', 'method' => 'store']) !!}
+                    {!! Form::open(['route' => 'contacto', 'method' => 'store']) !!}
                     <div class="form-group">
                         {!! Form::label('email', 'Correo') !!}
                         {!! Form::email('email', null, ['class' => 'form-control']) !!}
@@ -53,21 +53,13 @@
 
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                Dirección: Av. Las Acacias, Torre
+                <b>Dirección:</b> Av. Las Acacias, Torre
                 La Previsora, piso 19, of. Sur-Oeste,
-                Sabana Grande, Caracas 1050, Venezuela 
-            </p>
-        </div>        
-        <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
-            <p>
-                Teléfonos:
-                (58-212) 781-7008, 781-6146, 782-5520
-            </p>
-        </div>
-        <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
-            <p>
-                Correo:
-                info@kentron.com.ve
+                Sabana Grande, Caracas 1050, Venezuela. 
+                <br>
+                <b>Teléfonos:</b> +58 212 781-7008 / 781-6146 / 782-5520
+                <br>
+                <b>Correo:</b> info@kentron.com.ve
             </p>
         </div>
 

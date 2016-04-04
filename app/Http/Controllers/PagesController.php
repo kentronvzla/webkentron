@@ -49,6 +49,10 @@ class PagesController extends Controller {
     public function getCustomer() {
         return view('pages.clientes');
     }
+    
+    public function getSupport() {
+        return view('pages.soporte');
+    }
 
     public function getInfoProyecto($id) {
         $data['proyecto'] = Contenido::findOrFail($id);

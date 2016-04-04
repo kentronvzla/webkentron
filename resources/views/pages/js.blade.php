@@ -1,5 +1,3 @@
-{!! Html::script('assets/js/webkentron/globales.js') !!}
-
 {!! Html::script('assets/js/jquery.js') !!}
 {!! Html::script('assets/js/bootstrap/bootstrap.min.js') !!}
 {!! Html::script('assets/js/bootstrap/bootstrap_validation.js') !!}

@@ -3,9 +3,11 @@
 # Static Pages. Redirecting admin so admin cannot access these pages.
 Route::group(['middleware' => ['redirectAdmin']], function() {
     Route::get('/', ['as' => 'home', 'uses' => 'PagesController@getHome']);
-    Route::get('nosotros', ['as' => 'nosotros', 'uses' => 'PagesController@getAbout']);
-    Route::get('contacto', ['as' => 'contacto', 'uses' => 'PagesController@getContact']);
+    Route::get('soporte', ['as' => 'soporte', 'uses' => 'PagesController@getSupport']);
+    Route::get('contacto', ['as' => 'contacto', 'uses' => 'ContactoController@index']);
+    Route::post('contacto', ['as' => 'contacto', 'uses' => 'ContactoController@store']);
     Route::get('clientes', ['as' => 'clientes', 'uses' => 'PagesController@getCustomer']);
+    Route::get('nosotros', ['as' => 'nosotros', 'uses' => 'PagesController@getAbout']);
     Route::get('infoproyecto/{id}', ['as' => 'infoproyecto', 'uses' => 'PagesController@getInfoProyecto']);
     Route::get('contenido/{url}', ['as' => 'contenido', 'uses' => 'PagesController@getShow']);
 
@@ -55,9 +57,3 @@ Route::group(['prefix' => 'admin', 'as' => 'admin', 'namespace' => 'Admin'], fun
     });
     Route::get('/', 'AdministrarController@getIndex');
 });
-
-
-# Contacto routes
-Route::get('contact', ['as' => 'contact', 'uses' => 'ContactoController@index']);
-Route::post('contact', ['as' => 'contact', 'uses' => 'ContactoController@store']);
-

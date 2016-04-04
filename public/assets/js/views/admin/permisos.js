@@ -24,12 +24,14 @@ var recargarDiv = false;
 //}
 
 function concederPermiso(idgrupo, permiso) {
-    getObject('administracion/seguridad/grupos/concederpermiso/'+idgrupo+'/'+permiso, function(data) {
+    var url = 'grupos/concederpermiso/'+idgrupo+'/'+permiso;
+    var url_modal = 'admin/seguridad/grupos/modificar/' + idgrupo;
+    $.post(url, function(data) {
         mostrarMensaje(data.mensaje);
-        if (recargarDiv == false) {
-            cargarDiv('administracion/seguridad/grupos/modificar/' + idgrupo, 'divModal');
+        if (recargarDiv === false) {
+            cargarDiv(url_modal, 'divModal');
         }
-    }, "POST");
+    });
 }
 
 function concederPermisoPorGrupo(idAcordion, idgrupo) {
@@ -38,7 +40,7 @@ function concederPermisoPorGrupo(idAcordion, idgrupo) {
         $(this).click();
     });
     recargarDiv = false;
-    cargarDiv('administracion/seguridad/grupos/modificar/' + idgrupo, 'divModal');
+    cargarDiv('admin/seguridad/grupos/modificar/' + idgrupo, 'divModal');
 }
 
 
@@ -87,14 +89,14 @@ function getObject(url, callback, method) {
 //    });
 //   }
 function denegarPermiso(idgrupo, permiso) {
-    
-    getObject('administracion/seguridad/grupos/denegarpermiso/'+idgrupo+'/'+permiso, function(data) {
+    var url = 'grupos/denegarpermiso/'+idgrupo+'/'+permiso;
+    var url_modal = 'admin/seguridad/grupos/modificar/' + idgrupo;
+    $.post(url, function(data) {
         mostrarMensaje(data.mensaje);
-        if (recargarDiv == false) {
-            cargarDiv('administracion/seguridad/grupos/modificar/' + idgrupo, 'divModal');
+        if (recargarDiv === false) {
+            cargarDiv(url_modal, 'divModal');
         }
-
-    }, "POST");
+    });
 }
 
 
@@ -104,7 +106,7 @@ function denegarPermisoPorGrupo(idAcordion, idgrupo) {
         $(this).click();
     });
     recargarDiv = false;
-    cargarDiv('administracion/seguridad/grupos/modificar/' + idgrupo, 'divModal');
+    cargarDiv('admin/seguridad/grupos/modificar/' + idgrupo, 'divModal');
 }
 
 function guardarAjax(form) {
