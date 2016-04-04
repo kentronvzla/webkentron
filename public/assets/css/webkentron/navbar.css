@@ -82,6 +82,10 @@
         color: #ffffff;
         background-color: #0094d8;
     }
+    .navbar-collapse {
+        max-height: auto;
+        overflow-x: auto;
+    }
 }
 /* Barra de busqueda */
 

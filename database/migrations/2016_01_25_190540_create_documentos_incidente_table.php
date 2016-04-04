@@ -3,17 +3,16 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDocumentosIncidenteTable extends Migration
-{
+class CreateDocumentosIncidenteTable extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::table('documentos_incidente', function (Blueprint $table) {
-            $table->increments('id');
+    public function up() {
+        Schema::create('documentos_incidente', function (Blueprint $table) {
+            $table->increments('id')->unique();
             $table->integer('incidente_id', false, true);
             $table->text('archivo');
             $table->string('nombre');
@@ -24,6 +23,10 @@ class CreateDocumentosIncidenteTable extends Migration
             $table->integer('version')->default(0);
             $table->boolean('ind_visible')->default(1);
             $table->timestamps();
+
+            // We'll need to ensure that MySQL uses the InnoDB engine to
+            // support the indexes, other engines aren't affected.
+            $table->engine = 'InnoDB';
         });
     }
 
@@ -32,10 +35,8 @@ class CreateDocumentosIncidenteTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::table('documentos_incidente', function (Blueprint $table) {
-            Schema::drop('DOCUMENTO_CANDIDATO');
-        });
+    public function down() {
+        Schema::drop('documentos_incidente');
     }
+
 }

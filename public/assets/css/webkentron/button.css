@@ -1,0 +1,55 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17/03/2016, 04:33:51 PM
+    Author     : Reysmer Valle
+*/
+
+.btn-webkentron { 
+  color: #FFFFFF; 
+  background-color: #0094D8; 
+  border-color: #1E3954; 
+} 
+ 
+.btn-webkentron:hover, 
+.btn-webkentron:focus, 
+.btn-webkentron:active, 
+.btn-webkentron.active, 
+.open .dropdown-toggle.btn-webkentron { 
+  color: #FFFFFF; 
+  background-color: #1E3954; 
+  border-color: #1E3954; 
+} 
+ 
+.btn-webkentron:active, 
+.btn-webkentron.active, 
+.open .dropdown-toggle.btn-webkentron { 
+  background-image: none; 
+} 
+ 
+.btn-webkentron.disabled, 
+.btn-webkentron[disabled], 
+fieldset[disabled] .btn-webkentron, 
+.btn-webkentron.disabled:hover, 
+.btn-webkentron[disabled]:hover, 
+fieldset[disabled] .btn-webkentron:hover, 
+.btn-webkentron.disabled:focus, 
+.btn-webkentron[disabled]:focus, 
+fieldset[disabled] .btn-webkentron:focus, 
+.btn-webkentron.disabled:active, 
+.btn-webkentron[disabled]:active, 
+fieldset[disabled] .btn-webkentron:active, 
+.btn-webkentron.disabled.active, 
+.btn-webkentron[disabled].active, 
+fieldset[disabled] .btn-webkentron.active { 
+  background-color: #0094D8; 
+  border-color: #1E3954; 
+} 
+ 
+.btn-webkentron .badge { 
+  color: #0094D8; 
+  background-color: #FFFFFF; 
+}

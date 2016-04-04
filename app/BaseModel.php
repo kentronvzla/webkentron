@@ -10,6 +10,7 @@
  * Por defecto el metodo validate es ejecutado con el evento save();
  *
  * @author Nadin Yamaui
+ * @author Reysmer Valle
  */
 
 namespace App;
@@ -18,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\MessageBag;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Input;
 use App\Interfaces\SelectInterface;
 use App\Interfaces\SimpleTableInterface;
 use App\Helpers\Helper;
@@ -229,7 +231,7 @@ abstract class BaseModel extends Model implements SelectInterface, SimpleTableIn
                     $rulesCol = explode('|', $rule);
                     foreach ($rulesCol as $key2 => $val) {
                         if (starts_with($rulesCol[$key2], 'unique:')) {
-                            $rulesCol[$key2].=',' . $objAux->{$this->primaryKey} . ',' . $this->primaryKey;
+                            $rulesCol[$key2].=',' . $this->{$this->primaryKey} . ',' . $this->primaryKey;
                         }
                     }
                     $this->rules[$key] = implode('|', $rulesCol);
@@ -474,6 +476,24 @@ abstract class BaseModel extends Model implements SelectInterface, SimpleTableIn
                 }
         }
         return null;
+    }
+
+    public function setGlobalNewAttributes($model, $userid) {
+        if (!isset($model->attributes['ind_visible'])) {
+            $model->attributes['ind_visible'] = 1;
+        }
+        $model->attributes['usuario_creacion_id'] = $userid;
+        $model->attributes['usuario_modificacion_id'] = $userid;
+        return $model;
+    }
+
+    public function setGlobalUpdateAttributes($model, $userid) {
+        $model->attributes['usuario_modificacion_id'] = $userid;
+        return $model;
+    }
+    
+    public function setFieldsAttributes($model){
+        
     }
 
     public function isBooleanField($field) {

@@ -1,16 +1,16 @@
 <!-- Footer -->
 <div class="container-fluid">
     <div class="row footer">
-        <div class="container-fluid">
+<!--        <div class="container-fluid">
             <div class="row row-eq-height cont-footer">
                 <div class="col-xs-12 col-sm-6 col-md-6">
-                    {!! Html::image('assets/img/image.png', 'kentron', array('class' => 'img-responsive center-img')) !!}
+                    {{-- Html::image('assets/img/image.png', 'kentron', array('class' => 'img-responsive center-img')) --}}
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 hfooter">
                     <p>Somos Gente que aporta soluciones® </p>
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 cfooter">
@@ -18,8 +18,8 @@
                         <div class="titulo-footer">PRODUCTOS</div>
                         <div class="contenido-footer">
                             <ul class="lista-footer">
-                                <a href="{{url('products/kerux')}}"><li>Kerux</li></a>
-                                <a href="{{url('products/komat')}}"><li>Komat</li></a>
+                                <a href="{!! url('productos/kerux') !!}"><li>Kerux</li></a>
+                                <a href="{!! url('productos/komat') !!}"><li>Komat</li></a>
                                 <li>Otros</li>
                             </ul>
                         </div>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div div class="col-md-3 bfooter">
-                        <div class="titulo-footer">SOPORTE KERUX</div>
+                        <div class="titulo-footer">{!! Html::link('soporte', 'SOPORTE KERUX') !!}</div>
                         <div class="contenido-footer">
                             <ul class="lista-footer">
                                 <li>Asistencia técnica</li>
@@ -43,7 +43,7 @@
                                 <li>Programar llamada</li>
                             </ul>
                         </div>
-                        <div class="titulo-footer">KOMAT</div>
+                        <div class="titulo-footer">{!! Html::link('soporte', 'SOPORTE KOMAT') !!}</div>
                         <div class="contenido-footer">
                             <ul class="lista-footer">
                                 <li>Asistencia técnica</li>

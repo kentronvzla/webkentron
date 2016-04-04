@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/03/2016, 10:58:02 AM
+    Author     : Reysmer Valle
+*/
+
+.panel-webkentron {
+    color: #000000; 
+    background-color: #FFFFFF; 
+    border-color: #1E3954; 
+}
+.panel-webkentron>.panel-heading {
+    color: #FFFFFF; 
+    background-color: #0094D8; 
+    border-color: #1E3954;
+
+}
+.panel-webkentron>.panel-heading a{
+    text-decoration: none;
+    color: #1E3954;
+    font-weight: bold;
+}
+.panel-webkentron>.panel-heading a.active{
+    color: #1E3954;
+}

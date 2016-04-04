@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\LoginFormRequest;
 use Sentry;
 
-class SessionsController extends Controller
-{
+class SessionsController extends Controller {
+
     /**
      * Show the form for creating a new resource.
      *
      * @return Response
      */
-    public function create()
-    {
-        return view('sessions.create');
+    public function create() {
+//        return view('sessions.create');
+        list($data['active_login']) = ['active'];
+        return view('login.index_login', $data);
     }
 
     /**
@@ -25,16 +24,15 @@ class SessionsController extends Controller
      *
      * @return Response
      */
-    public function store(LoginFormRequest $request)
-    {
+    public function store(LoginFormRequest $request) {
         $input = $request->only('email', 'password');
 
         try {
             Sentry::authenticate($input, \Input::has('remember'));
         } catch (\Cartalyst\Sentry\Users\UserNotFoundException $e) {
-            return redirect()->back()->withInput()->withErrorMessage('Invalid credentials provided');
+            return redirect()->back()->withInput()->with('error', 'Credenciales Invalidas.');
         } catch (\Cartalyst\Sentry\Users\UserNotActivatedException $e) {
-            return redirect()->back()->withInput()->withErrorMessage('User Not Activated.');
+            return redirect()->back()->withInput()->with('error', 'Disculpe su usuario no se encuentra activo, por favor comuniquese con nosotros.');
         }
 
         // Logged in successfully - redirect based on type of user
@@ -55,12 +53,9 @@ class SessionsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id=null)
-    {
+    public function destroy($id = null) {
         Sentry::logout();
-
-        //return Redirect::home();
-
         return redirect()->route('home');
     }
+
 }

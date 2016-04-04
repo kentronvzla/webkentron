@@ -3,17 +3,16 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAvisosIncidenteTable extends Migration
-{
+class CreateAvisosIncidenteTable extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('avisos_incidente', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unique();
             $table->integer('aviso_incidente_id', false, true);
             $table->integer('incidente_id', false, true);
             $table->date('fecha');
@@ -25,6 +24,10 @@ class CreateAvisosIncidenteTable extends Migration
             $table->integer('version')->default(0);
             $table->boolean('ind_visible')->default(1);
             $table->timestamps();
+
+            // We'll need to ensure that MySQL uses the InnoDB engine to
+            // support the indexes, other engines aren't affected.
+            $table->engine = 'InnoDB';
         });
     }
 
@@ -33,8 +36,8 @@ class CreateAvisosIncidenteTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::drop('avisos_incidente');
     }
+
 }

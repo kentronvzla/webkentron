@@ -11,6 +11,7 @@ use App\BaseModel;
  * @property string $descripcion
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Contenido[] $contenido
  * @property-read mixed $estatus_display
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Contenido[] $contenidos
  */
 class TipoPublicacion extends BaseModel {
 
@@ -48,7 +49,7 @@ class TipoPublicacion extends BaseModel {
     }
 
     public function contenidos() {
-        return $this->hasMany('App\Contenido');
+        return $this->hasMany('App\Contenido', 'tipo_publicaciones_id');
     }
     
     public static function getCampoCombo() {

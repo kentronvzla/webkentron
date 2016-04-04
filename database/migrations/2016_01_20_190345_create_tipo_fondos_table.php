@@ -3,21 +3,23 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTipoFondosTable extends Migration
-{
+class CreateTipoFondosTable extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         //
-         Schema::create('tipo_fondos', function(Blueprint $table)
-                {
-                    $table->increments('id')->unique();
-                    $table->string('descripcion',256);                    
-                });
+//        Schema::create('tipo_fondos', function(Blueprint $table) {
+//            $table->increments('id')->unique();
+//            $table->string('descripcion', 255);
+
+            // We'll need to ensure that MySQL uses the InnoDB engine to
+            // support the indexes, other engines aren't affected.
+//            $table->engine = 'InnoDB';
+//        });
     }
 
     /**
@@ -25,9 +27,9 @@ class CreateTipoFondosTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         //
-        Schema::drop('tipo_fondos');
+//        Schema::drop('tipo_fondos');
     }
+
 }

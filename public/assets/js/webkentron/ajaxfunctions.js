@@ -66,28 +66,6 @@ function cargarDiv(url, dest, callback) {
     });
 }
 
-function buscarAyuda(formulario, campo) {
-    var ayuda = localStorage.getItem(formulario + '.' + campo);
-    if (ayuda == undefined) {
-        $.ajax({
-            type: "GET",
-            url: baseUrl + 'admin/ayudas/buscar/' + formulario + '/' + campo,
-            cache: false,
-            dataType: 'json',
-            success: function (data) //Si se ejecuta correctamente
-            {
-                $('#contenedorAyuda').attr("data-id", data.ID);
-                $('#contenedorAyuda').html(data.AYUDA);
-                localStorage.setItem(formulario + '.' + campo, data.AYUDA);
-                localStorage.setItem(formulario + '.' + campo + '.id', data.ID);
-            }
-        });
-    } else {
-        $('#contenedorAyuda').attr("data-id", localStorage.getItem(formulario + '.' + campo + '.id'));
-        $('#contenedorAyuda').html(ayuda);
-    }
-}
-
 function getCombo(select, destino, url)
 {
     $.ajax({
@@ -187,7 +165,7 @@ function guardarFormulario() {
                 }
                 var callback = $(this.formulario).attr('data-callback');
                 if (callback != undefined && callback != "") {
-                    window[callback](data);
+                    window.location.reload();
                 }
                 if (data.vista != undefined) {
                     $(this.formulario).parent().html(data.vista);
@@ -266,6 +244,56 @@ function eliminarAjax() {
     });
 }
 
+function ejecutarAjaxSelect(child, url, formParent) {
+    $.ajax({
+        type: "GET",
+        url: baseUrl + url + "/" + $(this).val(),
+        cache: false,
+        dataType: 'json',
+        success: function (data) //Si se ejecuta correctamente
+        {
+            var selectChild = $(formParent).find('#' + child);
+            selectChild.empty();
+            var ultimo, cantidad = 0;
+            if (data != null) {
+                $.each(data, function (i, value) {
+                    if (i != "") {
+                        ultimo = i;
+                    }
+                    cantidad++;
+                    //Se quita la opcion enb blanco para cuando es multiselect
+                    if (i != '' || selectChild.attr('multiple') == undefined) {
+                        selectChild.append("<option value='" + i + "'>" + value + "</option>");
+                    }
+                });
+                if (cantidad == 2) {
+                    selectChild.val(ultimo);
+                    selectChild.change();
+                } else {
+                    selectChild.val("");
+                }
+            }
+            return;
+        }
+    });
+    return;
+}
+
+function ejecutarAjaxNavegador(State) {
+    $.ajax({
+        url: State.url,
+        success: function (msg) {
+            $('#content').html($(msg).find('#content').html());
+            $('#loading').remove();
+            $('#content').fadeIn();
+            var newTitle = $(msg).filter('title').text();
+            $('title').text(newTitle);
+            return;
+        }
+    });
+    return;
+}
+
 function documentoListo() {
     iniciarLibrerias();
     confirmarEliminacion();
@@ -275,5 +303,3 @@ function documentoListo() {
     eliminarAjax();
 
 }
-
-

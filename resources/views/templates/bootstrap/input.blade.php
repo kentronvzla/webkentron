@@ -4,6 +4,8 @@
             {!! Form::text($attrName, Input::old($attrName,$attrValue), $params) !!}
         @elseif($inputType=="select")
             {!! Form::select($attrName, $options, Input::old($attrName,$attrValue), $params)!!}
+        @elseif($inputType=="simple_select")
+            {!! Form::select($attrName, $options, $attrValue, $params) !!}    
         @elseif($inputType=="password")
             {!! Form::password($attrName, $params)!!}
         @elseif($inputType=="multiselect")
@@ -14,6 +16,8 @@
             {!! Form::file($attrName, $params)!!}
         @elseif($inputType=="label")
             {!! Form::label($attrName, '', $params) !!}
+        @elseif($inputType=="email")
+            {!! Form::email($attrName, Input::old($attrName,$attrValue), $params) !!}    
         @elseif($inputType=="boolean")
             <label for="{{ $params['id'] }}">{!! $params['placeholder'] !!}</label>
             <div class="btn-group" data-toggle="buttons">

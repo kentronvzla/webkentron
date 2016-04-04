@@ -10,6 +10,7 @@
 namespace App\Services;
 
 use Collective\Html\FormBuilder;
+use Illuminate\Support\Facades\Route;
 
 class FormBuilderCollective extends FormBuilder {
 
@@ -33,7 +34,7 @@ class FormBuilderCollective extends FormBuilder {
         $data['params']['id'] = $relation;
         $data['params']['style'] = 'width: 100%;';
         $data['attrName'] = $relation . '[]';
-        $data['values'] = $obj->{$relation}->lists('id');
+        $data['values'] = $obj->{$relation}->lists('id')->toArray();
         $data['numCols'] = $numCols;
         $data['params']['data-placeholder'] = $obj->getDescription($relation);
         return view('templates.bootstrap.multiselect', $data)->render();
@@ -98,7 +99,10 @@ class FormBuilderCollective extends FormBuilder {
         }
         $data['params']['id'] = str_replace('->', '_', str_replace('[]', '', $attrName));
         $data['params']['class'] .= 'form-control';
-        $data['params']['placeholder'] = $obj->getDescription($attrName);
+        if ($type != 'select'){
+            $data['params']['placeholder'] = $obj->getDescription($attrName);
+            $data['params']['data-placeholder'] = $data['params']['placeholder'];
+        }
         if ($obj->isRequired($attrName) && $type != 'password') {
             $data['params']['required'] = 'true';
         }
@@ -120,7 +124,15 @@ class FormBuilderCollective extends FormBuilder {
                 $data['attrName'] = $obj->getTable() . '.' . $data['attrName'];
             }
         }
-        $data['params']['data-placeholder'] = $data['params']['placeholder'];
+        return view('templates.bootstrap.input', $data);
+    }
+    
+    public function simpleInput($attrName, $numCols = 12, $type = 'text'
+    , $html = [], $options = [], $attrValue = null) {
+        list($data['attrName'], $data['params'], $data['numCols'], $data['options'], $data['inputType'], $data['attrValue']) = [$attrName, $html, $numCols, $options, $type, $attrValue];
+        if (!isset($data['params']['class'])) {
+            $data['params']['class'] = '';
+        }
         return view('templates.bootstrap.input', $data);
     }
 
@@ -128,23 +140,37 @@ class FormBuilderCollective extends FormBuilder {
             $html = [], $options = []) {
 
         $data['params'] = $html;
+        $base_path = 'archivos'
+                    . DIRECTORY_SEPARATOR . 'contenidos' 
+                    . DIRECTORY_SEPARATOR . $obj->tipoPublicaciones->getAttributes()['descripcion'];
         if (!isset($data['params']['data-tipoarchivo'])) {
             $data['params']['data-tipoarchivo'] = 'image/*';
         }
         if (!isset($data['params']['data-urlsubir'])) {
-            $data['params']['data-urlsubir'] = url($objName . "/" . 'subir' . $attrName . "/" . $obj->id);
+            $data['params']['data-urlsubir'] = url($objName . DIRECTORY_SEPARATOR . 'subir' . $attrName . DIRECTORY_SEPARATOR . $obj->id);
+        }else{
+            $data['params']['data-urlsubir'] = url($data['params']['data-urlsubir'] . DIRECTORY_SEPARATOR . 'subir' . $attrName . DIRECTORY_SEPARATOR . $obj->id);
         }
         if (!isset($data['params']['class'])) {
             $data['params']['class'] = 'img-responsive disparadorArchivo';
         }
-        $data['url_image'] = (empty($url_image) || $url_image == '') ? $base_path . $obj->id . DIRECTORY_SEPARATOR . $obj->$attrName : $url_image;
+        $data['url_image'] = (empty($url_image) || $url_image == '') ? $base_path . DIRECTORY_SEPARATOR . $obj->$attrName : $url_image;
         $data['alt'] = (empty($alt) || $alt == '') ? 'No hay '. $attrName .' aun' : $alt;
         $data['params']['class'] .= ($type != 'image') ? ' form-control' : '';       
         list($data['numCols'], $data['attrName'], $data['params']['id'],
                 $data['params']['placeholder'], $data['inputType'], $data['options']) = array($numCols, $attrName,
             str_replace('->', '_', str_replace('[]', '', $attrName)), $obj->getDescription($attrName),
             $type, $options);
-        return view('templates.bootstrap.file', $data)->render();
+        return view('templates.bootstrap.image', $data)->render();
+    }
+    
+    function btFile($obj, $attrName, $numCols = 12, $html = []) {
+
+        $data['params'] = $html;
+
+        list($data['numCols'], $data['attrName'],$data['params']['placeholder']) = 
+                array($numCols, $attrName, $obj->getDescription($attrName));
+        return view('templates.dropzonefile', $data)->render();
     }
 
     function submitBt($btn_type = "btn-volver") {

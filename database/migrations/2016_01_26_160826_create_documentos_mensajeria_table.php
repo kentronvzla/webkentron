@@ -12,7 +12,7 @@ class CreateDocumentosMensajeriaTable extends Migration {
      */
     public function up() {
         Schema::create('documentos_mensajeria', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unique();
             $table->integer('mensajeria_id', false, true);
             $table->text('archivo');
             $table->string('nombre');
@@ -23,6 +23,10 @@ class CreateDocumentosMensajeriaTable extends Migration {
             $table->integer('version')->default(0);
             $table->boolean('ind_visible')->default(1);
             $table->timestamps();
+
+            // We'll need to ensure that MySQL uses the InnoDB engine to
+            // support the indexes, other engines aren't affected.
+            $table->engine = 'InnoDB';
         });
     }
 
