@@ -14,10 +14,10 @@ return [
     |
     */
 
-    'mailgun' => [
-        'domain' => '',
-        'secret' => '',
-    ],
+   'mailgun' => array(
+        'domain' => 'sandboxe3073a7a230b479cb4bffaa660ca8041.mailgun.org',
+        'secret' => 'key-8790d3e9f959ab822389400fd6360d22',
+),
 
     'mandrill' => [
         'secret' => env('MANDRILL_API_KEY', ''),
