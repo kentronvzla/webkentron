@@ -204,7 +204,7 @@
             y que todos los integrantes están en capacidad de generar aportes valiosos y
             de sentir cada éxito del equipo como un logro personal.
 
-            <h4 class="negrita">Nos mejoramos continuamenteo</h4>    
+            <h4 class="negrita">Nos mejoramos continuamente</h4>    
 
             Evaluamos en forma constante los productos, servicios y procesos de la Organización
             para hacerlos más efectivos, eficientes e innovadores. 
