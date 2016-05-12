@@ -33,7 +33,7 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
      *
      * @var array
      */
-    protected $fillable = ['email', 'first_name', 'last_name', 'activated', 'password', 'password_confirmation'];
+    protected $fillable = ['email', 'first_name', 'last_name', 'activated', 'password', 'password_confirmation', 'id'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -51,8 +51,8 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
      */
     protected $rules = [
         'email' => 'required|email|unique:users,email',
-        'password' => 'required|min:8|confirmed',
-        'password_confirmation' => 'required|min:8',
+        'password' => 'required_without:id|min:8|confirmed',
+        'password_confirmation' => 'required_with:password|min:8',
         'first_name' => 'required|max:100',
         'last_name' => 'required|max:100',
     ];
@@ -101,35 +101,6 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
         ];
 
         return Validator::make($input, $rules);
-    }
-
-    public function rules() {
-        switch ($this->method()) {
-            case 'GET':
-            case 'DELETE': {
-                    return [];
-                }
-            case 'POST': {
-                    return [
-                        'first_name' => 'required|max:100',
-                        'last_name' => 'required|max:100',
-                        'email' => 'required|email|unique:users,email',
-                        'password' => 'required|min:8|confirmed',
-                        'password_confirmation' => 'required|min:8',
-                    ];
-                }
-            case 'PUT':
-            case 'PATCH': {
-                    return [
-                        'first_name' => 'required|max:100',
-                        'last_name' => 'required|max:100',
-                        'email' => 'required|email|unique:users,email',
-                        'password' => 'required|min:8|confirmed',
-                        'password_confirmation' => 'required|min:8',
-                    ];
-                }
-            default:break;
-        }
     }
 
     /**

@@ -62,9 +62,8 @@
         </ul>
         </p>
 
-        <a href="#" class="btn btn-success active" role="button">Ver presentación interactiva</a>
-        <a href="#" class="btn btn-primary active" role="button">Solicitar Demo Software</a>
-
+<!--        <a href="#" class="btn btn-success active" role="button">Ver presentación interactiva</a>
+        <a href="#" class="btn btn-primary active" role="button">Solicitar Demo Software</a>-->
 
     </div>
 </div>

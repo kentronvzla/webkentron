@@ -12,7 +12,7 @@ var recargarDiv = false;
 //        {
 //            mostrarMensaje(data.mensaje);
 //          
-//            cargarDiv('administracion/seguridad/grupos/modificar/' + idgrupo, 'divModal');
+//            cargarDiv('administracion/seguridad/grupos/modificar/' + idgrupo, 'modal-window1');
 //        },
 //        error: function(data)
 //        {
@@ -29,7 +29,7 @@ function concederPermiso(idgrupo, permiso) {
     $.post(url, function(data) {
         mostrarMensaje(data.mensaje);
         if (recargarDiv === false) {
-            cargarDiv(url_modal, 'divModal');
+            cargarDiv(url_modal, 'modal-window1');
         }
     });
 }
@@ -40,7 +40,7 @@ function concederPermisoPorGrupo(idAcordion, idgrupo) {
         $(this).click();
     });
     recargarDiv = false;
-    cargarDiv('admin/seguridad/grupos/modificar/' + idgrupo, 'divModal');
+    cargarDiv('admin/seguridad/grupos/modificar/' + idgrupo, 'modal-window1');
 }
 
 
@@ -78,7 +78,7 @@ function getObject(url, callback, method) {
 //        {
 //            mostrarMensaje(data.mensaje);
 //           
-//            cargarDiv('administracion/seguridad/grupos/modificar/' + idgrupo, 'divModal');
+//            cargarDiv('administracion/seguridad/grupos/modificar/' + idgrupo, 'modal-window1');
 //        },
 //        error: function(data)
 //        {
@@ -94,7 +94,7 @@ function denegarPermiso(idgrupo, permiso) {
     $.post(url, function(data) {
         mostrarMensaje(data.mensaje);
         if (recargarDiv === false) {
-            cargarDiv(url_modal, 'divModal');
+            cargarDiv(url_modal, 'modal-window1');
         }
     });
 }
@@ -106,7 +106,7 @@ function denegarPermisoPorGrupo(idAcordion, idgrupo) {
         $(this).click();
     });
     recargarDiv = false;
-    cargarDiv('admin/seguridad/grupos/modificar/' + idgrupo, 'divModal');
+    cargarDiv('admin/seguridad/grupos/modificar/' + idgrupo, 'modal-window1');
 }
 
 function guardarAjax(form) {

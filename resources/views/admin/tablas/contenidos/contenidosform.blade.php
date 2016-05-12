@@ -9,7 +9,7 @@
     @if($nuevo)
     <div class="panel-body">
         @include('templates.errores')
-        {!! Form::open(['url'=>'admin/tablas/contenidos/nuevo', 'class' => 'form saveajax', 'id'=>'nuevaContenido', 'data-callback'=>'admin/tablas/contenidos']) !!}
+        {!! Form::open(['url'=>'admin/tablas/contenidos/nuevo', 'id'=>'contenidoNuevo']) !!}
         {!! Form::concurrencia($contenido) !!}
 
         <div class="row">

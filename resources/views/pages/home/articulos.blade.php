@@ -1,4 +1,5 @@
 <div class="container-fluid">
+    @if(isset($proyectos) && $proyectos->count()>0)
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <h1 class="titulo-header">
@@ -6,7 +7,6 @@
             </h1>
         </div>
     </div>
-
     <div class="wrapper-with-margin">
         <div id="owl-articulos" class="owl-carousel">
             @foreach ($articulos as $articulo)
@@ -26,10 +26,11 @@
                 </div>
                 {!! Html::image('archivos/contenidos/'
                 . $articulo->tipoPublicaciones->getAttributes()['descripcion']
-                . DIRECTORY_SEPARATOR 
+                . '/' 
                 . $articulo->fondo . '', $articulo->fondo, ['class' => 'img-responsive']) !!}
             </div>
             @endforeach
         </div>
     </div>
+    @endif
 </div>

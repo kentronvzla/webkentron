@@ -15,18 +15,18 @@ class SentryUserSeeder extends Seeder
         DB::table('users')->delete();
 
         Sentry::getUserProvider()->create([
-            'email'    => 'user@user.com',
-            'password' => 'sentryuser',
-            'first_name' => 'UserFirstName',
-            'last_name' => 'UserLastName',
+            'email'    => 'invitado@kentron.com.ve',
+            'password' => '12345678',
+            'first_name' => 'Invitado',
+            'last_name' => 'Kentron',
             'activated' => 1,
         ]);
 
         Sentry::getUserProvider()->create([
-            'email'    => 'admin@admin.com',
-            'password' => 'sentryadmin',
-            'first_name' => 'AdminFirstName',
-            'last_name' => 'AdminLastName',
+            'email'    => 'administrador@kentron.com.ve',
+            'password' => '12345678',
+            'first_name' => 'Administrador',
+            'last_name' => 'Kentron',
             'activated' => 1,
         ]);
 

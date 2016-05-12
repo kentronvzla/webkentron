@@ -15,11 +15,11 @@ class SentryGroupSeeder extends Seeder
         DB::table('groups')->delete();
 
         Sentry::getGroupProvider()->create([
-            'name'    => 'Users',
+            'name'    => 'Invitados',
             ]);
 
         Sentry::getGroupProvider()->create([
-            'name'    => 'Admins',
+            'name'    => 'Administradores',
             ]);
 
         $this->command->info('Groups seeded!');

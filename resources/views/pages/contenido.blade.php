@@ -25,25 +25,36 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         {!! Html::image('archivos/contenidos/'
                         . $contenido->tipoPublicaciones->getAttributes()['descripcion']
-                        . DIRECTORY_SEPARATOR 
+                        . '/' 
                         . $contenido->fondo . '', $contenido->fondo, ['class' => 'img-responsive']) !!}
                     </div>
                 </div>
 
+                <br>
+
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 parrafo">
-                        <p>
-                            {!! $contenido->detalle !!} 
-                        </p>
+                    <div class="col-xs-12 col-sm-12 col-md-12 parrafo videoyoutube"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 parrafo detalle">
+                        {!! $contenido->detalle !!}
                     </div>
                 </div>
 
             </div>
             <div class="panel-footer">
                 <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 referencia">
+                        Referencias:
+                    </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <p>
-                            Referencia:  {!! $contenido->referencia_externa !!}
+                            {{--*/ $tags = explode(",", $contenido->referencia_externa); /*--}}
+                            Tags:
+                            @foreach ($tags as $tag)
+                                <span class="badge"> {!! $tag !!} </span>
+                            @endforeach
                             <br>
                             Autor:       
                             {!! 
@@ -67,4 +78,8 @@
     </div>
 </div>
 
+@stop
+
+@section('javascript')
+{!! HTML::script('assets/js/views/contenidos/contenido.js') !!}
 @stop

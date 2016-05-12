@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Contenido;
 use App\TipoPublicacion;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class PagesController extends Controller {
 
@@ -20,6 +19,7 @@ class PagesController extends Controller {
             $data[strtolower($tipo_publicacion->descripcion)] = $tipo_publicacion->contenidos()
                     ->where('contenidos.ind_visible', '=', 1)
                     ->whereNotNull('contenidos.fondo')
+                    ->whereDate('fecha_vigencia', '>=', Carbon::today()->toDateString())
                     ->get();
         }
 

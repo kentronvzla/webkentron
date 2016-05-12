@@ -26,7 +26,8 @@ class ContenidosController extends TableBaseController {
                 if ($request->ajax()) {
                    return response()->json($data);
                 }
-                return redirect('admin/tablas/contenidos/modificar/' . $contenido->id);
+                return redirect('admin/tablas/contenidos/modificar/' . $contenido->id)
+                    ->with('mensaje', $data['mensaje']);
             } else {
                 if ($request->ajax()) {
                     return response()->json(['errores' => $contenido->getErrors()], 400);
@@ -47,7 +48,8 @@ class ContenidosController extends TableBaseController {
             if ($request->ajax()) {
                 return response()->json($data);
             }
-            return redirect('admin/tablas/contenidos/modificar/' . $contenido->id);
+            return redirect('admin/tablas/contenidos/modificar/' . $contenido->id)
+                ->with('mensaje', $data['mensaje']);
         } else {
             if ($request->ajax()) {
                 return response()->json(['errores' => $contenido->getErrors()], 400);
@@ -80,10 +82,10 @@ class ContenidosController extends TableBaseController {
             list($atributos_tip_pub) = [$contenido->tipoPublicaciones->getAttributes()];
             $fileName = $contenido->tipoPublicaciones->getAttributes()['descripcion'] . $contenido->id . "." . $file->getClientOriginalExtension();
             $base_path = 'archivos'
-                    . DIRECTORY_SEPARATOR . 'contenidos' 
-                    . DIRECTORY_SEPARATOR . $contenido->tipoPublicaciones->getAttributes()['descripcion'];
+                    . '/' . 'contenidos' 
+                    . '/' . $contenido->tipoPublicaciones->getAttributes()['descripcion'];
             $file->move($base_path, $fileName);
-            $foto = ImageWorkshop::initFromPath($base_path . DIRECTORY_SEPARATOR . $fileName);
+            $foto = ImageWorkshop::initFromPath($base_path . '/' . $fileName);
 //            $foto->cropMaximumInPixel(0, 0, "MM");
 //            $foto->resizeInPixel(160, 160);
             $foto->save($base_path, $fileName);
@@ -92,7 +94,7 @@ class ContenidosController extends TableBaseController {
             }
             $contenido->fondo = $fileName;
             $contenido->save();
-            return response()->json(['url' => url($base_path . DIRECTORY_SEPARATOR . $fileName)]);
+            return response()->json(['url' => url($base_path . '/' . $fileName), 'mensaje' => "Datos guardados correctamente"],200);
         } else {
             return response()->json($mensaje, 400);
         }

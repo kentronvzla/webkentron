@@ -18,7 +18,7 @@
                 @endforeach
                 @if($hasEdit || $hasDelete)
                 <td>
-                    {!! Form::open(array('url'=>$url."", 'method'=>'POST', 'class'=>'form-eliminar','id'=>'form-'.$object->id))!!}
+                    {!! Form::open(['url'=>$url."", 'method'=>'POST', 'class'=>'form-eliminar','id'=>'form-'.$object->id])!!}
                     {!! Form::hidden('_method','DELETE')!!}
                     {!! Form::hidden('id',$object->id)!!}
                     @if($hasEdit)

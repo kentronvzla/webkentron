@@ -73,7 +73,7 @@ class Contenido extends BaseModel {
         'detalle' => 'required',
         'fondo' => '',
         'referencia_externa' => '',
-        'fecha_vigencia' => 'required|date',
+        'fecha_vigencia' => 'required|date|after:today',
         'ind_visible' => 'required',
     ];
 

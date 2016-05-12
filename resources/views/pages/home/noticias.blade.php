@@ -1,4 +1,5 @@
 <div class="container-fluid">
+    @if(isset($noticias) && $noticias->count()>0)
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div id="owl-principal" class="owl-carousel owl-theme">
@@ -20,13 +21,13 @@
                     </div>
                     {!! Html::image('archivos/contenidos/'
                     . $noticia->tipoPublicaciones->getAttributes()['descripcion']
-                    . DIRECTORY_SEPARATOR 
+                    . '/' 
                     . $noticia->fondo . '', $noticia->fondo, ['class' => 'img-responsive']) !!}
                 </div>
-                @endforeach
-
+                @endforeach               
             </div>
         </div>
     </div>
+    @endif
 </div>
 

@@ -2,6 +2,7 @@
 /node_modules
 .env
 .DS_Store
+/public/archivos
 /nbproject
 /nbproject/private
 /nbproject/private/private.xml

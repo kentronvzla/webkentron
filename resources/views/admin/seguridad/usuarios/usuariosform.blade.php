@@ -6,7 +6,6 @@
         @include('templates.tituloBarra',array('obj'=>$usuario, 'titulo'=>'grupo'))
     </div>
     <div class="panel-body">
-        @include('templates.errores')
         {!! Form::open(['url'=>'admin/seguridad/usuarios']) !!}
         {!! Form::concurrencia($usuario) !!}
         <div class="row">

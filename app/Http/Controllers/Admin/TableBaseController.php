@@ -52,20 +52,20 @@ class TableBaseController extends Controller {
     }
 
     public function deleteIndex(Request $request) {
-        $model = $this->executeFunction('find', $request->input('id'));
+        $model = $this->executeFunction('findOrFail', $request->input('id'));
         if ($model->delete()) {
-            if ($request::ajax()) {
-                return response()->json(array('mensaje' => 'Se borró el ' .
-                            call_user_func(array($model, 'getPrettyName')) . ' correctamente.'));
+            if ($request->ajax()) {
+                return response()->json(['mensaje' => 'Se borró el ' .
+                           call_user_func([$model, 'getPrettyName']) . ' correctamente.']);
             }
-            return redirect($this->getFolder(false))
+            return redirect($this->getFolder(false, true))
                             ->with('mensaje', 'Se borró el ' .
-                                    call_user_func(array($model, 'getPrettyName')) . ' correctamente.');
+                                    call_user_func([$model, 'getPrettyName']) . ' correctamente.');
         }
-        if ($request::ajax()) {
-            return response()->json(array('errores' => $model->getErrors()));
+        if ($request->ajax()) {
+            return response()->json(['errores' => $model->getErrors()]);
         }
-        return redirect($this->getFolder(false))->withErrors($model->getErrors());
+        return redirect($this->getFolder(false, true))->withErrors($model->getErrors());
     }
 
     public function getModificar(Request $request, $id = 0) {
@@ -73,7 +73,7 @@ class TableBaseController extends Controller {
         return view($this->getFolder() . 'form', $data);
     }
 
-    public function getFolder($formatFolder = true) {
+    public function getFolder($formatFolder = true, $delete = false) {
         if (is_null($this->folder)) {
             $reflect = new ReflectionClass(get_class($this));
             $folder = str_replace("App\\Http\\Controllers\\", '', $reflect->getName());
@@ -84,7 +84,8 @@ class TableBaseController extends Controller {
             foreach ($folder_array as $i => $section) {
                 $aux .=lcfirst($section) . '.';
                 if ($i == count($folder_array) - 1) {
-                    $aux .= lcfirst($view);
+                    if(!$delete)
+                        $aux .= lcfirst($view);
                 }
             }
             $this->folder = $aux;

@@ -13,7 +13,7 @@ class TipoPublicacionesSeeder extends Seeder {
     public function run() {
         TipoPublicacion::create([
             'descripcion' => 'Noticia',
-            'pagina' => 'pages.home.carousel',
+            'pagina' => 'pages.home.noticias',
             'orden' => 1,
             'max_width_img' => 1,
             'max_heigth_img' => 1,
