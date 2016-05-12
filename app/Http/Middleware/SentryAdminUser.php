@@ -18,7 +18,7 @@ class SentryAdminUser
     {
         $user = Sentry::getUser();
         $admin = Sentry::findGroupByName('Administradores');
-
+        
         if (!$user->inGroup($admin)) {
             return redirect('login');
         }
