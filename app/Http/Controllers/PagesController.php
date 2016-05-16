@@ -22,7 +22,7 @@ class PagesController extends Controller {
                     ->whereDate('fecha_vigencia', '>=', Carbon::today()->toDateString())
                     ->get();
         }
-
+        
         return view('pages.home', $data);
     }
 

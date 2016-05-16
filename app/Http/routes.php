@@ -17,8 +17,8 @@ Route::group([], function() {
     });
 });
 
-# Registration
 Route::group(['middleware' => 'guest'], function() {
+    # Registration
     Route::get('register', 'RegistrationController@create');
     Route::post('register', ['as' => 'registration.store', 'uses' => 'RegistrationController@store']);
     # Authentication

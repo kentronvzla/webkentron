@@ -1,54 +1,48 @@
 @extends('master')
 
-@section('title', 'Password Reset Email')
+@section('title', 'Recuperar Contraseña')
+
+@section('css')
+{!! Html::style('assets/css/webkentron/login.css') !!}
+@stop
 
 @section('content')
 
-        <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Password Reset Link</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-login">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            {!! Html::linkIcon('#', 'Recuperar Contraseña', 'share', 
+                            ['id' => 'login-form-link',
+                            'class' => isset($active_login) ? $active_login: '']) 
+                            !!} 
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        {!! Form::open(['action' => 'Auth\PasswordController@postEmail']) !!}
-                        <fieldset>
-
-                            @if (session()->has('flash_message'))
-                                <div class="alert alert-success">
-                                    {{ session()->get('flash_message') }}
-                                </div>
-                            @endif
-
-                            @if (count($errors) > 0)
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-
-                            <p>Enter your email and we will send you a link to reset your password.</p>
-
-                            <!-- Email field -->
-                            <div class="form-group">
-                                {!! Form::text('email', null, ['placeholder' => 'Email', 'class' => 'form-control', 'required' => 'required'])!!}
-                            </div>
-
-                            <!-- Submit field -->
-                            <div class="form-group">
-                                {!! Form::submit('Send Password Reset Link', ['class' => 'btn btn btn-lg btn-primary btn-block']) !!}
-                            </div>
-                        </fieldset>
-                        {!! Form::close() !!}
-                    </div>
+                    <hr>
                 </div>
-
+                <div class="panel-body">
+                    {!! Form::open(['action' => 'Auth\PasswordController@postEmail']) !!}
+                    <fieldset>
+                        <p>Ingrese su email y enviaremos un link para recuperar su contraseña</p>
+                        <!-- Email field -->
+                        <div class="form-group">
+                            {!! Form::text('email', null, ['placeholder' => 'Email',
+                            'class' => 'form-control', 'required' => 'required'])!!}
+                        </div>
+                        <!-- Submit field -->
+                        <div class="form-group">
+                            {!! Form::submit('Enviar', 
+                            ['class' => 'btn btn-sm btn-success btn-block btn-login']) !!}
+                        </div>
+                    </fieldset>
+                    {!! Form::close() !!}
+                </div>
             </div>
         </div>
     </div>
+</div>
 
 @endsection

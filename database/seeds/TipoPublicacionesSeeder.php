@@ -12,33 +12,33 @@ class TipoPublicacionesSeeder extends Seeder {
      */
     public function run() {
         TipoPublicacion::create([
-            'descripcion' => 'Noticia',
+            'descripcion' => 'Noticias',
             'pagina' => 'pages.home.noticias',
             'orden' => 1,
-            'max_width_img' => 1,
-            'max_heigth_img' => 1,
+            'max_width_img' => 1900,
+            'max_heigth_img' => 1080,
             'usuario_creacion_id' => 1,
             'usuario_modificacion_id' => 1,
             'version' => 1,
             'ind_visible' => 1
         ]);
         TipoPublicacion::create([
-            'descripcion' => 'Proyecto',
+            'descripcion' => 'Proyectos',
             'pagina' => 'pages.home.proyectos',
             'orden' => 2,
-            'max_width_img' => 1,
-            'max_heigth_img' => 1,
+            'max_width_img' => 1900,
+            'max_heigth_img' => 1080,
             'usuario_creacion_id' => 1,
             'usuario_modificacion_id' => 1,
             'version' => 1,
             'ind_visible' => 1
         ]);
         TipoPublicacion::create([
-            'descripcion' => 'Aritculo',
+            'descripcion' => 'Articulos',
             'pagina' => 'pages.home.articulos',
             'orden' => 3,
-            'max_width_img' => 1,
-            'max_heigth_img' => 1,
+            'max_width_img' => 1900,
+            'max_heigth_img' => 1080,
             'usuario_creacion_id' => 1,
             'usuario_modificacion_id' => 1,
             'version' => 1,
