@@ -21,7 +21,7 @@
         </div>       
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Contraloria General de Estado Vargas 2</li>
+                <li>Contraloria General de Estado Vargas</li>
             </p>
         </div>        
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
@@ -111,7 +111,7 @@
         </div>        
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li></li>
+                <li>Fonpyme</li>
             </p>
         </div>
     </div>    
@@ -173,14 +173,8 @@
             </p>
         </div>       
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
-            <p>
-                <li>Fonpyme</li>
-            </p>
         </div>        
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
-            <p>
-                <li></li>
-            </p>
         </div>
     </div>  
 </div>
