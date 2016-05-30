@@ -20,6 +20,7 @@ class SentryGroupSeeder extends Seeder
 
         Sentry::getGroupProvider()->create([
             'name'    => 'Administradores',
+            'permissions' => ['superuser' => 1]
             ]);
 
         $this->command->info('Groups seeded!');
