@@ -16,41 +16,24 @@
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Contraloría Gral. de la República</li>                 
+                <li>Banco Nacional de Vivienda y Hábitat</li>                 
             </p>
         </div>       
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Tribunal Supremo de Justicia </li>
+                <li>Contraloria General de Estado Vargas</li>
             </p>
         </div>        
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>SENIAT</li>
+                <li>Contraloria de Torres</li>
             </p>
         </div>
     </div>    
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>IPASME</li>                
-            </p>
-        </div>       
-        <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
-            <p>
-                <li>Alcaldía del Municipio Libertador</li>
-            </p>
-        </div>        
-        <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
-            <p>
-                <li>Fundación Proyecto País</li>
-            </p>
-        </div>
-    </div>    
-    <div class="row">
-        <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
-            <p>
-                <li>SUDEBAN</li>           
+                <li>Centro Nacional de Ortodoncia</li>                
             </p>
         </div>       
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
@@ -60,163 +43,140 @@
         </div>        
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Instituto Nacional de Estadística Fundación</li> 
+                <li>Fundación Centro Cultural Chacao</li>
             </p>
         </div>
     </div>    
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Cultural Chacao</li>         
+                <li>fundatrabajo </li>           
             </p>
         </div>       
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>FONPYME</li>  
+                <li>Fundación Regional El niño simón</li>
             </p>
         </div>        
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>SOGAMPI</li>
+                <li>Fundación Pueblo Soberano</li> 
             </p>
         </div>
     </div>    
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Fundación Pueblo Soberano</li>          
+                <li>Fundacion Propatria 2000</li>         
             </p>
         </div>       
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>INVITRAMI Miranda</li> 
+                <li>Integral de Mercados y Almacenes</li>  
             </p>
         </div>        
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Universidad Simón Bolívar</li>
+                <li>Ivec</li>
             </p>
         </div>
     </div>    
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>INTTT</li>             
+                <li>Innovus</li>          
             </p>
         </div>       
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Fundación Propatria 2000</li>  
+                <li>Universidad Simón Bolivar</li> 
             </p>
         </div>        
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Ingeniería de Consulta INCOSTAS</li>
+                <li>Procuraduria del Estado Carabobo</li>
             </p>
         </div>
     </div>    
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Gobernación Estado Lara</li>              
+                <li>Seniat</li>             
             </p>
         </div>       
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>FUSEL</li> 
+                <li>Sudeban</li>  
             </p>
         </div>        
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>CEMALARA</li>
+                <li>Fonpyme</li>
             </p>
         </div>
     </div>    
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>METROBUS LARA</li>  
+                <li>Gobernación del Estado Vargas</li>              
             </p>
         </div>       
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Gobernación Estado Carabobo</li>
+                <li>Contraloria de San Diego</li> 
             </p>
         </div>        
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Fundación Alegría Carabobo</li>
+                <li>Fundacomunidad</li>
             </p>
         </div>
     </div>    
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>INSALUD Carabobo</li>  
+                <li>Alcadia de Guacara</li>  
             </p>
         </div>       
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>INVIAL Valencia</li>
+                <li>Alcaldia Socialista del estado Valencia</li>
             </p>
         </div>        
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Contraloría Municipal de Valencia</li>
+                <li>Instituto Nacional De Estadística</li>
             </p>
         </div>
     </div>    
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Contraloría Mpal. de San Diego</li>
+                <li>Fundación Cultura Chacao</li>  
             </p>
         </div>       
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Gobernación Estado Vargas</li>
+                <li>Convergia</li>
             </p>
         </div>        
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Instituto de Vialidad de Vargas</li>
+                <li>Ducolsa</li>
             </p>
         </div>
     </div>    
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
             <p>
-                <li>Policía del Estado Vargas</li> 
+                <li>Mendoza & Labrador y Asociados</li>
             </p>
         </div>       
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
-            <p>
-                <li>Inst. de Infraestructura de Vargas</li>
-            </p>
         </div>        
         <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
-            <p>
-                <li>Fundación “Niño Simón” Vargas</li>
-            </p>
         </div>
-    </div>    
-    <div class="row">
-        <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
-            <p>
-                <li>Contraloría del Estado Aragua</li>
-            </p>
-        </div>       
-        <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
-            <p>
-                <li>Fundación Ambulatorio del Norte</li>
-            </p>
-        </div>        
-        <div class="col-xs-12 col-sm-4 col-md-4 parrafo">
-            <p>
-                <li>INDALARA</li>
-            </p>
-        </div>
-    </div>    
+    </div>  
 </div>
 
 @stop
