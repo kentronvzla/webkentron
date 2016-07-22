@@ -40,10 +40,6 @@
         @include('pages.header')
         <!-- Header -->
 
-        <!-- Errors -->
-        @include('templates.mensaje')
-        <!-- Errors -->
-
         <!-- Containers -->
         @include('pages.containers.cn-mensajes')
         <!-- Containers -->
@@ -57,9 +53,7 @@
         <!-- Footer -->
 
         <!-- Scripts -->
-        <script>
-            var baseUrl = '{!! url("") !!}/';
-        </script>
+        <div id="baseurl" data-url="{!! url('') !!}" style="display: none"></div>
         @include('pages.js')
         <!-- Scripts -->
 
@@ -78,6 +72,14 @@
         <script>
             $(document).ready(function () {
                 mostrarError("{!! Session::pull('error') !!}");
+            });
+        </script>
+        @endif
+        @if(Session::has('errors'))
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var errores = {!! json_encode(Session::get('errors')->toArray()) !!};
+                mostrarError(procesarErrores(errores));
             });
         </script>
         @endif

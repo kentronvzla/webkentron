@@ -53,8 +53,8 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
         'email' => 'required|email|unique:users,email',
         'password' => 'required_without:id|min:8|confirmed',
         'password_confirmation' => 'required_with:password|min:8',
-        'first_name' => 'required|max:100',
-        'last_name' => 'required|max:100',
+        'first_name' => 'required|alpha|max:100',
+        'last_name' => 'required|alpha|max:100',
     ];
 
     public function __construct(array $attributes = []) {
@@ -96,8 +96,8 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|confirmed',
             'password_confirmation' => 'required|min:8',
-            'first_name' => 'required|max:100',
-            'last_name' => 'required|max:100',
+            'first_name' => 'required|alpha|max:100',
+            'last_name' => 'required|alpha|max:100',
         ];
 
         return Validator::make($input, $rules);
@@ -119,7 +119,6 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
                 }
                 // Check if this one of our password attributes and if it's been changed.
                 if (in_array($key, $model->passwordAttributes) && $value != $model->getOriginal($key)) {
-                    // Hash it
                     $model->attributes[$key] = Hash::make($value);
                     continue;
                 }

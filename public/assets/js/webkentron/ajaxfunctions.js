@@ -32,6 +32,27 @@ $.ajaxSetup({
     }
 });
 
+$(document).ready(function () {
+    $('.ajax-request').click(function () {
+        if ($(this).data("url") && $(this).data("target") && $(this).data("method") && $(this).data("type")) {
+            var parametros = {url: $(this).data("url"), target: $(this).data("target"), method: $(this).data("method"), type: $(this).data("type")};
+            $.ajax({
+                url: baseUrl + parametros.url,
+                type: parametros.method,
+                cache: false,
+                dataType: parametros.type,
+                success: function (data) {
+                    $('#' + parametros.target).html(data);
+                },
+                error: function () {
+                    mostrarError("<span class='glyphicon glyphicon-remove'></span> Ocurrio un error al tratar de procesar su solicitud. <i>(Recurso no encontrado)</i>");
+                }
+            });
+        } else {
+            mostrarError("<span class='glyphicon glyphicon-remove'></span> Ocurrio un error al tratar de procesar su solicitud. <i>(Parametro no definido)</i>");
+        }
+    });
+});
 
 function guardarAyudasLocal() {
     $.ajax({
@@ -59,7 +80,7 @@ function cargarDiv(url, dest, callback) {
         success: function (data) //Si se ejecuta correctamente
         {
             $('#' + dest).html(data);
-            if (callback != undefined) {
+            if (callback !== undefined) {
                 callback();
             }
         }

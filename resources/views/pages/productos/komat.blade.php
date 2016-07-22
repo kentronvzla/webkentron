@@ -1,5 +1,3 @@
-@extends('pages.productos')
-@section('content2')
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <h3 class="titulo-header-left">
@@ -61,13 +59,7 @@
             <li>Planificación</li>
         </ul>
         </p>
-
-<!--        <a href="#" class="btn btn-success active" role="button">Ver presentación interactiva</a>
-        <a href="#" class="btn btn-primary active" role="button">Solicitar Demo Software</a>-->
-
     </div>
 </div>
-
-@stop
 
 

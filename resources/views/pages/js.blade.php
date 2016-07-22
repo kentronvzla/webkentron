@@ -18,6 +18,7 @@
 
 {!! Html::script('assets/vendors/ckeditor/ckeditor.js') !!}
 
+{!! Html::script('assets/js/webkentron/globales.js') !!}
 {!! Html::script('assets/js/webkentron/javascriptfunctions.js') !!}
 {!! Html::script('assets/js/webkentron/ajaxfunctions.js') !!}
 {!! Html::script('assets/js/webkentron/init.js') !!}

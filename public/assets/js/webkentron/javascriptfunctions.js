@@ -562,7 +562,7 @@ function resetearFormulario() {
 
 function multiSelect() {
     $(document).on('change', 'select[data-child]', function () {
-        if ($(this).val() == "") {
+        if ($(this).val() === "") {
             return;
         }
         var child = $(this).data('child');
@@ -571,10 +571,3 @@ function multiSelect() {
         ejecutarAjaxSelect(child, url, formParent);
     });
 }
-//function random(owlSelector) {
-//    owlSelector.children().sort(function () {
-//        return Math.round(Math.random()) - 0.5;
-//    }).each(function () {
-//        $(this).appendTo(owlSelector);
-//    });
-//}

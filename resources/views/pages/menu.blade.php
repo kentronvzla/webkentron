@@ -11,7 +11,7 @@
 <ul class="nav navbar-nav navbar-right">
     @if (!Sentry::check())
     <li class="{{ set_active('login') }} negrita">{!! Html::linkIcon('login', 'Entrar', 'sign-in') !!}</li>
-    <li class="{{ set_active('register') }} negrita">{!! Html::linkIcon('register', 'Registro', 'user-plus') !!}</li>
+    <li class="{{ set_active('registration') }} negrita">{!! Html::linkIcon('registration', 'Registro', 'user-plus') !!}</li>
     @else
     <li class="dropdown negrita">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">

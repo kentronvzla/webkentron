@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Contenido;
 use App\TipoPublicacion;
 use Carbon\Carbon;
+use App\Http\Requests\ContactFormRequest;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Message;
 
 class PagesController extends Controller {
 
@@ -22,7 +25,7 @@ class PagesController extends Controller {
                     ->whereDate('fecha_vigencia', '>=', Carbon::today()->toDateString())
                     ->get();
         }
-        
+
         return view('pages.home', $data);
     }
 
@@ -35,7 +38,7 @@ class PagesController extends Controller {
     }
 
     public function getProducts() {
-        return view('pages.productos');
+        return view('pages.productos.index');
     }
 
     public function getKeruxInfo() {
@@ -49,7 +52,7 @@ class PagesController extends Controller {
     public function getCustomer() {
         return view('pages.clientes');
     }
-    
+
     public function getSupport() {
         return view('pages.soporte');
     }
@@ -58,14 +61,25 @@ class PagesController extends Controller {
         $data['proyecto'] = Contenido::findOrFail($id);
         return view('pages.infoproyecto', $data);
     }
-    
+
     public function getShow($url) {
         $data['contenido'] = Contenido
-                ::where('url','=', $url)
+                ::where('url', '=', $url)
                 ->where('contenidos.ind_visible', '=', 1)
                 ->whereNotNull('contenidos.fondo')
                 ->firstOrFail();
         return view('pages.contenido', $data);
+    }
+
+    public function postContact(ContactFormRequest $request) {
+        $sent = Mail::send('emails.contacto', ['nombre' => $request->nombre, 'correo' => $request->correo,
+            'telefono' => $request->telefono, 'mensaje' => $request->mensaje],
+                function(Message $message) {
+                    $message->to(env('MAIL_USERNAME'))->subject('Solicitud de Contacto');
+                });
+
+        $hubo_error = ($sent === 1) ? false : true;
+        return ($hubo_error === true) ?  back()->with('error', 'Solicitud de Contacto No Enviada') :  back()->with('mensaje', 'Solicitud de Contacto Enviada');
     }
 
 }

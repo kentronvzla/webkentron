@@ -1,4 +1,4 @@
-{!! Form::open(['route' => 'registration.store', 'role' => 'form', 'id' => 'register-form']) !!}
+{!! Form::open(['route' => 'registration', 'role' => 'form', 'id' => 'register-form']) !!}
 
 <div class="form-group">
     {!! Form::text('first_name', null, ['placeholder' => 'Nombre', 'id' => 'first_name', 'class' => 'form-control', 'required' => 'required', 'tabindex' => '1'])!!}
