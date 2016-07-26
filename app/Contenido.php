@@ -166,7 +166,7 @@ class Contenido extends BaseModel {
         $contenido = new Contenido();
         $contenido->fill($values);
         $contenido->validate();
-        $contenido->setGlobalNewAttributes($contenido, User::getUserIdLogged());
+        $contenido->setGlobalNewAttributes($contenido, Usuario::getUserIdLogged());
         $contenido->setFieldsAttributes($contenido);
         return $contenido;
     }

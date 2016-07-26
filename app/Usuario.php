@@ -168,4 +168,25 @@ class Usuario extends BaseModel implements AuthenticatableContract, CanResetPass
         return ['first_name', 'last_name', 'email', 'grupos_display', 'activatedfor'];
     }
 
+    public function isCurrent() {
+        if (!Sentry::check()){
+            return false;
+        }
+        return Sentry::getUser()->id == $this->id;
+    }
+
+    public static function getLogged() {
+        if (!Sentry::check()){
+            return false;
+        }
+        return self::find(Sentry::getUser()->id);
+    }
+
+    public static function getUserIdLogged() {
+        if (!Sentry::check()){
+            return false;
+        }
+        return Sentry::getUser()->id;
+    }
+
 }

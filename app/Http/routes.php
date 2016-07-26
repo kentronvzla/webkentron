@@ -21,6 +21,8 @@ Route::group(['middleware' => 'guest'], function() {
     # Registration
     Route::get('registration', ['as' => 'registration', 'uses' => 'RegistrationController@create']);
     Route::post('registration', ['as' => 'registration', 'uses' => 'RegistrationController@store']);
+    # Activation
+    Route::get('activate/{id}/{code}', ['as' => 'activate', 'uses' => 'RegistrationController@getActivation']);
     # Authentication
     Route::get('login', ['as' => 'login', 'uses' => 'SessionsController@create']);
     # Forgotten Password
@@ -29,7 +31,6 @@ Route::group(['middleware' => 'guest'], function() {
     Route::get('reset_password/{id}/{token}', ['as' => 'reset_password', 'uses' => 'Auth\PasswordController@getReset']);
     Route::post('reset_password', ['as' => 'reset_password', 'uses' => 'Auth\PasswordController@postReset']);
     
-    Route::get('activate/{id}/{code}', ['as' => 'activate', 'uses' => 'Auth\RegistrationController@getActivation']);
 });
 
 

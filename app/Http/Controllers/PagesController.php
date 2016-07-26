@@ -17,7 +17,7 @@ class PagesController extends Controller {
                 ::where('tipo_publicaciones.ind_visible', '=', 1)
                 ->orderBy('tipo_publicaciones.orden', 'asc')
                 ->get();
-
+        
         foreach ($data['tipo_publicaciones'] as $tipo_publicacion) {
             $data[strtolower($tipo_publicacion->descripcion)] = $tipo_publicacion->contenidos()
                     ->where('contenidos.ind_visible', '=', 1)

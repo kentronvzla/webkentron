@@ -14,7 +14,6 @@ class SessionsController extends Controller {
      * @return Response
      */
     public function create() {
-//        return view('sessions.create');
         list($data['active_login']) = ['active'];
         return view('login.index_login', $data);
     }

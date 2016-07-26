@@ -41,30 +41,37 @@ class RegistrationController extends Controller {
         $inputs = $request->all();
         $usuario->fill($inputs);
         if ($usuario->validate()) {
-            $this->registrarPorSentry($request->only('email', 'password', 'first_name', 'last_name'));
+            $credentials = $request->only('email', 'password', 'first_name', 'last_name');
+            $errores = $this->registrarPorSentry($credentials);
+            if (empty($errores)) {
+                return redirect('login')->withInput([$credentials['email']])->with('mensaje', 'Se registró el usuario correctamente');
+            } else {
+                return back()->withInput()->withErrors($errores);
+            }
         } else {
             return back()->withInput()->withErrors($usuario->getErrors());
         }
     }
 
     public function registrarPorSentry($inputs) {
+        list($errores) = [[]];
         try {
             $user = Sentry::register($inputs);
             if (!empty($user)) {
                 $usersGroup = Sentry::findGroupById(1);
                 $user->addGroup($usersGroup);
                 $this->enviarActivationReminderCode($user, 'activation');
-                return redirect('login')->with('mensaje', 'Se registró el usuario correctamente');
             } else {
-                return back()->withInput()->withErrors($user->getErrors());
+                $errores['errores'] = $user->getErrors();
             }
         } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
-            return back()->withInput()->withErrors($e->getErrors());
+            $errores['errores'] = $e->getErrors();
         } catch (Cartalyst\Sentry\Users\PasswordRequiredException $e) {
-            return back()->withInput()->withErrors($e->getErrors());
+            $errores['errores'] = $e->getErrors();
         } catch (Cartalyst\Sentry\Users\UserExistsException $e) {
-            return back()->withInput()->withErrors($e->getErrors());
+            $errores['errores'] = $e->getErrors();
         }
+        return $errores;
     }
 
     public static function enviarActivationReminderCode($user, $metodo) {
@@ -85,9 +92,30 @@ class RegistrationController extends Controller {
 
         $sent = Mail::send($view, ['user' => $user, 'code' => $code], function(Message $message) use ($user, $subject) {
                     $message->to($user->email, $user->first_name . ' ' . $user->last_name)->subject($subject);
-                });     
-        $hubo_error = ($sent === 1) ? false : true;   
-        return ($hubo_error === true) ?  back()->with('error', trans($msg)) :  false;        
+                });
+        $hubo_error = ($sent === 1) ? false : true;
+        return ($hubo_error === true) ? back()->with('error', trans($msg)) : false;
+    }
+
+    public function getActivation($id = null, $code = null) {
+        if (is_null($id)) {
+            throw new NotFoundHttpException;
+        } else if (is_null($code)) {
+            throw new NotFoundHttpException;
+        }
+
+        $user = Sentry::findUserById($id);
+        if (!empty($user) || $user != null) {
+                if ($user->attemptActivation($code)) {
+                    list($type, $msg) = ['mensaje', 'auth.validate_email'];
+                } else {
+                    list($type, $msg) = ['error', 'auth.validatecompleted'];
+                }
+        } else {
+            list($type, $msg) = ['error', 'auth.usernotfound'];
+        }
+
+        return redirect('/')->with($type, trans($msg));
     }
 
 }

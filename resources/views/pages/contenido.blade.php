@@ -53,7 +53,7 @@
                             {{--*/ $tags = explode(",", $contenido->referencia_externa); /*--}}
                             Tags:
                             @foreach ($tags as $tag)
-                                <span class="badge"> {!! $tag !!} </span>
+                            <span class="badge"> {!! $tag !!} </span>
                             @endforeach
                             <br>
                             Autor:       
@@ -72,7 +72,17 @@
     <div class="col-xs-12 col-sm-3 col-md-3">
         <div class="panel panel-default">
             <div class="panel-body">
-
+                <div class="twt_wrap">
+                    <h1 class="titulo-noticia-left">
+                        Tweets 
+                    </h1>
+                    <a class="twitter-timeline" href="https://twitter.com/kentron" 
+                       data-chrome="transparent noborders noheader nofooter noscrollbar" 
+                       height="600" width="400">
+                        Tweets by kentron
+                    </a>
+                </div>
+                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
     </div>
