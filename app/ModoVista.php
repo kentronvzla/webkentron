@@ -12,6 +12,21 @@ use App\BaseModel;
  * @property string $descripcion
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Contenido[] $contenido
  * @property-read mixed $estatus_display
+ * @property integer $usuario_creacion_id
+ * @property integer $usuario_modificacion_id
+ * @property integer $version
+ * @property boolean $ind_visible
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @method static \Illuminate\Database\Query\Builder|\App\ModoVista whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ModoVista whereDescripcion($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ModoVista whereUsuarioCreacionId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ModoVista whereUsuarioModificacionId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ModoVista whereVersion($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ModoVista whereIndVisible($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ModoVista whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ModoVista whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class ModoVista extends BaseModel {
 

@@ -26,7 +26,7 @@ class RegistrationController extends Controller {
      *
      * @return Response
      */
-    public function create() {
+    public function getIndex() {
         list($data['active_register']) = ['active'];
         return view('registration.index_register', $data);
     }
@@ -36,7 +36,7 @@ class RegistrationController extends Controller {
      *
      * @return Response
      */
-    public function store(Request $request) {
+    public function postIndex(Request $request) {
         $usuario = new Usuario();
         $inputs = $request->all();
         $usuario->fill($inputs);

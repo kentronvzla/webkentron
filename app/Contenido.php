@@ -30,6 +30,26 @@ use Illuminate\Support\Str as Str;
  * @property-read \App\TipoFondo $tipoFondos
  * @property-read \App\ModoVista $modoVistas
  * @property-read mixed $estatus_display
+ * @property-read \App\User $usuarioCreacion
+ * @property-read \App\User $usuarioModificacion
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereTipoPublicacionesId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereTipoFondosId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereModoVistasId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereTitulo($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereResumen($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereDetalle($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereFondo($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereUrl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereReferenciaExterna($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereFechaVigencia($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereUsuarioCreacionId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereUsuarioModificacionId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereVersion($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereIndVisible($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contenido whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class Contenido extends BaseModel {
 

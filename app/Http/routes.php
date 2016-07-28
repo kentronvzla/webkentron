@@ -17,28 +17,29 @@ Route::group([], function() {
     });
 });
 
-Route::group(['middleware' => 'guest'], function() {
+Route::group(['middleware' => 'sentry.guest'], function() {
     # Registration
-    Route::get('registration', ['as' => 'registration', 'uses' => 'RegistrationController@create']);
-    Route::post('registration', ['as' => 'registration', 'uses' => 'RegistrationController@store']);
+    Route::get('registration', ['as' => 'registration', 'uses' => 'RegistrationController@getIndex']);
+    Route::post('registration', ['as' => 'registration', 'uses' => 'RegistrationController@postIndex']);
     # Activation
     Route::get('activate/{id}/{code}', ['as' => 'activate', 'uses' => 'RegistrationController@getActivation']);
     # Authentication
-    Route::get('login', ['as' => 'login', 'uses' => 'SessionsController@create']);
+    Route::get('login', ['as' => 'login', 'uses' => 'SessionsController@getIndex']);
+    Route::post('login', ['as' => 'login', 'uses' => 'SessionsController@postIndex']);
     # Forgotten Password
-    Route::get('forgot_password', ['as' => 'forgot_password', 'uses' => 'Auth\PasswordController@getEmail']);
-    Route::post('forgot_password', ['as' => 'forgot_password', 'uses' => 'Auth\PasswordController@postEmail']);
-    Route::get('reset_password/{id}/{token}', ['as' => 'reset_password', 'uses' => 'Auth\PasswordController@getReset']);
-    Route::post('reset_password', ['as' => 'reset_password', 'uses' => 'Auth\PasswordController@postReset']);
-    
+    Route::group(['namespace' => 'Auth'], function() {
+        Route::get('forgot_password', ['as' => 'forgot_password', 'uses' => 'PasswordController@getEmail']);
+        Route::post('forgot_password', ['as' => 'forgot_password', 'uses' => 'PasswordController@postEmail']);
+        Route::get('reset_password/{id}/{token}', ['as' => 'reset_password', 'uses' => 'PasswordController@getReset']);
+        Route::post('reset_password', ['as' => 'reset_password', 'uses' => 'PasswordController@postReset']);
+    });
 });
 
 
-Route::get('logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy']);
-Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
+Route::get('logout', ['middleware' => 'sentry.auth','as' => 'logout', 'uses' => 'SessionsController@getLogout']);
 
 # Admin Tables Routes
-Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin', 'as' => 'admin', 'namespace' => 'Admin'], function() {
+Route::group(['middleware' => ['sentry.auth', 'sentry.admin'], 'prefix' => 'admin', 'as' => 'admin', 'namespace' => 'Admin'], function() {
     Route::group(['prefix' => 'seguridad', 'namespace' => 'Seguridad'], function() {
         Route::controller('usuarios', 'UsuariosController');
         Route::controller('grupos', 'GruposController');

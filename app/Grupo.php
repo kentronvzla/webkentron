@@ -3,8 +3,24 @@
 namespace App;
 
 use App\BaseModel;
-use Carbon\Carbon;
 
+/**
+ * App\Grupo
+ *
+ * @property integer $id
+ * @property string $name
+ * @property string $permissions
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $users
+ * @property-read mixed $estatus_display
+ * @method static \Illuminate\Database\Query\Builder|\App\Grupo whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Grupo whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Grupo wherePermissions($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Grupo whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Grupo whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Grupo extends BaseModel {
 
     protected $connection = 'mysql';

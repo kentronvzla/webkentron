@@ -9,11 +9,20 @@ use Sentry;
 class SessionsController extends Controller {
 
     /**
+     * Create a new authentication controller instance.
+     *
+     * @return void
+     */
+    public function __construct() {
+        $this->middleware('sentry.auth', ['only' => 'getLogout']);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return Response
      */
-    public function create() {
+    public function getIndex() {
         list($data['active_login']) = ['active'];
         return view('login.index_login', $data);
     }
@@ -23,7 +32,7 @@ class SessionsController extends Controller {
      *
      * @return Response
      */
-    public function store(LoginFormRequest $request) {
+    public function postIndex(LoginFormRequest $request) {
         $input = $request->only('email', 'password');
         try {
             Sentry::authenticate($input, \Input::has('remember'));
@@ -33,16 +42,6 @@ class SessionsController extends Controller {
             return redirect()->back()->withInput()->with('error', 'Disculpe su usuario no se encuentra activo, por favor comuniquese con nosotros.');
         }
         return redirect()->intended('/');
-        // Logged in successfully - redirect based on type of user
-//        $user = Sentry::getUser();
-//        $admin = Sentry::findGroupByName('Admins');
-//        $users = Sentry::findGroupByName('Users');
-//
-//        if ($user->inGroup($admin)) {
-//            return redirect()->intended('admin');
-//        } elseif ($user->inGroup($users)) {
-//            return redirect()->intended('/');
-//        }
     }
 
     /**
@@ -51,7 +50,7 @@ class SessionsController extends Controller {
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id = null) {
+    public function getLogout($id = null) {
         Sentry::logout();
         return redirect()->route('home');
     }

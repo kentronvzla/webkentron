@@ -34,7 +34,7 @@ use ResetsPasswords;
      * @return void
      */
     public function __construct() {
-        $this->middleware('guest');
+        $this->middleware('sentry.guest');
     }
 
     /**

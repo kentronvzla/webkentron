@@ -68,9 +68,18 @@
                                                         <td>				
                                                             <h5 class="">Redes sociales:</h5>
                                                             <p class="">
-                                                                <a href="#" class="soc-btn fb">Facebook</a>
-                                                                <a href="#" class="soc-btn tw">Twitter</a>
-                                                                <a href="#" class="soc-btn gp">Google+</a>
+                                                                <a class="soc-btn in" href="https://www.linkedin.com/company/kentron" target="_blank">
+                                                                    <img src="{{ $message->embed('assets/img/image4.png') }}" alt="linkedin">
+                                                                </a>
+                                                                <a class="soc-btn gp" href="https://plus.google.com/u/0/113097492202606059402/posts" target="_blank">
+                                                                    <img src="{{ $message->embed('assets/img/image5.png') }}" alt="google+">
+                                                                </a>
+                                                                <a class="soc-btn fb" href="https://es-la.facebook.com/KentronSistemas" target="_blank">
+                                                                    <img src="{{ $message->embed('assets/img/image6.png') }}" alt="facebook">
+                                                                </a>
+                                                                <a class="soc-btn tw" href="https://twitter.com/kentron" target="_blank">
+                                                                    <img src="{{ $message->embed('assets/img/image7.png') }}" alt="twitter">
+                                                                </a>
                                                             </p>
                                                         </td>
                                                     </tr>
@@ -80,8 +89,8 @@
                                                         <td>				
                                                             <h5 class="">Información de contacto:</h5>												
                                                             <p>
-                                                                Teléfono: <strong></strong><br/>
-                                                                Correo: <strong><a href="emailto:"></a></strong>
+                                                                Teléfono: <strong>+58 (212) 781-7008 / 781-6146</strong><br/>
+                                                                Correo: <strong><a href="emailto:kentronvzla@gmail.com">kentronvzla@gmail.com</a></strong>
                                                             </p>
                                                         </td>
                                                     </tr>

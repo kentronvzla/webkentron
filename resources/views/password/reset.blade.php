@@ -1,4 +1,4 @@
-{!! Form::open(['action' => 'Auth\PasswordController@postReset']) !!}
+{!! Form::open(['route' => 'reset_password']) !!}
 <fieldset>
     <!-- Email field -->
     <div class="form-group">

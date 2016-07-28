@@ -12,6 +12,7 @@ use App\BaseModel;
  * @property string $descripcion
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Contenido[] $contenido
  * @property-read mixed $estatus_display
+ * @mixin \Eloquent
  */
 class TipoFondo extends BaseModel {
 

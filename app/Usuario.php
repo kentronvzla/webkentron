@@ -11,6 +11,45 @@ use Validator;
 use Hash;
 use Sentry;
 
+/**
+ * App\Usuario
+ *
+ * @property integer $id
+ * @property string $email
+ * @property string $password
+ * @property string $permissions
+ * @property boolean $activated
+ * @property string $activation_code
+ * @property string $activated_at
+ * @property string $last_login
+ * @property string $persist_code
+ * @property string $reset_password_code
+ * @property string $first_name
+ * @property string $last_name
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read mixed $activatedfor
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Grupo[] $grupos
+ * @property-read mixed $grupos_display
+ * @property-read mixed $grupo_name
+ * @property-read mixed $grupo_id
+ * @property-read mixed $estatus_display
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario whereEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario wherePassword($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario wherePermissions($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario whereActivated($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario whereActivationCode($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario whereActivatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario whereLastLogin($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario wherePersistCode($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario whereResetPasswordCode($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario whereFirstName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario whereLastName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Usuario whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Usuario extends BaseModel implements AuthenticatableContract, CanResetPasswordContract {
 
     use Authenticatable,

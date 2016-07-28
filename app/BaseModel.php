@@ -18,7 +18,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\MessageBag;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Facades\Cache;
+//use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Input;
 use App\Interfaces\SelectInterface;
 use App\Interfaces\SimpleTableInterface;
@@ -75,7 +75,7 @@ abstract class BaseModel extends Model implements SelectInterface, SimpleTableIn
 
     public function __construct(array $attributes = []) {
         parent::__construct($attributes);
-        $this->errors = new \Illuminate\Support\MessageBag();
+        $this->errors = new MessageBag();
         $this->validator = \App::make('validator');
         $this->manejaConcurrencia = true;
     }
