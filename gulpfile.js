@@ -11,6 +11,28 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir(function(mix) {
+elixir(function (mix) {
     mix.less('app.less');
+});
+
+elixir(function (mix) {
+    mix.styles([
+        'navbar.css',
+        'button.css',
+        'panel.css',
+        'carousel.css',
+        'fuentes.css',
+        'style.css',
+        'estilomodal.css',
+        'mediaqueries.css'
+    ], null, 'public/assets/css/webkentron');
+});
+
+elixir(function(mix) {
+    mix.scripts([
+        "globales.js",
+        "javascriptfunctions.js",
+        "ajaxfunctions.js",
+        "init.js",
+    ], null, 'public/assets/js/webkentron');
 });

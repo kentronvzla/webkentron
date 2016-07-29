@@ -314,13 +314,3 @@ function ejecutarAjaxNavegador(State) {
     });
     return;
 }
-
-function documentoListo() {
-    iniciarLibrerias();
-    confirmarEliminacion();
-    volverAtras();
-    guardarFormulario();
-    modificarAjax();
-    eliminarAjax();
-
-}

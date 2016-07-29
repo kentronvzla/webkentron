@@ -1,0 +1,967 @@
+.navbar-default { 
+    background-color: #fbf8ef;
+    border-color: #fbf8ef;
+}
+.navbar-default .navbar-brand {
+    color: #000000;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #ffffff;
+}
+.navbar-default .navbar-text {
+    color: #000000;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #000000;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #ffffff;
+    background-color: #0094d8;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+    background-color: #fbf8ef;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+    color: #000000;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+    color: #ffffff;
+    background-color: #0094d8;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+    background-color: #fbf8ef;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color: #0094d8;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #ffffff;
+    background-color: #0094d8;
+}
+.navbar-default .navbar-toggle {
+    border-color: #fbf8ef;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #0094d8;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #000000;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #000000;
+}
+.navbar-default .navbar-link {
+    color: #000000;
+}
+.navbar-default .navbar-link:hover {
+    color: #ffffff;
+}
+#custom-nav {
+    background-color: rgba(251, 248, 239, 1);
+    border: 0;
+    box-shadow: none;
+    z-index: 999;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: background .5s ease-in-out, opacity .5s ease;
+    -moz-transition: background .5s ease-in-out, opacity .5s ease;
+    transition: background .5s ease-in-out, opacity .5s ease;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #000000;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #ffffff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #ffffff;
+        background-color: #0094d8;
+    }
+    .navbar-collapse {
+        max-height: auto;
+        overflow-x: auto;
+    }
+}
+/* Barra de busqueda */
+
+.search-form .form-group {
+    /*float: right !important;*/
+    /*transition: all 0.35s, border-radius 0s;*/
+    /*width: 32px;*/
+    height: 32px;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+}
+.search-form .form-group input.form-control {
+    padding-right: 20px;
+    border: 0 none;
+    background: transparent;
+    box-shadow: none;
+    display:block;
+}/*
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+    display: none;
+}
+.search-form .form-group input.form-control:-moz-placeholder {
+     Firefox 18- 
+    display: none;
+}
+.search-form .form-group input.form-control::-moz-placeholder {
+     Firefox 19+ 
+    display: none;
+}
+.search-form .form-group input.form-control:-ms-input-placeholder {
+    display: none;
+}
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+    width: 100%;
+    border-radius: 25px 25px 25px 25px;
+}
+.search-form .form-group span.form-control-feedback {
+    position: absolute;
+    top: -1px;
+    right: -2px;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: #3596e0;
+    left: initial;
+    font-size: 14px;
+}*/
+/* Barra de busqueda */
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17/03/2016, 04:33:51 PM
+    Author     : Reysmer Valle
+*/
+
+.btn-webkentron { 
+  color: #FFFFFF; 
+  background-color: #0094D8; 
+  border-color: #1E3954; 
+} 
+ 
+.btn-webkentron:hover, 
+.btn-webkentron:focus, 
+.btn-webkentron:active, 
+.btn-webkentron.active, 
+.open .dropdown-toggle.btn-webkentron { 
+  color: #FFFFFF; 
+  background-color: #1E3954; 
+  border-color: #1E3954; 
+} 
+ 
+.btn-webkentron:active, 
+.btn-webkentron.active, 
+.open .dropdown-toggle.btn-webkentron { 
+  background-image: none; 
+} 
+ 
+.btn-webkentron.disabled, 
+.btn-webkentron[disabled], 
+fieldset[disabled] .btn-webkentron, 
+.btn-webkentron.disabled:hover, 
+.btn-webkentron[disabled]:hover, 
+fieldset[disabled] .btn-webkentron:hover, 
+.btn-webkentron.disabled:focus, 
+.btn-webkentron[disabled]:focus, 
+fieldset[disabled] .btn-webkentron:focus, 
+.btn-webkentron.disabled:active, 
+.btn-webkentron[disabled]:active, 
+fieldset[disabled] .btn-webkentron:active, 
+.btn-webkentron.disabled.active, 
+.btn-webkentron[disabled].active, 
+fieldset[disabled] .btn-webkentron.active { 
+  background-color: #0094D8; 
+  border-color: #1E3954; 
+} 
+ 
+.btn-webkentron .badge { 
+  color: #0094D8; 
+  background-color: #FFFFFF; 
+}
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/03/2016, 10:58:02 AM
+    Author     : Reysmer Valle
+*/
+
+.panel-webkentron {
+    color: #000000; 
+    background-color: #FFFFFF; 
+    border-color: #1E3954; 
+}
+.panel-webkentron>.panel-heading {
+    color: #FFFFFF; 
+    background-color: #0094D8; 
+    border-color: #1E3954;
+
+}
+.panel-webkentron>.panel-heading a{
+    text-decoration: none;
+    color: #1E3954;
+    font-weight: bold;
+}
+.panel-webkentron>.panel-heading a.active{
+    color: #1E3954;
+}
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11/01/2016, 10:41:41 AM
+    Author     : Reysmer Valle
+*/
+.carousel{
+    background: #FFF;
+    margin-top: 10px;
+}
+
+#owl-principal .item img{
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    /*height: 100%;*/
+    max-height: 526px;
+}
+
+#owl-principal .item .caption {
+    position: absolute;
+    background: rgba(10,10,10,0.5);
+    color: #FFF;
+    /*z-index:100;*/
+    /*right: 50px;*/
+    /*width: 40%;*/
+    height: 100%;
+}
+
+#owl-principal .item .caption .titulo{
+    /*font-size: 30px;*/
+    /*font-size: 3.0vw;*/
+    font-family: Gobold;
+    /*padding: 0 1.5em 0 1.5em; //<padding-top> || <padding-right> || <padding-bottom> || <padding-left>*/
+}
+
+#owl-principal .item .caption .contenido{
+    /*font-size: 21px;*/
+/*    font-size: 1.6vw;*/
+    font-family: Lato-Light;
+    /*padding: 0 1.5em 0 1.5em;*/
+}
+
+#owl-articulos .item{
+    margin: 10px;
+    position:relative;
+}
+
+#owl-articulos .item img{
+    display: block;
+    width: auto;
+    height: auto;
+    /*max-width: 460px;*/
+}
+
+#owl-articulos .item .caption {
+    position: absolute;
+    display: block;
+    background: rgba(0,148,216,0.3);
+    color: #FFF;
+    width: 100%;
+    /*max-height: 40%;*/
+    bottom: 0px;
+    /*    
+        width: auto;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        background-image: url('../img/image13.png');
+        background-position: right bottom; //Positioning
+        background-repeat: no-repeat; //Prevent showing multiple background images
+    */
+}
+
+#owl-articulos .item .caption .contenido{
+    /*font-size: 27px;*/
+    /*font-size: 2.1vw;*/
+    font-family: Lato-Bold;
+}
+
+/* Estilo de los botones de Navegación */
+#owl-articulos .owl-controls .owl-buttons div {
+    background-color: rgba(0, 0, 0, 1);
+    color: #FFF;
+    display: inline-block;
+    zoom: 1;
+    font-size: 17px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+/* Estilo de los botones de Navegación */
+
+#owl-articulos .owl-buttons span{
+    margin-top: 2px;
+}
+
+#owl-articulos .owl-controls .owl-buttons div {
+    position: absolute;
+}
+/* Mover los botones de navegación del carousel al lateral*/
+#owl-articulos .owl-controls .owl-buttons .owl-prev{
+    left: -45px;
+    top: 40%;
+}
+
+#owl-articulos .owl-controls .owl-buttons .owl-next{
+    right: -45px;
+    top: 40%;
+}
+
+/* Estilo de los botones de Navegación Proyectos*/
+#owl-proyectos .owl-controls .owl-buttons div {
+    background-color: rgba(0, 0, 0, 1);
+    color: #FFF;
+    display: inline-block;
+    zoom: 1;
+    font-size: 17px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+/* Estilo de los botones de Navegación Proyectos*/
+
+#owl-proyectos .item{
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0px 0px;
+  margin: 0px;
+  color: #FFF;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+}
+.customNavigation{
+  text-align: center;
+}
+//use styles below to disable ugly selection
+.customNavigation a{
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* Mover los botones de navegación del carousel al lateral*/
+
+/* Estilo de los botones de Navegación */
+
+#owl-proyectos .owl-buttons span{
+    margin-top: 2px;
+}
+
+#owl-proyectos .owl-controls .owl-buttons div {
+    position: absolute;
+}
+/* Mover los botones de navegación del carousel al lateral*/
+#owl-proyectos .owl-controls .owl-buttons .owl-prev{
+    left: -45px;
+    top: 40%;
+}
+
+#owl-proyectos .owl-controls .owl-buttons .owl-next{
+    right: -45px;
+    top: 40%;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/fuentes/Lato-Regular.ttf')  format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Lato-Light';
+    src: url('../assets/fuentes/Lato-Light.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'Lato-Black';
+    src: url('../assets/fuentes/Lato-Black.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('../assets/fuentes/Lato-Bold.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'Gobold';
+    src: url('../assets/fuentes/Gobold-Regular.ttf')  format('truetype');
+}
+body {
+    font-family: Lato;
+    font-size: 14px;
+}
+.logo{
+    width: 100px;
+    height: 30px;
+}
+
+.bs-example{
+    margin: 20px;
+}
+
+.wrapper-with-margin{
+    margin:0px 50px;
+}
+
+.titulo-header {
+    padding-bottom:9px;
+    margin:40px 0 20px;
+    text-align: center;
+    color: #0094d8;
+    font-family: Gobold;
+    border-bottom:1px solid #0094d8;
+}
+
+.titulo-noticia-left {
+    padding-bottom:8px;
+    margin:20px 0 20px;
+    text-align: left;
+    color: #0094d8;
+    font-family: Gobold;
+    border-bottom:1px solid #0094d8;
+}
+
+.titulo-header-left {
+    padding-bottom:9px;
+    margin:40px 0 20px;
+    text-align: left;
+    color: #0094d8;
+    font-family: Gobold;
+    border-bottom:1px solid #0094d8;
+}
+
+.titulo-proyecto {
+    font-family: Lato-Black;
+    /*font-size: 17px;*/
+}
+
+.titulo-empresa {
+    font-family: Lato-Light;
+    /*font-size: 23px;*/
+    padding: 2em 0 0 0;
+}
+
+.titulo-footer {
+    font-family: Lato-Bold;
+    font-size: 17px;
+    padding: 2em 0 0 2em;
+    color: #FFF;
+}
+.controls-wrapper{
+    color: #FFF;
+    height: 227px;
+}
+
+.parrafo{
+    font-size: 17px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.footer{
+    bottom:0;
+    border-top:1px solid #ccc;
+    -moz-box-shadow:    1px 1px 2px 3px #ccc;
+    -webkit-box-shadow: 1px 1px 2px 3px #ccc;
+    box-shadow:         1px 1px 2px 3px #ccc;
+}
+
+.hfooter {
+    text-align: center;
+    padding-top: 1.0em;
+}
+
+.center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cont-footer{
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+.hfooter > p {
+    font-size: 17px;
+}
+
+.cfooter {
+    background-color: #0094d8;
+}
+
+.contenido-footer {
+    font-family: Lato-Light;
+    font-size: 17px;
+    color: #FFF;
+}
+
+.pd-footer {
+    padding: 0 0 0.5em 0; //<padding-top> || <padding-right> || <padding-bottom> || <padding-left>
+}
+
+.lista-footer {
+    list-style:none;
+}
+
+.pfooter {
+    background-color : rgba(9, 150, 222, 0.8);
+    /*background-color: #1E3954;*/
+    text-align: center;
+    color: #FFF;
+}
+
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
+
+.negrita{
+    font-weight: bold;
+}
+
+.lipanel{
+    color: #000;
+}
+/* Important part */
+#modal-window1 .modal-dialog{
+    overflow-y: initial !important
+}
+#modal-window1 .modal-body{
+    max-height: 250px;
+    overflow-y: auto;
+}
+.mod-head{
+    position: relative;
+}
+.button-close{
+    position: absolute;
+    right: 0;
+}
+.button-plus{
+    position: absolute;
+    right: 0;
+}
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/01/2016, 10:13:05 AM
+    Author     : Reysmer Valle
+*/
+
+/* Media Queries para seccion de carousel principal y articulos */
+@media screen and (min-width:320px) and (max-width: 420px) { 
+    /* smartphones, iPhone, portrait 480x320 phones */
+    #owl-principal .item .caption .titulo{
+        font-size: 16px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 12px;
+        padding: 0;
+        display: none;
+    }
+    .btn-responsive {
+        padding:8px 6px;
+        font-size:80%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 50%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 15px;
+    }
+
+}
+
+@media screen and (min-width:421px) and (max-width: 440px) { 
+    /* smartphones, iPhone, portrait 480x320 phones */
+    #owl-principal .item .caption .titulo{
+        font-size: 16px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 13px;
+        padding: 0;
+        display: block;
+    }
+    .btn-responsive {
+        padding:2px 4px;
+        font-size:80%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (min-width:441px) and (max-width: 480px) { 
+    /* smartphones, iPhone, portrait 480x320 phones */
+    #owl-principal .item .caption .titulo{
+        font-size: 16px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 14px;
+        padding: 0;
+        display: block;
+    }
+    .btn-responsive {
+        padding:5px 5px;
+        font-size:80%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (min-width:481px) and (max-width: 540px) { 
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    #owl-principal .item .caption .titulo{
+        font-size: 18px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 16px;
+        padding: 0;
+        display: block;
+    }
+    .btn-responsive {
+        padding:8px 6px;
+        font-size:80%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (min-width:541px) and (max-width: 580px) { 
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    #owl-principal .item .caption .titulo{
+        font-size: 20px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 17px;
+        padding: 0;
+        display: block;
+    }
+    .btn-responsive {
+        padding:10px 8px;
+        font-size:90%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 50%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width:581px) and (max-width: 640px) { 
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    #owl-principal .item .caption .titulo{
+        font-size: 23px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 20px;
+        padding: 0;
+        display: block;
+    }
+    .btn-responsive {
+        padding:10px 8px;
+        font-size:90%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 50%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width:641px) and (max-width: 767px) { 
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    #owl-principal .item .caption .titulo{
+        font-size: 25px;
+        padding: 0;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 21px;
+        padding: 0;
+        display: block;
+    }
+    .btn-responsive {
+        padding:10px 8px;
+        font-size:90%;
+        line-height: 1;
+        border-radius:3px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width: 818px){ 
+    #owl-articulos .item .caption {
+        max-height: 50%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width:819px) and (max-width: 868px){ 
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 17px;
+    }
+}
+
+
+@media screen and (min-width:768px) and (max-width: 868px){ 
+    /*portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 20px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width:869px) and (max-width: 960px){ 
+    /*portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 25px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 18px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width:961px) and (max-width: 991px){ 
+    /*tablet, landscape iPad, lo-res laptops ands desktops*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 30px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 18px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width: 1024px){ 
+    /*tablet, landscape iPad, lo-res laptops ands desktops*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 25px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 18px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width:1025px) and (max-width: 1140px) { 
+    /*big landscape tablets, laptops, and desktops*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 27px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 19px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 23px;
+    }
+}
+
+@media screen and (min-width:1141px) and (max-width: 1280px) { 
+    /*big landscape tablets, laptops, and desktops*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 30px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 21px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 23px;
+    }
+}
+
+@media screen and (min-width:1281px)    { 
+    /*hi-res laptops and desktops*/
+    #owl-principal .item .caption {
+        right: 50px;
+    }
+
+    #owl-principal .item .caption .titulo{
+        font-size: 30px;
+    }
+    #owl-principal .item .caption .contenido{
+        font-size: 21px;
+    }
+
+    #owl-articulos .item .caption {
+        max-height: 40%
+    }
+    #owl-articulos .item .caption .contenido{
+        font-size: 25px;
+    }
+}
+/* Media Queries para seccion de carousel principal y articulos */
+
+/* Media Queries para seccion de proyectos */
+@media screen and (min-width:320px) and (max-width: 767px) { 
+    .titulo-proyecto {
+        font-size: 19px;
+    }
+    .titulo-empresa {
+        font-size: 23px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width: 867px) { 
+    .titulo-proyecto {
+        font-size: 15px;
+    }
+    .titulo-empresa {
+        font-size: 16px;
+    }
+}
+@media screen and (min-width:868px) and (max-width: 1281px) { 
+    .titulo-proyecto {
+        font-size: 17px;
+    }
+    .titulo-empresa {
+        font-size: 18px;
+    }
+}
+/* Media Queries para seccion de proyectos */
+/*# sourceMappingURL=all.css.map */
