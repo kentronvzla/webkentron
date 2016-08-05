@@ -9,6 +9,7 @@ Route::group([], function() {
     Route::get('nosotros', ['as' => 'nosotros', 'uses' => 'PagesController@getAbout']);
     Route::get('infoproyecto/{id}', ['as' => 'infoproyecto', 'uses' => 'PagesController@getInfoProyecto']);
     Route::get('contenido/{url}', ['as' => 'contenido', 'uses' => 'PagesController@getShow']);
+    Route::get('busquedas', ['as' => 'busquedas', 'uses' => 'PagesController@getBusqueda']);
 
     Route::group(['prefix' => 'productos', 'as' => 'products'], function() {
         Route::get('kerux', ['as' => 'kerux', 'uses' => 'PagesController@getKeruxInfo']);
@@ -52,6 +53,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin', 'as' => 'a
     });
     Route::group(['prefix' => 'tablas', 'as' => 'tablas', 'namespace' => 'Tablas'], function() {
         Route::controller('contenidos', 'ContenidosController');
+        Route::controller('conocimientos', 'ConocimientosController');
     });
     Route::get('/', 'AdministrarController@getIndex');
 });

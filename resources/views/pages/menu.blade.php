@@ -6,6 +6,7 @@
     <li class="{!! set_active('contacto') !!} negrita">{!! Html::linkIcon('contacto', 'Contacto', 'phone') !!}</li>
     <li class="{!! set_active('clientes') !!} negrita">{!! Html::linkIcon('clientes', 'Clientes', 'users') !!}</li>
     <li class="{!! set_active('nosotros') !!} negrita">{!! Html::linkIcon('nosotros', 'Nosotros', 'map-marker') !!}</li>
+    <li class="{!! set_active('busquedas') !!} negrita">{!! Html::linkIcon('busquedas', 'Busqueda', 'book') !!}</li>
 </ul>
 
 <ul class="nav navbar-nav navbar-right">

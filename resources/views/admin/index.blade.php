@@ -24,8 +24,13 @@
         <div class="panel panel-webkentron">
             <div class="panel-heading">Tablas</div>
             <ul class="list-group">
-                <a href="{!! url('admin/tablas/contenidos') !!}">
+                <a href="{!! url('admin/tablas/contenidos/') !!}">
                     <li class="list-group-item lipanel">Contenidos</li>
+                </a>
+            </ul>
+            <ul class="list-group">
+                <a href="{!! url('admin/tablas/conocimientos/') !!}">
+                    <li class="list-group-item lipanel">Conocimientos</li>
                 </a>
             </ul>
         </div>

@@ -52,6 +52,10 @@ class PagesController extends Controller {
     
     public function getSupport() {
         return view('pages.soporte');
+    }    
+
+    public function getBusqueda() {
+        return view('pages.busqueda');
     }
 
     public function getInfoProyecto($id) {
