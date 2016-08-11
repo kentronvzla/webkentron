@@ -4,13 +4,13 @@
 
 <div class="panel panel-webkentron">
     <div class="panel-heading">
-        @include('templates.tituloBarra',array('obj'=>$contenido, 'titulo'=>'contenido'))
+        @include('templates.tituloBarra',array('obj'=>$conocimiento, 'titulo'=>'conocimiento'))
     </div>
     @if($nuevo)
     <div class="panel-body">
         @include('templates.errores')
-        {!! Form::open(['url'=>'admin/tablas/contenidos/nuevo', 'id'=>'contenidoNuevo']) !!}
-        {!! Form::concurrencia($contenido) !!}
+        {!! Form::open(['url'=>'admin/tablas/conocimientos/nuevo', 'id'=>'contenidoNuevo']) !!}
+        {!! Form::concurrencia($conocimiento) !!}
 
         <div class="row">
             {!! Form::hidden('id',$contenido->id) !!}

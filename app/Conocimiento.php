@@ -42,8 +42,15 @@ class Conocimiento extends BaseModel {
      * @var array
      */
     protected $fillable = [
-        'nombre',
-        'descripcion',
+        'tipo_publicaciones_id',
+        'modo_vistas_id',
+        'titulo',
+        'resumen',
+        'detalle',
+        'fondo',
+        'referencia_externa',
+        'fecha_vigencia',
+        'ind_visible',
         
     ];
    

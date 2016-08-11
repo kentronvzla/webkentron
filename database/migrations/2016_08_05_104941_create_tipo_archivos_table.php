@@ -13,10 +13,10 @@ class CreateTipoArchivosTable extends Migration
     public function up()
     {
         Schema::create('tipo_archivos', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unique();
             $table->string('nombre', 200);
-            $table->sting('extension', 15);
-            $table->integer('tamaño_maximo', false, true);
+            $table->string('extension', 15);
+            $table->integer('tamaño_maximo');
             $table->integer('usuario_creacion_id', false, true);
             $table->integer('usuario_modificacion_id', false, true);
             $table->integer('version')->default(0);

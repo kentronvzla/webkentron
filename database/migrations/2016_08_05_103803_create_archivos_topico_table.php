@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArchivosTable extends Migration
+class CreateArchivosTopicoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,12 @@ class CreateArchivosTable extends Migration
      */
     public function up()
     {
-        Schema::create('archivos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('topicos_id', false, true);
+        Schema::create('archivos_topico', function (Blueprint $table) {
+            $table->increments('id')->unique();
             $table->string('nombre', 200);
-            $table->string('tipo_archivo_id', 15);
+            $table->integer('topicos_id', false, true);
+            $table->integer('sistema_id', false, true);
+            $table->integer('tipo_archivo_id', false, true);
             $table->integer('usuario_creacion_id', false, true);
             $table->integer('usuario_modificacion_id', false, true);
             $table->integer('version')->default(0);
@@ -32,6 +33,6 @@ class CreateArchivosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('archivos');
+        Schema::drop('archivos_topico');
     }
 }
