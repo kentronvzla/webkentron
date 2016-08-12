@@ -31,10 +31,10 @@ use Illuminate\Support\Str as Str;
  * @property-read \App\ModoVista $modoVistas
  * @property-read mixed $estatus_display
  */
-class Conocimiento extends BaseModel {
+class Topico extends BaseModel {
 
     protected $primaryKey = "id";
-    protected $table = 'conocimientos';
+    protected $table = 'topicos';
 
     /**
      * Campos que se pueden llenar mediante el uso de mass-assignment
@@ -42,17 +42,16 @@ class Conocimiento extends BaseModel {
      * @var array
      */
     protected $fillable = [
-        'tipo_publicaciones_id',
-        'modo_vistas_id',
+        'categoria_id',
         'titulo',
-        'resumen',
-        'detalle',
-        'fondo',
-        'referencia_externa',
-        'fecha_vigencia',
+        'descripcion',
+        'acciones',
+        'tags',
         'ind_visible',
         
     ];
+
+    protected $guarded = ['id', 'url', 'usuario_creacion_id', 'usuario_modificacion_id'];
    
 
     /**
@@ -63,37 +62,35 @@ class Conocimiento extends BaseModel {
      * @var array
      */
     protected $rules = [
-        'nombre' => 'required',
+        'titulo' => 'required',
         'descripcion' => 'required',
         
     ];
 
     protected function getPrettyFields() {
         return [
-            'nombre' => 'Nombre',
-            'descripcion' => 'Descripción',
+            'categoria_id' => "Categoría",
+            'titulo' => "Título",
+            'descripcion' => "Descripción",
+            'acciones' => "Acciones",
+            'tags' => "Tags",
+            'ind_visible' => "¿Activo?"
         ];
     }
 
     public function getPrettyName() {
-        return "conocimiento";
+        return "Tópicos";
     }
 
     /**
      * Define una relación pertenece a TipoPublicacion
      * @return TipoPublicacion
      */
-    public function tipoPublicaciones() {
-        return $this->belongsTo('App\TipoPublicacion', 'tipo_publicaciones_id');
+    public function Categoria() {
+        return $this->belongsTo('App\Categoria', 'categoria_id');
     }
-
-    public static function crear(array $values) {
-        $contenido = new Contenido();
-        $contenido->fill($values);
-        $contenido->validate();
-        $contenido->setGlobalNewAttributes($contenido, User::getUserIdLogged());
-        $contenido->setFieldsAttributes($contenido);
-        return $contenido;
+    public function Sistema() {
+        return $this->belongsTo('App\Sistema', 'sistema_id');
     }
 
 }

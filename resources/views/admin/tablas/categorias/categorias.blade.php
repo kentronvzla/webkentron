@@ -7,9 +7,9 @@
 
 @section('content1')
 <div class="panel panel-webkentron">
-    <div class="panel-heading">Registrar Elementos</div>
+    <div class="panel-heading">Administrar Categorías</div>
     <div class="panel-body">
-    	{!! Html::tableModel($conocimientos, 'App\\Conocimiento') !!}
+        {!! Html::tableModel($categorias, 'App\\Categoria') !!}
     </div>
 </div>
 @stop

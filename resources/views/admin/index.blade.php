@@ -29,10 +29,27 @@
                 </a>
             </ul>
             <ul class="list-group">
-                <a href="{!! url('admin/tablas/conocimientos/') !!}">
-                    <li class="list-group-item lipanel">Conocimientos</li>
+                <a href="{!! url('admin/tablas/topicos/') !!}">
+                    <li class="list-group-item lipanel">Tópicos</li>
                 </a>
             </ul>
+            <ul class="list-group">
+                <a href="{!! url('admin/tablas/categorias/') !!}">
+                    <li class="list-group-item lipanel">Categorías</li>
+                </a>
+            </ul>
+            <ul class="list-group">
+                <a href="{!! url('admin/tablas/sistemas/') !!}">
+                    <li class="list-group-item lipanel">Sistemas</li>
+                </a>
+            </ul>
+            <ul class="list-group">
+                <a href="{!! url('admin/tablas/tipoarchivos/') !!}">
+                    <li class="list-group-item lipanel">Tipos de Archivos</li>
+                </a>
+            </ul>
+
+
         </div>
     </div>
 

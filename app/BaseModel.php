@@ -478,6 +478,12 @@ abstract class BaseModel extends Model implements SelectInterface, SimpleTableIn
         return null;
     }
 
+    public function setUserFieldsAttributes($model) {
+        $model->attributes['usuario_creacion_id'] = User::getUserIdLogged();
+        $model->attributes['usuario_modificacion_id'] = User::getUserIdLogged();
+        return $model;
+    }
+
     public function setGlobalNewAttributes($model, $userid) {
         if (!isset($model->attributes['ind_visible'])) {
             $model->attributes['ind_visible'] = 1;

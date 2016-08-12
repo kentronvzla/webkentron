@@ -53,7 +53,10 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin', 'as' => 'a
     });
     Route::group(['prefix' => 'tablas', 'as' => 'tablas', 'namespace' => 'Tablas'], function() {
         Route::controller('contenidos', 'ContenidosController');
-        Route::controller('conocimientos', 'ConocimientosController');
+        Route::controller('topicos', 'TopicosController');
+        Route::controller('categorias', 'CategoriasController');
+        Route::controller('sistemas', 'SistemasController');
+        Route::controller('tipoarchivos', 'TipoArchivosController');
     });
     Route::get('/', 'AdministrarController@getIndex');
 });
