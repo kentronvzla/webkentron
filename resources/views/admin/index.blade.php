@@ -48,6 +48,11 @@
                     <li class="list-group-item lipanel">Tipos de Archivos</li>
                 </a>
             </ul>
+            <ul class="list-group">
+                <a href="{!! url('admin/tablas/archivotopicos/') !!}">
+                    <li class="list-group-item lipanel">Archivos de Tópicos</li>
+                </a>
+            </ul>
 
 
         </div>

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArchivosTopicoTable extends Migration
+class CreateArchivoTopicosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateArchivosTopicoTable extends Migration
      */
     public function up()
     {
-        Schema::create('archivos_topico', function (Blueprint $table) {
+        Schema::create('archivo_topicos', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->string('nombre', 200);
             $table->integer('topicos_id', false, true);

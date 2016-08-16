@@ -26,7 +26,7 @@ class TipoArchivo extends BaseModel {
      */
     protected $fillable = [
         'nombre',
-        'extesion',
+        'extension',
         'tamaño_maximo'
     ];
 
@@ -42,20 +42,25 @@ class TipoArchivo extends BaseModel {
     protected $rules = [
         'nombre' => 'required',
         'extension' => 'required',
-        'tamaño_maximo' => 'required|number'
+        'tamaño_maximo' => 'required|integer'
 
     ];
 
     protected function getPrettyFields() {
         return [
             'nombre' => 'Nombre',
-            'extension' => 'Extesión',
+            'extension' => 'Extensión',
             'tamaño_maximo' => 'Tamaño Máximo'
         ];
     }
 
+
     public function getPrettyName() {
         return "Tipo Archivo";
+    }
+
+    public function archivoTopico() {
+        return $this->hasMany('App\ArchivoTopico');
     }
 
     /*public function archivosTopico() {
@@ -66,7 +71,6 @@ class TipoArchivo extends BaseModel {
         $tipoarchivo = new TipoArchivo();
         $tipoarchivo->fill($values);
         $tipoarchivo->validate();
-        //$categoria->setGlobalNewAttributes($categoria, User::getUserIdLogged());
         $tipoarchivo->setUserFieldsAttributes($tipoarchivo);
         return $tipoarchivo;
     }

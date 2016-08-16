@@ -92,5 +92,8 @@ class Topico extends BaseModel {
     public function Sistema() {
         return $this->belongsTo('App\Sistema', 'sistema_id');
     }
+    public function ArchivoTopico() {
+        return $this->hasMany('App\ArchivoTopico');
+    }
 
 }

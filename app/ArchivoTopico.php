@@ -13,11 +13,11 @@ use App\BaseModel;
  * @property-read mixed $estatus_display
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Contenido[] $contenidos
  */
-class Sistema extends BaseModel {
+class ArchivoTopico extends BaseModel {
 
     //
     protected $primaryKey = "id";
-    protected $table = 'sistemas';
+    protected $table = 'archivo_topicos';
 
     /**
      * Campos que se pueden llenar mediante el uso de mass-assignment
@@ -26,6 +26,9 @@ class Sistema extends BaseModel {
      */
     protected $fillable = [
         'nombre',
+        'sistema_id',
+        'tipo_archivo_id',
+        'topico_id',
     ];
 
     protected $guarded = ['id', 'url', 'usuario_creacion_id', 'usuario_modificacion_id'];
@@ -39,31 +42,47 @@ class Sistema extends BaseModel {
      */
     protected $rules = [
         'nombre' => 'required',
+        'sistema_id' => 'required',
+        'tipo_archivo_id' => 'required',
+        'topico_id' => 'required',
+
     ];
 
     protected function getPrettyFields() {
         return [
             'nombre' => 'Nombre',
+            'sistema_id' => 'Sistema',
+            'tipo_archivo_id' => 'Tipo de Archivo',
+            'topico_id' => 'Tópico',
         ];
     }
 
+
     public function getPrettyName() {
-        return "Sistema";
+        return "Archivo Topico";
     }
 
-    public function topicos() {
-        return $this->hasMany('App\Topico');
+    public function TipoArchivo() {
+        return $this->belongsTo('App\TipoArchivo', 'tipo_archivo_id');
     }
-    public function archivoTopico() {
+    public function Sistema() {
+        return $this->belongsTo('App\Sistema', 'sistema_id');
+    }
+    public function Topico() {
+        return $this->belongsTo('App\Topico', 'topico_id');
+    }
+
+
+    /*public function archivosTopico() {
         return $this->hasMany('App\ArchivoTopico');
-    }
+    }*/
 
     public static function crear(array $values) {
-        $sistema = new Sistema();
-        $sistema->fill($values);
-        $sistema->validate();
-        $sistema->setUserFieldsAttributes($sistema);
-        return $sistema;
+        $archivotopico = new ArchivoTopico();
+        $archivotopico->fill($values);
+        $archivotopico->validate();
+        $archivotopico->setUserFieldsAttributes($archivotopico);
+        return $archivotopico;
     }
 
     

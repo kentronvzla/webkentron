@@ -11,6 +11,11 @@ use App\TipoArchivo;
 
 class TipoArchivosController extends TableBaseController {
 
+    public function __construct() {
+        parent::__construct();
+        $this->collectionName = "tipoarchivos";
+    }
+
     public function getNuevo(Request $request) {
         $data['nuevo'] = true;
         $data['tipoarchivo'] = new TipoArchivo();

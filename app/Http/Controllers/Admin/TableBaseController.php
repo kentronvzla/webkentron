@@ -34,6 +34,7 @@ class TableBaseController extends Controller {
             }
             $data[$this->getCollectionName()] = $data[$this->getCollectionName()]->orderBy('id')->get();
         }
+
         return view($this->getFolder(), $data);
     }
 

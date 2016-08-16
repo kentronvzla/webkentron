@@ -17,6 +17,11 @@
             {!! Form::btInput($tipoarchivo, 'nombre', 12, 'text',['autocomplete'=>'off']) !!}
         </div>
 
+        <div class="row">
+            {!! Form::btInput($tipoarchivo, 'extension', 6, 'text') !!}
+            {!! Form::btInput($tipoarchivo, 'tamaño_maximo', 6, 'text') !!}
+        </div>
+
         {!! Form::submitBt() !!}
         {!! Form::close() !!}
     </div>
@@ -29,6 +34,11 @@
         <div class="row">
             {!! Form::hidden('id',$tipoarchivo->id) !!}
             {!! Form::btInput($tipoarchivo, 'nombre', 12, 'text',['autocomplete'=>'off']) !!}
+        </div>
+
+         <div class="row">
+            {!! Form::btInput($tipoarchivo, 'extension', 6, 'text') !!}
+            {!! Form::btInput($tipoarchivo, 'tamaño_maximo', 6, 'text') !!}
         </div>
 
         {!! Form::submitBt() !!}

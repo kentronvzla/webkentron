@@ -57,6 +57,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin', 'as' => 'a
         Route::controller('categorias', 'CategoriasController');
         Route::controller('sistemas', 'SistemasController');
         Route::controller('tipoarchivos', 'TipoArchivosController');
+        Route::controller('archivotopicos', 'ArchivoTopicosController');
     });
     Route::get('/', 'AdministrarController@getIndex');
 });

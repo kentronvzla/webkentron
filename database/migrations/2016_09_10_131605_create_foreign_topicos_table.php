@@ -39,7 +39,7 @@ class CreateForeignTopicosTable extends Migration
             //$table->index('usuario_modificacion_id');
             $table->foreign('usuario_modificacion_id')->references('id')->on('users');
         });
-        Schema::table('archivos_topico', function(Blueprint $table) {
+        Schema::table('archivo_topicos', function(Blueprint $table) {
            // $table->index('topicos_id');
             $table->foreign('topicos_id')->references('id')->on('topicos');
 
@@ -114,7 +114,7 @@ class CreateForeignTopicosTable extends Migration
             $table->dropForeign('usuario_modificacion_id')->references('id')->on('users');
         });
 
-        Schema::table('archivos_topico', function(Blueprint $table) {
+        Schema::table('archivo_topicos', function(Blueprint $table) {
             //$table->dropIndex('topicos_id');
             $table->dropForeign('topicos_id')->references('id')->on('topicos');
 
