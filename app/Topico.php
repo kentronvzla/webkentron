@@ -96,4 +96,14 @@ class Topico extends BaseModel {
         return $this->hasMany('App\ArchivoTopico');
     }
 
+
+    public static function crear(array $values) {
+        $topico = new Topico();
+        $topico->fill($values);
+        $topico->validate();
+        $topico->setGlobalNewAttributes($topico, User::getUserIdLogged());
+        $topico->setFieldsAttributes($topico);
+        return $topico;
+    }
+
 }
