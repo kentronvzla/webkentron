@@ -356,12 +356,39 @@ and open the template in the editor.
 /* Media Queries para seccion de carousel principal y articulos */
 
 /* Media Queries para seccion de proyectos */
-@media screen and (min-width:320px) and (max-width: 767px) { 
+@media screen and (min-width:320px) and (max-width: 420px) { 
     .titulo-proyecto {
-        font-size: 19px;
+        font-size: 15px;
     }
     .titulo-empresa {
-        font-size: 23px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width:421px) and (max-width: 540px) { 
+    .titulo-proyecto {
+        font-size: 18px;
+    }
+    .titulo-empresa {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width:541px) and (max-width: 640px) { 
+    .titulo-proyecto {
+        font-size: 15px;
+    }
+    .titulo-empresa {
+        font-size: 17px;
+    }
+}
+
+@media screen and (min-width:641px) and (max-width: 767px) { 
+    .titulo-proyecto {
+        font-size: 16px;
+    }
+    .titulo-empresa {
+        font-size: 18px;
     }
 }
 
@@ -373,12 +400,22 @@ and open the template in the editor.
         font-size: 16px;
     }
 }
-@media screen and (min-width:868px) and (max-width: 1281px) { 
+
+@media screen and (min-width:868px) and (max-width: 1216px) { 
     .titulo-proyecto {
         font-size: 17px;
     }
     .titulo-empresa {
         font-size: 18px;
+    }
+}
+
+@media screen and (min-width:1217px) and (max-width: 1281px) { 
+    .titulo-proyecto {
+        font-size: 15px;
+    }
+    .titulo-empresa {
+        font-size: 16px;
     }
 }
 /* Media Queries para seccion de proyectos */

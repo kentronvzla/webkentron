@@ -135,13 +135,13 @@ function loadModalEvents() {
 //    Funcion para limpiar ventana modal al cerrar
     $('#modal-window1').on('hidden.bs.modal', function (e) {
         $("#modal-window1").empty();
-        if ($(this).children().attr('data-reload') != undefined) {
+        if ($(this).children().attr('data-reload') !== undefined) {
             window.location.reload();
         }
     });
     $('#modal-window2').on('hidden.bs.modal', function (e) {
         $("#modal-window2").empty();
-        if ($(this).children().attr('data-reload') != undefined) {
+        if ($(this).children().attr('data-reload') !== undefined) {
             window.location.reload();
         }
     });
@@ -208,7 +208,7 @@ function procesarErrores(errores) {
 }
 
 function mostrarOcultar(ocultar, div, parent) {
-    if (parent == undefined) {
+    if (parent === undefined) {
         parent = document;
     }
     if (ocultar) {
@@ -244,17 +244,15 @@ function buscarAyuda(evt) {
     var url = location.href;
     if (url.startsWith(baseUrl + "administracion")) {
         return;
-    }
-    else if (form.attr('id') == undefined) {
+    } else if (form.attr('id') === undefined) {
         console.log("El formulario no tiene ID, debe tener un id para poder mostrar la ayuda");
-    }
-    else if (input.attr('id') == undefined) {
+    } else if (input.attr('id') === undefined) {
         console.log("El input no tiene ID, debe tener un id para poder mostrar la ayuda");
     } else {
         var ayuda = localStorage.getItem(form.attr('id') + "." + input.attr('id'));
-        if (ayuda != undefined) {
+        if (ayuda !== undefined) {
             $('#contenedor-ayudas').html(ayuda);
-        } else if (evt.type == "mouseenter") {
+        } else if (evt.type === "mouseenter") {
             crearAyuda(form.attr('id'), input.attr('id'));
         }
     }
@@ -319,11 +317,11 @@ function iniciarTooltipAyuda() {
     $('[data-toggle="tooltip"]').tooltip({html: true});
 
     $('input, select, textarea').each(function () {
-        if ($(this).attr("data-tienetooltip") == undefined && $(this).attr('type') != "radio" && $(this).attr('type') != "hidden") {
+        if ($(this).attr("data-tienetooltip") === undefined && $(this).attr('type') !== "radio" && $(this).attr('type') !== "hidden") {
             $(this).attr("data-tienetooltip", 1);
             $(this).tooltip({'trigger': 'focus hover', 'title': $(this).attr("placeholder")});
         }
-        if ($(this).attr("data-tieneayuda") == undefined && $(this).attr('type') != "hidden") {
+        if ($(this).attr("data-tieneayuda") === undefined && $(this).attr('type') !== "hidden") {
             $(this).attr("data-tieneayuda", 1);
 //            $(this).hover(buscarAyuda);
 //            $(this).focus(buscarAyuda);
@@ -351,7 +349,7 @@ function iniciarPopoverRaty() {
 
 function iniciarJqueryTable() {
     $('table.jqueryTable').each(function () {
-        if ($(this).attr('data-esdatatable') == undefined) {
+        if ($(this).attr('data-esdatatable') === undefined) {
             $(this).attr('data-esdatatable', true);
             $(this).DataTable({
                 "aaSorting": [],
@@ -396,7 +394,7 @@ function iniciarDropzone() {
                 success: function (file, response) {
                     this.removeFile(file);
                     $('#modalArchivo').modal('hide');
-                    if (callback != undefined) {
+                    if (callback !== undefined) {
                         eval(callback + '("' + response.url + '")');
                     }
                     window.location.reload();
@@ -420,20 +418,20 @@ function iniciarDropzone() {
 $.fn.clearForm = function () {
     return this.each(function () {
         var type = this.type, tag = this.tagName.toLowerCase();
-        if (tag == 'form')
+        if (tag === 'form')
             return $(':input', this).clearForm();
-        if (type == 'text' || type == 'password' || tag == 'textarea')
+        if (type === 'text' || type === 'password' || tag === 'textarea')
             this.value = '';
-        else if (type == 'checkbox' || type == 'radio')
+        else if (type === 'checkbox' || type === 'radio')
             this.checked = false;
-        else if (tag == 'select')
+        else if (tag === 'select')
             $(this).val("");
-        else if (type == 'hidden' && $(this).attr('name') != 'solicitud_id')
+        else if (type === 'hidden' && $(this).attr('name') !== 'solicitud_id')
             $(this).val("");
     });
 };
 
-if (typeof String.prototype.startsWith != 'function') {
+if (typeof String.prototype.startsWith !== 'function') {
     String.prototype.startsWith = function (str) {
         return this.slice(0, str.length) == str;
     };

@@ -8,6 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Página Web de Kentron">
         <meta name="author" content="Kentron Sistemas de Información C.A">
+        <link type="text/plain" rel="author" href="{{url("")}}/humans.txt" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- Mobile Specific Meta -->

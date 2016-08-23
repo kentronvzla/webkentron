@@ -367,7 +367,7 @@ and open the template in the editor.
 .customNavigation{
   text-align: center;
 }
-//use styles below to disable ugly selection
+/* use styles below to disable ugly selection */
 .customNavigation a{
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -531,7 +531,7 @@ body {
 }
 
 .pd-footer {
-    padding: 0 0 0.5em 0; //<padding-top> || <padding-right> || <padding-bottom> || <padding-left>
+    padding: 0 0 0.5em 0; /* <padding-top> || <padding-right> || <padding-bottom> || <padding-left> */
 }
 
 .lista-footer {

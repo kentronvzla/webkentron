@@ -35,8 +35,7 @@ Route::group(['middleware' => 'sentry.guest'], function() {
     });
 });
 
-
-Route::get('logout', ['middleware' => 'sentry.auth','as' => 'logout', 'uses' => 'SessionsController@getLogout']);
+Route::get('logout', ['middleware' => 'sentry.auth', 'as' => 'logout', 'uses' => 'SessionsController@getLogout']);
 
 # Admin Tables Routes
 Route::group(['middleware' => ['sentry.auth', 'sentry.admin'], 'prefix' => 'admin', 'as' => 'admin', 'namespace' => 'Admin'], function() {

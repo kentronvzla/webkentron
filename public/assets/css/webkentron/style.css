@@ -109,7 +109,7 @@ body {
 }
 
 .pd-footer {
-    padding: 0 0 0.5em 0; //<padding-top> || <padding-right> || <padding-bottom> || <padding-left>
+    padding: 0 0 0.5em 0; /* <padding-top> || <padding-right> || <padding-bottom> || <padding-left> */
 }
 
 .lista-footer {

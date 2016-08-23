@@ -7,10 +7,14 @@
                         <span class="fa fa-times"></span>
                     </button>
                 </div>
+                @if(isset($proyecto->fondo) && !empty($proyecto->fondo))
                 {!! Html::image('archivos/contenidos/'
                     . $proyecto->tipoPublicaciones->getAttributes()['descripcion']
                     . DIRECTORY_SEPARATOR 
                     . $proyecto->fondo . '', $proyecto->fondo, ['class' => 'img-responsive']) !!}
+                @else
+                {!! Html::image('assets/img/fondo-icon.png', '', ['class' => 'img-responsive']) !!}  
+                @endif
             </div>
         </div>
         <div class="modal-body">

@@ -1,4 +1,4 @@
-@extends('layout_email')
+@extends('layouts.layout_email')
 @section('contenido')
 <h2>Restablecer Contraseña</h2>
 

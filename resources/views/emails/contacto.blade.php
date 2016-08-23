@@ -1,4 +1,4 @@
-@extends('layout_email')
+@extends('layouts.layout_email')
 @section('contenido')
 <h2>Solicitud de Contacto</h2>
 <div>

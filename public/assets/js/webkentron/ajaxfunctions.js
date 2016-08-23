@@ -98,15 +98,15 @@ function getCombo(select, destino, url)
         {
             $('#' + destino).empty();
             var ultimo, cantidad = 0;
-            if (data != null) {
+            if (data !== null) {
                 $.each(data, function (i, value) {
-                    if (i != "") {
+                    if (i !== "") {
                         ultimo = i;
                     }
                     cantidad++;
                     $('#' + destino).append("<option value='" + i + "'>" + value + "</option>");
                 });
-                if (cantidad == 2) {
+                if (cantidad === 2) {
                     $('#' + destino).val(ultimo);
                     $('#' + destino).change();
                 } else {
@@ -181,14 +181,14 @@ function guardarFormulario() {
             dataType: 'json',
             method: $(this).attr("method") == undefined ? "POST" : $(this).attr("method"),
             success: function (data) {
-                if (data.mensaje != "") {
+                if (data.mensaje !== "") {
                     mostrarMensaje(data.mensaje);
                 }
                 var callback = $(this.formulario).attr('data-callback');
-                if (callback != undefined && callback != "") {
+                if (callback !== undefined && callback !== "") {
                     window.location.reload();
                 }
-                if (data.vista != undefined) {
+                if (data.vista !== undefined) {
                     $(this.formulario).parent().html(data.vista);
                 }
                 if (data.url) {
@@ -276,14 +276,14 @@ function ejecutarAjaxSelect(child, url, formParent) {
             var selectChild = $(formParent).find('#' + child);
             selectChild.empty();
             var ultimo, cantidad = 0;
-            if (data != null) {
+            if (data !== null) {
                 $.each(data, function (i, value) {
-                    if (i != "") {
+                    if (i !== "") {
                         ultimo = i;
                     }
                     cantidad++;
                     //Se quita la opcion enb blanco para cuando es multiselect
-                    if (i != '' || selectChild.attr('multiple') == undefined) {
+                    if (i !== '' || selectChild.attr('multiple') == undefined) {
                         selectChild.append("<option value='" + i + "'>" + value + "</option>");
                     }
                 });

@@ -18,10 +18,10 @@
                 @if(isset($proyecto) && !empty($proyecto))
                 <div class="controls-wrapper">     
                     <div class="titulo-proyecto">
-                        {!! $proyecto->resumen !!}
+                        {!! $proyecto->titulo !!}
                     </div>
                     <div class="titulo-empresa">
-                        <p>{!! $proyecto->titulo !!}</p>
+                        <p>{!! substr($proyecto->resumen, 0, 50)."..." !!}</p>
                     </div>
                     <div class="ver-mas">
                         {!! Html::buttonText('infoproyecto/'.$proyecto->id ,
@@ -34,11 +34,11 @@
                 {{--*/ $proyecto = $proyectos[$i]; /*--}}
                 @if(isset($proyecto) && !empty($proyecto) )
                 <div class="controls-wrapper">     
-                    <div class="titulo-proyecto">
-                        {!! $proyecto->resumen !!}
+                   <div class="titulo-proyecto">
+                        {!! $proyecto->titulo !!}
                     </div>
                     <div class="titulo-empresa">
-                        <p>{!! $proyecto->titulo !!}</p>
+                        <p>{!! substr($proyecto->resumen, 0, 50)."..." !!}</p>
                     </div>
                     <div class="ver-mas">
                         {!! Html::buttonText('infoproyecto/'.$proyecto->id ,

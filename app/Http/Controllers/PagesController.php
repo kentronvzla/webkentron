@@ -21,7 +21,7 @@ class PagesController extends Controller {
         foreach ($data['tipo_publicaciones'] as $tipo_publicacion) {
             $data[strtolower($tipo_publicacion->descripcion)] = $tipo_publicacion->contenidos()
                     ->where('contenidos.ind_visible', '=', 1)
-                    ->whereNotNull('contenidos.fondo')
+//                    ->whereNotNull('contenidos.fondo')
                     ->whereDate('fecha_vigencia', '>=', Carbon::today()->toDateString())
                     ->get();
         }

@@ -15,14 +15,15 @@ class CreateContenidosTable extends Migration {
         Schema::create('contenidos', function(Blueprint $table) {
             $table->increments('id')->unique();
             $table->integer('tipo_publicaciones_id', false, true);
-            $table->integer('tipo_fondos_id', false, true);
+//            $table->integer('tipo_fondos_id', false, true);
             $table->integer('modo_vistas_id', false, true);
             $table->string('titulo', 255);
             $table->longText('resumen');
             $table->longText('detalle');
             $table->string('fondo', 255)->nullable();
             $table->longText('url');
-            $table->longText('referencia_externa')->nullable();
+//            $table->longText('referencia_externa')->nullable();
+            $table->longText('tags')->nullable();
             $table->date('fecha_vigencia');
             $table->integer('usuario_creacion_id', false, true);
             $table->integer('usuario_modificacion_id', false, true);

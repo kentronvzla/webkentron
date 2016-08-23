@@ -139,7 +139,7 @@ and open the template in the editor.
 .customNavigation{
   text-align: center;
 }
-//use styles below to disable ugly selection
+/*use styles below to disable ugly selection*/
 .customNavigation a{
   -webkit-user-select: none;
   -khtml-user-select: none;

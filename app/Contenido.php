@@ -65,13 +65,12 @@ class Contenido extends BaseModel {
      */
     protected $fillable = [
         'tipo_publicaciones_id',
-//        'tipo_fondos_id',
         'modo_vistas_id',
         'titulo',
         'resumen',
         'detalle',
         'fondo',
-        'referencia_externa',
+        'tags',
         'fecha_vigencia',
         'ind_visible',
     ];
@@ -87,12 +86,11 @@ class Contenido extends BaseModel {
     protected $rules = [
         'tipo_publicaciones_id' => 'required|integer',
         'modo_vistas_id' => 'required|integer',
-//        'tipo_fondos_id' => 'required|integer',
         'titulo' => 'required',
         'resumen' => 'required',
         'detalle' => 'required',
-        'fondo' => '',
-        'referencia_externa' => '',
+        'fondo' => 'string',
+        'tags' => 'string',
         'fecha_vigencia' => 'required|date|after:today',
         'ind_visible' => 'required',
     ];
@@ -100,7 +98,6 @@ class Contenido extends BaseModel {
     protected function getPrettyFields() {
         return [
             'tipo_publicaciones_id' => 'Tipo de Publicación',
-//            'tipo_fondos_id' => 'Tipo de Fondo',
             'modo_vistas_id' => 'Modo de Vista',
             'titulo' => 'Título',
             'resumen' => 'Resumen',
@@ -109,8 +106,9 @@ class Contenido extends BaseModel {
             'url' => 'Url',
             'ind_visible' => '¿Activo?',
             'usuario_creacion_id' => 'Autor',
-            'referencia_externa' => 'Referencia Externa',
+            'tags' => 'Etiquetas',
             'fecha_vigencia' => 'Fecha de Vigencia',
+            'tipo_publicacion' => 'Tipo Publicación'
         ];
     }
 
@@ -164,8 +162,12 @@ class Contenido extends BaseModel {
      */
     public function getTableFields() {
         return [
-            'tipoPublicaciones->descripcion', 'titulo', 'ind_visible', 'fecha_vigencia'
+            'tipo_publicacion', 'titulo', 'ind_visible', 'fecha_vigencia'
         ];
+    }
+    
+    public function getTipoPublicacionAttribute() {
+        return $this->tipoPublicaciones->descripcion;
     }
 
     public function setFechaVigenciaAttribute($value) {

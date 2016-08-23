@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.layout')
 
 @section('title', '')
 
@@ -23,10 +23,14 @@
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
+                        @if(isset($proyecto->fondo) && !empty($proyecto->fondo))
                         {!! Html::image('archivos/contenidos/'
                         . $contenido->tipoPublicaciones->getAttributes()['descripcion']
                         . '/' 
                         . $contenido->fondo . '', $contenido->fondo, ['class' => 'img-responsive']) !!}
+                        @else
+                        {!! Html::image('assets/img/fondo-icon.png', '', ['class' => 'img-responsive']) !!}  
+                        @endif
                     </div>
                 </div>
 
@@ -50,7 +54,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <p>
-                            {{--*/ $tags = explode(",", $contenido->referencia_externa); /*--}}
+                            {{--*/ $tags = explode(",", $contenido->tags); /*--}}
                             Tags:
                             @foreach ($tags as $tag)
                             <span class="badge"> {!! $tag !!} </span>
