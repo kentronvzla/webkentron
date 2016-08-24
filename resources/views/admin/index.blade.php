@@ -2,6 +2,15 @@
 
 @section('title', 'Administrar')
 
+@section('css')
+@include('pages.css.datatables-css')
+@stop
+
+@section('containers')
+@include('pages.containers.cn-modalglobal')
+@include('pages.containers.cn-modalconfirm')
+@stop
+
 @section('content')
 <div class="container-fluid">
     <div class="col-xs-12 col-sm-3 col-md-3">
@@ -38,5 +47,7 @@
 @stop
 
 @section('javascript')
+@include('pages.javascript.datatables-js')
+{!! HTML::script('assets/js/views/admin/permisos.js') !!}
 {!! Html::script('assets/js/views/admin/administracion.js') !!}
 @stop

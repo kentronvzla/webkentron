@@ -43,6 +43,7 @@
 
         <!-- Containers -->
         @include('pages.containers.cn-mensajes')
+        @yield('containers')
         <!-- Containers -->
 
         <!-- Content -->

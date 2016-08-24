@@ -65,4 +65,4 @@
     @endif
 </div>
 
-@include('pages.containers.cn-modales')
+@include('pages.containers.cn-modalglobal')
