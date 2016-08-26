@@ -28,7 +28,10 @@
         <div class="row">
             {!! Form::btInput($topico, 'tags', 12, 'textarea') !!}
         </div>
-
+        <div class="row">
+            {!! Form::btInput($topico, 'categoria_id', 6) !!}
+            {!! Form::btInput($topico, 'sistema_id', 6) !!}
+        </div>
         {!! Form::submitBt() !!}
         {!! Form::close() !!}
     </div>
@@ -53,6 +56,10 @@
 
         <div class="row">
             {!! Form::btInput($topico, 'tags', 12, 'textarea') !!}
+        </div>
+        <div class="row">
+            {!! Form::btInput($topico, 'categoria_id', 6) !!}
+            {!! Form::btInput($topico, 'sistema_id', 6) !!}
         </div>
 
         {!! Form::submitBt() !!}

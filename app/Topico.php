@@ -48,6 +48,7 @@ class Topico extends BaseModel {
         'acciones',
         'tags',
         'ind_visible',
+        'sistema_id',
         
     ];
 
@@ -74,7 +75,8 @@ class Topico extends BaseModel {
             'descripcion' => "Descripción",
             'acciones' => "Acciones",
             'tags' => "Tags",
-            'ind_visible' => "¿Activo?"
+            'ind_visible' => "¿Activo?",
+            'sistema_id' => "Sistema"
         ];
     }
 
