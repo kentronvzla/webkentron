@@ -34,7 +34,7 @@ class ContenidosController extends TableBaseController {
                 return back()->withInput()->withErrors($contenido->getErrors());
             }
         } else {
-            return response()->json(['errores' => $contenido->getErrors()], 400);
+            return back()->withInput()->withErrors($contenido->getErrors());
         }
     }
 
