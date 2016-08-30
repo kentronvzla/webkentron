@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin\Tablas;
 use App\Http\Controllers\Admin\TableBaseController;
 use PHPImageWorkshop\ImageWorkshop;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
 use App\Contenido;
 

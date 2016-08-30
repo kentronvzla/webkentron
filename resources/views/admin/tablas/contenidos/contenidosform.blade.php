@@ -44,8 +44,8 @@
         @include('templates.errores')
         {!! Form::open(['url'=>'admin/tablas/contenidos/modificar', 'class' => 'form saveajax', 'id'=>'contenidos-form', 'data-callback'=>'admin/tablas/contenidos']) !!}
         {!! Form::concurrencia($contenido) !!}
-        
-         <div class="row">
+
+        <div class="row">
             @if($contenido->fondo !="")
             {!! Form::btImage($contenido, 'contenidos', 'fondo', 'image', 12, 'Fondo', '', ['data-urlsubir'=>'admin/tablas/contenidos']) !!}  
             @else
@@ -69,12 +69,11 @@
         <div class="row">
             {!! Form::btInput($contenido, 'tipo_publicaciones_id', 6) !!}
             {!! Form::btInput($contenido, 'modo_vistas_id', 6) !!}
-            {{-- Form::btInput($contenido, 'tipo_fondos_id', 4) --}}
         </div>
 
         <div class="row">
             {!! Form::btInput($contenido, 'fecha_vigencia', 4, 'text', ['autocomplete'=>'off']) !!}
-            {!! Form::btInput($contenido, 'referencia_externa', 4, 'text', ['autocomplete'=>'off']) !!}
+            {!! Form::btInput($contenido, 'tags', 4, 'text', ['autocomplete'=>'off']) !!}
             {!! Form::btInput($contenido,'ind_visible', 4) !!}
         </div>
 
