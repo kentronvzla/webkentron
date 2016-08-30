@@ -64,5 +64,6 @@
     </div>
     @endif
 </div>
+<br>
 
 @include('pages.containers.cn-modalglobal')

@@ -83,7 +83,7 @@
     @endif
 </div>
 
-@include('pages.containers.cn-modalglobal')
+@include('pages.containers.cn-modalfile')
 @stop
 
 @section('javascript')
