@@ -10,7 +10,6 @@
 		  <div class="panel-heading">Categorías</div>
 		  <ul class="list-group">
       @foreach ($categorias as $categoria)
-        {{-- expr --}}
 		    <a href="#"><li class="list-group-item lipanel">{{ $categoria->nombre }}</li></a>
       @endforeach
 		    <a href="#"><li class="list-group-item lipanel">Categoría 2</li></a>
