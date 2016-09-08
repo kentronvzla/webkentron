@@ -9,12 +9,11 @@
     <div class="panel panel-webkentron">
 		  <div class="panel-heading">Categorías</div>
 		  <ul class="list-group">
-		    <a href="#"><li class="list-group-item lipanel">Categoría 1</li></a>
+      @foreach ($categorias as $categoria)
+        {{-- expr --}}
+		    <a href="#"><li class="list-group-item lipanel">{{ $categoria->nombre }}</li></a>
+      @endforeach
 		    <a href="#"><li class="list-group-item lipanel">Categoría 2</li></a>
-		    <a href="#"><li class="list-group-item lipanel">Categoría 3</li></a>
-        <a href="#"><li class="list-group-item lipanel">Categoría 4</li></a>
-        <a href="#"><li class="list-group-item lipanel">Categoría 5</li></a>
-        <a href="#"><li class="list-group-item lipanel">Categoría 6</li></a>
 		</div>
   </div>
 	<div class="col-xs-12 col-sm-9 col-md-9">

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Contenido;
 use App\TipoPublicacion;
 use Carbon\Carbon;
+use App\Categoria;
+use App\Topico;
 
 class PagesController extends Controller {
 
@@ -55,7 +57,8 @@ class PagesController extends Controller {
     }    
 
     public function getBusqueda() {
-        return view('pages.busqueda');
+        $data = Categoria::all();
+        return view('pages.busqueda', ['categorias' => $data]);
     }
 
     public function getInfoProyecto($id) {
