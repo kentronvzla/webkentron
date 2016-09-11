@@ -61,6 +61,11 @@ class PagesController extends Controller {
         return view('pages.busqueda', ['categorias' => $data]);
     }
 
+    public function paginationSearch(){
+        $search = Categoria::paginate(5);
+        return view('pages.search.buscador', compact('search'));
+    }
+
     public function getInfoProyecto($id) {
         $data['proyecto'] = Contenido::findOrFail($id);
         return view('pages.infoproyecto', $data);
