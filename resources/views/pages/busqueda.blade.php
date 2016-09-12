@@ -10,13 +10,12 @@
 		  <div class="panel-heading">Categorías</div>
 		  <ul class="list-group">
       @foreach ($categorias as $categoria)
-		    <a href="#"><li class="list-group-item lipanel">{{ $categoria->nombre }}</li></a>
+		    <a href="{{ url('/busquedas?category_id='.$categoria->id) }}"><li class="list-group-item lipanel">{{ $categoria->nombre }}</li></a>
       @endforeach
-		    <a href="#"><li class="list-group-item lipanel">Categoría 2</li></a>
 		</div>
   </div>
-	@include('pages.search.buscador')
-
+	@include('pages.search.formulario')
+  @include('pages.search.resultados')
 </div>
 
 <!-- Content -->

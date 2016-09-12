@@ -8,6 +8,7 @@ use App\TipoPublicacion;
 use Carbon\Carbon;
 use App\Categoria;
 use App\Topico;
+use Illuminate\Http\Request;
 
 class PagesController extends Controller {
 
@@ -56,9 +57,19 @@ class PagesController extends Controller {
         return view('pages.soporte');
     }    
 
-    public function getBusqueda() {
-        $data = Categoria::all();
-        return view('pages.busqueda', ['categorias' => $data]);
+    public function getBusqueda(Request $request) {
+        $categorias = Categoria::all();
+        $request->category_id;
+        $query = Topico::orderBy('titulo');
+        if ($request->has('category_id')) {
+            $query->where('categoria_id', $request->category_id);
+        }
+        if($request->has('name')) {
+            $query->where('titulo', 'like', "%$request->name%")
+                  ->orWhere('descripcion', 'like', "%$request->name%");
+        }
+        $topicos = $query->get();
+        return view('pages.busqueda', compact('categorias', 'topicos'));
     }
 
     public function paginationSearch(){
@@ -79,5 +90,4 @@ class PagesController extends Controller {
                 ->firstOrFail();
         return view('pages.contenido', $data);
     }
-
 }
