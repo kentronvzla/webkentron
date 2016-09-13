@@ -62,11 +62,13 @@ class PagesController extends Controller {
         $request->category_id;
         $query = Topico::orderBy('titulo');
         if ($request->has('category_id')) {
-            $query->where('categoria_id', $request->category_id);
+            $query->categoria($request->category_id);
         }
         if($request->has('name')) {
-            $query->where('titulo', 'like', "%$request->name%")
-                  ->orWhere('descripcion', 'like', "%$request->name%");
+            $query->titulo($request->name)
+                  ->orDescripcion($request->name)
+                  ->orAcciones($request->name)
+                  ->orTags($request->name);
         }
         $topicos = $query->get();
         return view('pages.busqueda', compact('categorias', 'topicos'));

@@ -98,7 +98,6 @@ class Topico extends BaseModel {
         return $this->hasMany('App\ArchivoTopico');
     }
 
-
     public static function crear(array $values) {
         $topico = new Topico();
         $topico->fill($values);
@@ -108,4 +107,23 @@ class Topico extends BaseModel {
         return $topico;
     }
 
+    public function scopeTitulo($query, $name){
+        return $query->where('titulo', 'like', "%$name%");
+    }
+
+    public function scopeOrDescripcion($query, $name){
+        return $query->orWhere('descripcion', 'like', "%$name%");
+    }
+
+    public function scopeCategoria($query, $category_id){
+        return $query->where('categoria_id', $category_id);
+    }
+
+    public function scopeOrAcciones($query, $name){
+        return $query->orWhere('acciones', 'like', "%$name%");
+    }
+    
+    public function scopeOrTags($query, $name){
+        return $query->orWhere('tags', 'like', "%$name%");
+    }
 }
