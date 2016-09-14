@@ -1,5 +1,5 @@
 <?php
-
+//Hecho por Ing. Manuel Sayago Septiembre 2016/ Made by Engineer Manuel Sayago
 namespace App\Http\Controllers\Admin\Tablas;
 
 use App\Http\Controllers\Admin\TableBaseController;

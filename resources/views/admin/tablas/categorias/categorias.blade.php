@@ -1,3 +1,4 @@
+<!-- Hecho por Ing. Manuel Sayago Septiembre 2016/ Made by Engineer Manuel Sayago-->
 @extends('admin.index')
 
 @section('css')

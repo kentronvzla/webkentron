@@ -1,5 +1,5 @@
 <?php
-
+//Hecho por Ing. Manuel Sayago Septiembre 2016/ Made by Engineer Manuel Sayago
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 

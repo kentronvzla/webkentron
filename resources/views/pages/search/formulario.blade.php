@@ -1,4 +1,4 @@
-
+<!-- Hecho por Ing. Manuel Sayago Septiembre 2016/ Made by Engineer Manuel Sayago-->
   {!! Form::open(['method' => 'GET']) !!}
       <!-- Search Engine -->
       <div id="imaginary_container"> 
