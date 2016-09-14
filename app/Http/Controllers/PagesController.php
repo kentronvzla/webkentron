@@ -65,18 +65,16 @@ class PagesController extends Controller {
             $query->categoria($request->category_id);
         }
         if($request->has('name')) {
-            $query->titulo($request->name)
-                  ->orDescripcion($request->name)
-                  ->orAcciones($request->name)
-                  ->orTags($request->name);
+            $names = explode(" ", $request->name);
+            foreach ($names as $name) {
+                $query->titulo($name)
+                      ->orDescripcion($name)
+                      ->orAcciones($name)
+                      ->orTags($name);
+            }
         }
-        $topicos = $query->get();
+        $topicos = $query->paginate(5);
         return view('pages.busqueda', compact('categorias', 'topicos'));
-    }
-
-    public function paginationSearch(){
-        $search = Categoria::paginate(5);
-        return view('pages.search.buscador', compact('search'));
     }
 
     public function getInfoProyecto($id) {

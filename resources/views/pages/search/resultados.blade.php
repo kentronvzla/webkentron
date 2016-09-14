@@ -22,7 +22,7 @@
   <hr> <!-- Division between results -->
   </div>
 @endforeach
-     
+{!! $topicos->appends(['category_id' => request('category_id'), 'name' => request('name')])->render() !!}    
       <!-- Modal for Comments -->
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog modal-lg">
@@ -114,7 +114,7 @@
                     </div>
                     <section class="col-md-8">
                       <video width="800" height="400">
-                        <source src="https://www.youtube.com/watch?v=Kdap8K0569Y" type="video/mp4">
+                        <source src="movie.mp4" type="video/mp4">
                         <source src="movie.ogg" type="video/ogg">Your browser does not support the video tag.
                       </video>
                     </section>
