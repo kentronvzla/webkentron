@@ -107,22 +107,27 @@ class Topico extends BaseModel {
         return $topico;
     }
 
+    //Hecho por Ing. Manuel Sayago Septiembre 2016/ Made by Engineer Manuel Sayago (getBusqueda)
     public function scopeTitulo($query, $name){
         return $query->where('titulo', 'like', "%$name%");
     }
 
+    //Hecho por Ing. Manuel Sayago Septiembre 2016/ Made by Engineer Manuel Sayago (getBusqueda)
     public function scopeOrDescripcion($query, $name){
         return $query->orWhere('descripcion', 'like', "%$name%");
     }
 
+    //Hecho por Ing. Manuel Sayago Septiembre 2016/ Made by Engineer Manuel Sayago (getBusqueda)
     public function scopeCategoria($query, $category_id){
         return $query->where('categoria_id', $category_id);
     }
 
+    //Hecho por Ing. Manuel Sayago Septiembre 2016/ Made by Engineer Manuel Sayago (getBusqueda)
     public function scopeOrAcciones($query, $name){
         return $query->orWhere('acciones', 'like', "%$name%");
     }
     
+    //Hecho por Ing. Manuel Sayago Septiembre 2016/ Made by Engineer Manuel Sayago (getBusqueda)
     public function scopeOrTags($query, $name){
         return $query->orWhere('tags', 'like', "%$name%");
     }
