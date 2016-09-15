@@ -57,7 +57,7 @@ class PagesController extends Controller {
         return view('pages.soporte');
     }    
 
-    //Hecho por Ing. Manuel Sayago Septiembre 2016/ Made by Engineer Manuel Sayago (getBusqueda)
+    //Hecho por Ing. Manuel Sayago Septiembre 2016/ Made by Engineer Manuel Sayago (getBusqueda) If you delete this comment, you are a disrespectful person. Deal with it.
     public function getBusqueda(Request $request) {
         $categorias = Categoria::all();
         $request->category_id;
